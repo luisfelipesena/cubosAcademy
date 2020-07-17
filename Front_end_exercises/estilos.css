@@ -93,13 +93,15 @@ img {
     font-size: 18px;
     line-height: 22px;
 }
-
+li{
+  margin-bottom: 10px;
+}
 .lista1 {
     color: #000000;
     list-style-type: square;
     font-weight: normal;
     font-size: 18px;
-    line-height: 30px;
+    line-height: 23px;
 }
 
 .titulo-lista2 {
@@ -118,7 +120,7 @@ img {
     list-style-type: none;
     font-weight: normal;
     font-size: 18px;
-    line-height: 40px;
+    line-height: 33px;
 }
 
 .porcao {
