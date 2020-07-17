@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@display=swap" rel="stylesheet">
+    <title>Cores</title>
+</head>
+<body>
+    <header>
+        <h1 style =
+        "font-family:'Noto Sans', sans-serif; 
+        font-weight:lighter;
+        padding:0px 230px;">
+        Cores</h1>
+
+    </header>
+    <main style = "font-family:'Noto Sans', sans-serif; 
+    font-weight:300;
+    padding:0px 230px;">
+        <p><span style = "font-size:26px">A</span> ciência que estuda a medida das cores é chamada de <strong>colorimetria</strong>. A colorimetria desenvolve métodos de quantificação da cor e estuda o tom, a saturação e a intensidade da cor.</p>
+        <p>O tom da cor é que faz com que ela seja identificada como <span style = color:blue> azul </span>, <span style = color:green> verde </span>, <span style = color:yellow> amarela </span> etc. A saturação da cor mostra se a cor é natural ou pigmentada artificialmente. A intensidade caracteriza a força da cor.</p>
+        <p>As cores são divididas em primárias, secundárias, terciárias e neutras.</p>
+        <p><del>Um pequeno texto que não deveria tá aqui.</del></p>
+
+        <h2>Cores primárias</h2>
+        <hr style = "border-color: black">
+
+        <p><strong>As cores primárias são</strong>: vermelho amarelo e azul. São consideradas as primeiras cores. O vermelho é uma cor quente que mostra vitalidade energia e coragem. O amarelo é uma cor suave e alegre que simboliza o otimismo. O azul é a cor que dá concentração e melhora a mente.</p>
+        
+        <span style = "display:block;
+        height:50px;
+        width:50px;
+        background:red";></span>
+
+        <span style = "display:block;
+        height:50px;
+        width:50px;
+        background:blue";></span>
+        
+        <span style = "display:block;
+         height:50px;
+         width:50px;
+         background:green";></span>
+
+        <h2>Cores Secundárias</h2>
+        <hr style = "border-color: black">
+
+        <p><strong>As cores secundárias são</strong> formadas pela mistura de duas cores primárias. As cores secundárias são: verde, roxo e laranja.</p>
+        <p>O azul misturado com o amarelo origina o verde. O azul misturado com o vermelho origina o roxo, e o vermelho misturado com o amarelo origina o laranja.</p>
+
+        <span style = "display:block;
+        height:50px;
+        width:50px;
+        background:green";></span>
+        
+        <span style = "display:block;
+        height:50px;
+        width:50px;
+        background:purple";></span>
+        
+        <span style = "display:block;
+         height:50px;
+         width:50px;
+         background: orange";></span>
+
+        <h2>Cores Terciária</h2>
+        <hr style = "border-color: black">
+
+        <p><strong>As cores terciárias</strong> resultam da mistura de uma cor primária com uma ou duas cores secundárias. São todas as outras cores, como o marrom, que é a mistura de amarelo ou vermelho com preto</p>
+        
+        <h2>Cores Neutras</h2>
+        <hr style = "border-color: black">
+
+        <p><strong>As cores neutras</strong> são usadas para complementar uma cor desejada, sendo que as cores neutras têm pouco reflexo. Entre as cores neutras podemos citar o branco, o cinza e o marrom. O branco é luz isenta de cor, o preto é a ausência de cor e os tons cinza são a mistura do branco com o preto.</p>
+
+        <br/>
+        <a style = "text-decoration: underline"; href ="https://brasilescola.uol.com.br/artes/cores.htm"><em><strong>Fonte</strong>: https://brasilescola.uol.com.br/artes/cores.htm</a></em>
+</main>
+</body>
+</html>
