@@ -1,0 +1,64 @@
+CREATE TABLE notas_alunos (
+  matricula SERIAL,
+  nome TEXT,
+  nota REAL,
+  disciplina TEXT
+);
+
+INSERT INTO notas_alunos (matricula, nome, nota, disciplina) VALUES (123456, 'Marcelo Montenegro', 10, 'Matemática');
+INSERT INTO notas_alunos (matricula, nome, nota, disciplina) VALUES (123457, 'Lidiane Lima', 6, 'Geografia');
+INSERT INTO notas_alunos (matricula, nome, nota, disciplina) VALUES (123458, 'Leonel Brizola de Souza', 9, 'Políticas Econômicas');
+INSERT INTO notas_alunos (matricula, nome, nota, disciplina) VALUES (123459, 'Dejanira Martins', 8, 'Banco de Dados I');
+INSERT INTO notas_alunos (matricula, nome, nota, disciplina) VALUES (123460, 'Eleonor Batista', 9, 'Química');
+INSERT INTO notas_alunos (matricula, nome, nota, disciplina) VALUES (123461, 'Greg Lestrade', 10, 'Inglês');
+INSERT INTO notas_alunos (matricula, nome, nota, disciplina) VALUES (123462, 'Irene Adler', 9, 'Geografia');
+INSERT INTO notas_alunos (matricula, nome, nota, disciplina) VALUES (123463, 'Alan Turing', 10, 'Lógica de Programação');
+INSERT INTO notas_alunos (matricula, nome, nota, disciplina) VALUES (123464, 'Larry Page', 9, 'Matemática');
+INSERT INTO notas_alunos (matricula, nome, nota, disciplina) VALUES (123465, 'Lando Calrissian', 9, 'Ed. Física');
+INSERT INTO notas_alunos (matricula, nome, nota, disciplina) VALUES (123466, 'Pavel Chekov', 10, 'Física');
+INSERT INTO notas_alunos (matricula, nome, nota, disciplina) VALUES (123467, 'John von Neumann', 10, 'Matemática');
+INSERT INTO notas_alunos (matricula, nome, nota, disciplina) VALUES (123468, 'Alberto Santos Dumont', 0, 'Física');
+
+Questão 1:
+SELECT nome;
+FROM notas_alunos;
+
+Questão 2:
+UPDATE notas_alunos;
+SET nota=5;
+WHERE nome = 'Alberto Santos Dumont';
+
+Questão 3:
+DELETE FROM notas_alunos;
+WHERE nome = 'Larry Page';
+
+Questão Tabela de Clientes:
+CREATE TABLE lista_clientes (
+  nome TEXT,
+  rg FLOAT,
+  cpf FLOAT,
+  endereço TEXT
+);
+
+INSERT INTO lista_clientes (nome, rg, cpf, endereço) VALUES ('Luis Felipe Cordeiro Sena',1381766357, 87387720579, 'Rua Edgar Araújo');
+INSERT INTO lista_clientes (nome, rg, cpf, endereço) VALUES ('Victor Lima dos Santos',1585966356, 37387520575, 'Rua Arestides Lima');
+INSERT INTO lista_clientes (nome, rg, cpf, endereço) VALUES ('Augusto Ferraz',1281766358, 77382045576, 'Rua Antônio Magalhães');
+INSERT INTO lista_clientes (nome, rg, cpf, endereço) VALUES ('Júlio César de Deus',1781766351, 67389877571, 'Rua Almeira Fernandes');
+INSERT INTO lista_clientes (nome, rg, cpf, endereço) VALUES ('Edgar Pereira Santos',1481766350, 87543875644, 'Rua Professor Pereira');
+INSERT INTO lista_clientes (nome, rg, cpf, endereço) VALUES ('Gilberto Silva Dantas',1383466352, 25348576440, 'Rua Tenente Lima');
+INSERT INTO lista_clientes (nome, rg, cpf, endereço) VALUES ('João Almeida Sena',1381937353, 47387720577, 'Rua Luis Sena');
+Questão Tabela de estoque de produtos:
+CREATE TABLE estoque_produtos (
+  código SERIAL,
+  produto TEXT,
+  quantidade REAL
+);
+
+INSERT INTO estoque_produtos (código, produto, quantidade) VALUES (44872875, 'Headset Logitech G550', 200);
+INSERT INTO estoque_produtos (código, produto, quantidade) VALUES (44872876, 'Teclado Multilaser', 1200);
+INSERT INTO estoque_produtos (código, produto, quantidade) VALUES (44872877, 'Base para Notebook', 700);
+INSERT INTO estoque_produtos (código, produto, quantidade) VALUES (44872878, 'Biscoito Oreo', 5000);
+INSERT INTO estoque_produtos (código, produto, quantidade) VALUES (44872879, 'Caneta Bic', 11200);
+INSERT INTO estoque_produtos (código, produto, quantidade) VALUES (44872880, 'Biscoito Passatempo', 16200);
+INSERT INTO estoque_produtos (código, produto, quantidade) VALUES (44872881, 'Bicicleta Aro 28', 100);
+INSERT INTO estoque_produtos (código, produto, quantidade) VALUES (44872875, 'Código Office Student', 29200);
