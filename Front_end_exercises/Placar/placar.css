@@ -1,0 +1,70 @@
+body {
+    background-color: #3C493F;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.bloco_branco {
+    margin: auto;
+    border: 1px solid #7E8D85;
+    border-radius: 8px;
+    background: #C4C4C4;
+    max-width:600px;
+    min-width: 521px;
+}
+
+.times {
+    padding-top: 25px;
+    padding-bottom: 20px;
+    line-height: 19px;
+    border-bottom: 1px solid #4F5A51;
+}
+
+.letraA {
+    font-size: 21px;
+    padding-left: 20%;
+} 
+
+.letraB {
+    font-size: 21px;
+    padding-left: 36%;
+}
+
+.placar {
+    font-family: 'Michroma', sans-serif;
+    padding-bottom: 3%;
+    border-bottom: 1px solid #4F5A51;
+}
+
+.placar1 {
+    font-size: 96px;
+    padding-left: 11%;
+    color: #3C493F;
+}
+
+sub {
+    font-size: 46px;
+    padding: 3%;
+    color: #3C493F;
+}
+
+.placar2 {
+    font-size: 96px;
+    color: #3C493F;
+}
+
+.rodape1 {
+    display: inline-block;
+    font-size: 32px;
+    margin-left: 26.8%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-right: 20%;
+    border-right: 1px dotted #3C493F;
+}
+
+.rodape2 {
+    display: inline-block;
+    font-size: 32px;
+    margin-left: 20%
+}
