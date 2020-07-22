@@ -1,4 +1,4 @@
-## Questã0 01 - Dada uma determinada lutadora de UFC, faça um programa que determine a qual categoria da competição ele pertence.
+## Questão 01 - Dada uma determinada lutadora de UFC, faça um programa que determine a qual categoria da competição ele pertence.
 const lutadora = {
 nome: "Amanda Nunes",
 massa: 100, //em kg
