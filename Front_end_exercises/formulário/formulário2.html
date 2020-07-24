@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href="estiloform_casa.css">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <title>Aula 08 - Formulário</title>
+</head>
+<body>
+    <div>
+        <img id= "imagem_topo" src = "https://i.imgur.com/xG74tOh.png">
+    </div>
+    <form>
+        <h1>Cadastro</h1>
+        <div>
+            <label>
+                Nome
+                <input class="inputs" type="text">
+            </label>
+        </div>
+        <div>
+            <label>
+                E-mail 
+                <input class="inputs" type="email">
+            </label>
+        </div>
+        <div>
+            <label>
+                Idade
+                <input class="inputs" type="number">
+            </label>
+        </div>
+        <div>
+            <label>
+                CPF 
+                <input class="inputs" inputmode="numeric">
+            </label>
+        </div>
+        <div>
+            <label>
+                Telefone de contato
+                <input class="inputs" type="tel">
+            </label>
+        </div>
+        <h2>Endereço</h2>
+        <div>
+            <label>
+                Endereço
+                <input class="inputs" type="text">
+            </label>
+        </div>
+        <div>
+            <label>
+                Cidade
+                <input class="inputs" type="text">
+            </label>
+        </div>
+        <div>
+            <label>
+               <span>Estado</span>
+               <select class="estados">
+                <option value="AC">AC</option>
+                <option value="AL">AL</option>
+                <option value="AP">AP</option>
+                <option value="AM">AM</option>
+                <option value="BA">BA</option>
+                <option value="CE">CE</option>
+                <option value="DF">DF</option>
+                <option value="ES">ES</option>
+                <option value="GO">GO</option>
+                <option value="MA">MA</option>
+                <option value="MT">MT</option>
+                <option value="MS">MS</option>
+                <option value="MG">MG</option>
+                <option value="PA">PA</option>
+                <option value="PB">PB</option>
+                <option value="PR">PR</option>
+                <option value="PE">PE</option>
+                <option value="PI">PI</option>
+                <option value="RJ">RJ</option>
+                <option value="RN">RN</option>
+                <option value="RS">RS</option>
+                <option value="RO">RO</option>
+                <option value="RR">RR</option>
+                <option value="SC">SC</option>
+                <option value="SP">SP</option>
+                <option value="SE">SE</option>
+                <option value="TO">TO</option>
+               </select>
+            </label>
+        </div>
+        <div>
+            <label>
+                CEP
+                <input class="inputs" inputmode="numeric">
+            </label>
+        </div>
+        <div>
+            <p class="conheceu">Como nos conheceu?</p>
+            <label style="display:block">
+                <input type="radio" name="redes"><span class="opcoes">Facebook</span>
+            </label>
+            <label style="display:block">
+                <input type="radio" name="redes"><span class="opcoes">Instagram</span>
+            </label>
+            <label style="display:block">
+                <input type="radio" name="redes"><span class="opcoes">Linkedln</span>
+            </label>
+            <label style="display:block">
+                <input type="radio" name="redes"><span class="opcoes">E-mail</span>
+            </label>
+            <label style="display:block">
+                <input type="radio" name="redes"><span class="opcoes">Indicação de amigos</span>
+            </label>
+            <label style="display:block">
+                <input type="radio" name="redes"><span class="opcoes">Outros</span>
+            </label><br/>
+            <p>Conte-nos mais sobre como nos <br/>descobriu</p>
+            <textarea class="descobriu" cols=40 rows=5></textarea><br/>
+            <label>
+                <input type="checkbox"><span class="checkbox">Aceito os termos de uso e a <br/> política de privacidade</span>
+            </label>
+        </div>
+        <div>
+            <button class="botao">Se Cadastrar</button>
+        </div>
+    </form>
+</body>
+</html>
