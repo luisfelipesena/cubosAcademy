@@ -1,5 +1,6 @@
 * {
     margin: 0px;
+    padding: 0px;
     font-family: 'PT Sans', sans-serif;
     box-sizing: border-box;
 }
@@ -84,4 +85,16 @@ select, .descobriu, .botao {
     width:170px;
     height: 40px;
    
+}
+
+form > div > label > .inputs {
+  transition: 0.25s;
+}
+
+form > div > label > .inputs:focus {
+  width:400px;
+}
+
+form > div > .botao:hover {
+  background-color: lightgreen;
 }
