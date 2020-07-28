@@ -14,7 +14,6 @@ for (let h = 0; h < j; h++)
       aux = numeros[x+1];
       numeros[x+1] = numeros[x];
       numeros[x] = aux;
-      x = -1;
     }
     else
     {
