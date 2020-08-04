@@ -1,0 +1,91 @@
+body {
+  display: flex;
+  flex-flow: column;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color:  #fafafa;
+  font-family: sans-serif;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 60px;
+  border-bottom: 1px solid rgb(219, 219, 219);
+  background-color:white;
+}
+
+.nav .centro {
+  flex: 0 1 750px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.nav #perfil, .bloco_posts #perfil {
+  border-radius: 50%;
+  max-height: 40px;
+}
+
+.nav input {
+  text-align: center; 
+  max-height: 18px;
+  font-size: 17px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+.bloco_posts {
+  margin: 25px 30px 40px 5px;
+}
+
+.posts {
+  background-color: white;
+  border: 1px solid rgb(219, 219, 219);
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.header{
+  display: flex;
+  padding: 4px;
+  border-bottom: 1px solid rgb(219, 219, 219);
+}
+
+.header #perfil {
+  margin: 5px;
+}
+
+.header p {
+  font-size: 17px;
+  padding-left: 5px;
+}
+
+.foto {
+  margin: 8px;
+}
+
+.imagem_direita {
+  display: inline-block;
+  margin-top: 40px;
+}
+.imagem_direita #perfil{
+  border-radius: 50%;
+  max-height: 100px;
+}
+
+.imagem_direita span {
+  position: relative;
+  top: -25px;
+  left: 5px;
+  font-size: 17px;
+}
