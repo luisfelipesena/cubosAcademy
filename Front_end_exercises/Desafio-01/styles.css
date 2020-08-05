@@ -231,12 +231,14 @@ body {
 .comentarios button:hover {
     padding: 0 80px;
     margin-right: -40px;
-    background-color: white;
+    background-color: #EEEEEE;
     color: #FE0078;
 }
 
 .comentarios button:focus {
     border: 1px solid rgba(19,16,16);
+    background-color: #EEEEEE;
+    color: green;
 }
 
 .sobre {
