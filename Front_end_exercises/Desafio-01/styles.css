@@ -156,12 +156,11 @@ body {
 }
 
 .comentarios p span {
-    margin-left: 326px;
+    margin-left: 20.7rem;
 }
 
 .comentarios label {
     display: flex;
-    flex-wrap: wrap;
 }
 
 .comentarios label input {
@@ -169,6 +168,7 @@ body {
     min-height: 42px;
     border-radius: 2px;
     border: 1px solid #EEEEEE;
+    outline: 0;
 }
 
 .comentarios label input:nth-child(2){
@@ -180,6 +180,7 @@ body {
     border: 1px solid #EEEEEE;
     border-radius: 2px;
     margin-bottom: 60px;
+    outline: 0;
 }
 
 .comentarios textarea:hover{
@@ -197,6 +198,16 @@ body {
     border: 1px solid #FE0078;
     color: white;
     border-radius: 20px;
+    outline: 0;
+}
+
+.comentarios button:hover {
+    padding: 0 80px;
+    margin-right: -40px;
+}
+
+.comentarios button:focus {
+    border: 1px solid rgba(19,16,16);
 }
 
 /* Página Padrão */
@@ -227,6 +238,7 @@ body {
     font-size: 15px;
     color: #545454;
     margin-bottom: 16px;
+    outline: 0;
 }
 
 .main-aside-content input:hover {
