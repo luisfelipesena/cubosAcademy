@@ -1,4 +1,4 @@
-/* ESTILIZAÇÃO DOS 4 HTML INCLUSAS NESSE CSS */
+/* ESTILIZAÇÃO DOS 3 HTML INCLUSAS NESSE CSS */
 
 body {
     display: flex;
@@ -7,7 +7,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Open Sans, sans-serif;
+    font-family: "Open Sans";
     background-color: #e5e5e5;
 }
 
@@ -55,7 +55,7 @@ body {
     display: flex;
     flex-flow: row;
     justify-content: space-evenly;
-    margin: 50px 200px 0 200px;
+    margin: 50px 300px 0 300px;
 }
 
 .main-box-posts {
@@ -89,12 +89,20 @@ body {
     margin-top: -5px;
 }
 
-.main-posts p{
+.main-posts p {
     margin-top: 24px;
     padding-left: 1vw;
-    color: black;
+    color: #000000;
     line-height: 19px;
 }
+
+.main-posts .grey {
+    margin-top: 24px;
+    padding-left: 1vw;
+    line-height: 19px;
+    color: #545454;
+}
+
 .main-posts .com_borda {
     border-left: 4px solid #FE0078;
     padding-left: 32px;
@@ -123,6 +131,7 @@ body {
     background-color: #FE0078;
     color: #ffffff;
 }
+
 /* Outras Páginas Incluidas */
 .contato-p {
     color:black !important;
@@ -257,6 +266,7 @@ body {
     border-radius: 4px;
     margin-right: 10px;
     padding-bottom: 36px;
+    padding-right: 16px;
 }
 
 .main-aside-content {
