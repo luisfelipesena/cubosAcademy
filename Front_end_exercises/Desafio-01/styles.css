@@ -328,10 +328,10 @@ body {
     align-items: center;
     min-height: 240px;
     background-color: #eeeeee;
-    margin: 41px 20px 32px 20px;
     font-size: 36px;
     border: 2px solid #eeeeee;
 }
+
 .main-aside-content .box:hover {
     border: 2px dashed #FE0078;
 }
