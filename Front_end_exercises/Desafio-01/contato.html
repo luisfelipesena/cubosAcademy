@@ -10,7 +10,9 @@
 <body>
     <div class="header-box">
         <div>
-            <img src="logo 1.svg" alt="logo">
+            <a href="index.html">
+                <img src="logo 1.svg" alt="logo">
+            </a> 
             <ul>
                 <li><a href="index.html">Início</a></li>
                 <li><a href="#">Sobre</a></li>
@@ -48,18 +50,23 @@
             </div>
             <div class="comentarios">
                 <h2>Entre em Contato</h2>
-                <p>Nome<span>E-mail</span></p>
-                <label>
-                    <input type="text" name="nome">
-                    <input type="email" name="email">
-                </label>
-                <p>Assunto</p>
-                <label>
-                    <input type="text" name="text">
-                </label>
+                <form id="formulario"action="">
+                    <label for="nome">
+                        Nome
+                        <input type="text" name="nome">
+                    </label>
+                    <label for="email">
+                        E-mail
+                        <input type="email" name="email">
+                    </label>
+                    <label>
+                        Assunto
+                        <input type="text" name="assunto">
+                    </label>
+                </form>
                 <p>Comentário</p>
                 <textarea></textarea>
-                <button>Comentar</button>
+                <button type="submit">Comentar</button>
             </div>
         </div>
         <div class="main-aside">
