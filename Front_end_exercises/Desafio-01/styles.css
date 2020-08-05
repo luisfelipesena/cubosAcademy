@@ -67,7 +67,7 @@ body {
 
 .main-posts {
     display: flex;
-    flex-flow:column;
+    flex-flow: column;
     min-height: 630px;
     max-width: 730px;
     background-color: #ffffff;
@@ -92,8 +92,8 @@ body {
 .main-posts p {
     margin-top: 24px;
     padding-left: 1vw;
-    color: #000000;
     line-height: 19px;
+    color: #000000;
 }
 
 .main-posts .grey {
@@ -322,7 +322,7 @@ body {
 }
 
 .main-aside-content .box {
-    flex: 1 1 340px;
+    flex: 0 1 340px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -333,7 +333,7 @@ body {
 }
 
 .main-aside-content .box:hover {
-    border: 2px dashed #FE0078;
+    border: 2px solid #FE0078;
 }
 
 .rooter {
