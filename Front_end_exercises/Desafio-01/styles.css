@@ -134,7 +134,8 @@ body {
 
 /* Outras Páginas Incluidas */
 .contato-p {
-    color:black !important;
+    /* Como dei main-posts p color: black; lá em cima, logo aqui em baixo: !important*/
+    color:black !important; 
     margin-top: 24px !important;
 }
 
@@ -145,17 +146,16 @@ body {
 .main-posts div {
     display: flex;
     align-items: center;
+    margin-top: 15px;
 }
 
 .main-posts span {
     font-weight: bold;
-    margin-left: 8px;
-    padding-top: 25px;
+    margin-left: 10px;
 }
 
 .contato-img {
-    margin: 26px 0 5px 15px;
-
+    margin-left: 15px;
 }
 
 .comentarios{
