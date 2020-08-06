@@ -24,7 +24,7 @@ body {
 }
 
 .header-box div {
-    flex: 0 1 65%;
+    flex: 0 1 63%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,7 +37,7 @@ body {
 
 .header-box div ul li,.header-box div ul li a,.header-box div ul {
     display: inline-block;
-    margin: 0 0 0 26px;
+    margin: 0 25px 0 0;
     font-size: 14px;
     line-height: 19px;
     list-style: none;
