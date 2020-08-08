@@ -185,7 +185,7 @@ body {
     min-width: 48.9%;
 }
 
-.comentarios #formulario label:last-child{
+.comentarios #formulario label input[name="assunto"]{
     min-width: 100%;
 }
 
