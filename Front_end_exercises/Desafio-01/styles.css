@@ -185,6 +185,9 @@ body {
     min-width: 48.9%;
 }
 
+.comentarios #formulario label:last-child{
+    min-width: 100%;
+}
 
 #formulario label input {
     margin-top: 16px;
