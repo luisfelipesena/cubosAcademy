@@ -206,6 +206,7 @@ body {
 }
 
 .comentarios textarea {
+    resize: none;
     min-height: 176px;
     min-width: 733px;
     border: 1px solid #EEEEEE;
