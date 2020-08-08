@@ -316,6 +316,7 @@ body {
 
 .main-aside-content div p:hover {
     border-bottom: 2px dashed #FE0078;
+    color: #FE0078;
 }
 
 .main-aside-content div span {
