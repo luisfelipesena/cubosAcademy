@@ -1,5 +1,0 @@
-Sushi
-
-Temaki
-
-Sashimi
