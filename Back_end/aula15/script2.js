@@ -29,6 +29,8 @@ const bebidas = [
     }
 ]
 
+let sacola = [];
+
 const buscarProduto = (bebida) => {
     for (let i = 0; i < bebidas.length; i++) {
         if (bebida === bebidas[i].nome) {
@@ -53,12 +55,12 @@ const condicoesBebida = (bebida) => {
     }
 
     else if (buscarProduto(bebida)){
-        console.log(chalk.blue(`Yay! Temos ${bebida}!`));
+        console.log(chalk.blue(`Yay! Temos ${bebida}!\n`));
         perguntarQuantidade(bebida);
     }
 
     else if (!buscarProduto(bebida)) {
-        console.log(chalk.red(`Ahh! Não Temos ${bebida}!`));
+        console.log(chalk.red(`Ahh! Não Temos ${bebida}!\n`));
         perguntaProduto();
     } 
 }
@@ -76,6 +78,8 @@ const perguntarQuantidade = (bebidaEscolhida) => {
 
         if (quantidadeEscolhida >= 1 && quantidadeEscolhida <= quantidade){
             console.log(chalk.yellow("Beleza!! Temos essa quantidade no nosso estoque "));
+            Sacola(quantidadeEscolhida,bebida);
+            listarValorFinal();
             compraFinal(quantidadeEscolhida,bebida);
         }
 
@@ -90,6 +94,8 @@ const perguntarSemEstoque = (quantidadeReal,quantidadeEscolhida,bebida) => {
     rl.question(chalk.red(`Não temos essa quantidade em estoque, o máximo é ${quantidadeReal} , deseja pegar essa quantia? `), (resposta) => {
         if (resposta == "sim"){
             quantidadeEscolhida = quantidadeReal;
+            Sacola(quantidadeEscolhida,bebida);
+            listarValorFinal();
             compraFinal(quantidadeEscolhida,bebida);
         }
 
@@ -99,21 +105,60 @@ const perguntarSemEstoque = (quantidadeReal,quantidadeEscolhida,bebida) => {
     });
 }
 
+const listarValorFinal = () => {
+    let total = 0;
+    for (let i = 0; i < sacola.length; i++){
+        total += sacola[i].preco * sacola[i].quantidade;
+    }
+
+    console.log(chalk.green(`Valor Total: ${(total/100)}R$`));
+}
+
 const compraFinal = (quantidadeEscolhida,bebida) => {
-    console.log(chalk.green(`Valor Total: ${(bebida.preco/100) * quantidadeEscolhida}R$`));
-    rl.question(`Deseja pagar agora? `, (resposta) => {
+    rl.question(`Deseja pagar agora?; \n***Se quiser buscar outro produto digite: 1*** \n***Se deseja listar os produtos digite: 2***\n\n`, (resposta) => {
+
+        if (resposta == 2){
+            listarProdutos(quantidadeEscolhida,bebida);
+        }
 
         if (resposta == "sim"){
             encerrar();
         }
         
-        else {
+        else if (resposta == "não") {
             console.log(chalk.red("Não deixe de pagar na próxima compra ok? "));
             rl.close();
+        }
+
+        else if (resposta == "1"){
+            perguntaProduto();
+        }
+
+        else {
+            console.log("\nDigite um dos números, ou sim, ou não\n");
+            compraFinal(quantidadeEscolhida,bebida);
         }
     });
 }
 
+const Sacola = (quantidadeEscolhida,bebida) => {
+    sacola.push(
+        {
+            nome: bebida.nome,
+            quantidade: quantidadeEscolhida,
+            preco: bebida.preco
+        }
+    )
+}
+
+const listarProdutos = (quantidadeEscolhida,bebida) => {
+    let total;
+    for (let i = 0; i < sacola.length; i++){
+        console.log(`nome = ${sacola[i].nome}; quantidade = ${sacola[i].quantidade}; preço = ${sacola[i].preco/100}R$`);
+    }
+    listarValorFinal();
+    compraFinal(quantidadeEscolhida,bebida);
+}
 
 console.log("\nDigite 000 para encerrar o Atendimento... \n");
 perguntaProduto();
