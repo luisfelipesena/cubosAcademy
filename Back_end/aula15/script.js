@@ -8,21 +8,25 @@ const rl = readline.createInterface({
 //preco em centavos
 const bebidas = [
     {
+        id: 1,
         nome: "coca cola",
         preco: 500,
         quantidade: 1000
     },
     {
+        id: 2,
         nome: "pepsi",
         preco: 300,
         quantidade: 2000
     },
     {
+        id: 3,
         nome: "guaraná antartica",
         preco: 350,
         quantidade: 1500
     },
     {
+        id: 4,
         nome: "itaipava",
         preco: 600,
         quantidade: 3000
