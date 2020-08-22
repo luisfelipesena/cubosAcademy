@@ -1,0 +1,42 @@
+[INICIO DA MENSAGEM]
+Remetente: Nicolas
+Destinatário: Pablo
+Endereço: Rua da Pipoca, 321
+Mensagem: Pablo, eu preciso urgentemente de sua ajuda para me tornar um grande cozinheiro!
+[FIM DA MENSAGEM]
+[INICIO DA MENSAGEM]
+Remetente: Pablo
+Destinatário: Nicolas
+Endereço: Rua da Padaria, 123
+Mensagem: Hoje eu to com soninho, mas amanhã a gente conversa.
+[FIM DA MENSAGEM]
+[INICIO DA MENSAGEM]
+Remetente: Vitinho
+Destinatário: Victor
+Endereço: Rua dos Martelos, 999
+Mensagem: Eu precisei pular um muro
+[FIM DA MENSAGEM]
+[INICIO DA MENSAGEM]
+Remetente: Anonimo
+Destinatário: Victor
+Endereço: Rua dos Martelos, 999
+Mensagem: Como assim???????
+[FIM DA MENSAGEM]
+[INICIO DA MENSAGEM]
+Remetente: Vitinho
+Destinatário: Anonimo
+Endereço: Rua dos Bobos, 0
+Mensagem: Essa é toda informação que você terá
+[FIM DA MENSAGEM]
+[INICIO DA MENSAGEM]
+Remetente: Nicolas
+Destinatário: Fernanda
+Endereço: Avenida Rainha, 100
+Mensagem: O chefe saiu da sala, hora da bagunça
+[FIM DA MENSAGEM]
+[INICIO DA MENSAGEM]
+Remetente: Fernanda
+Destinatário: Nicolas
+Endereço: Rua da Padaria, 123
+Mensagem: Nicolas, se comporte!
+[FIM DA MENSAGEM]
