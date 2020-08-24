@@ -1,0 +1,127 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 1em;
+}
+
+.container-forca {
+	width: 200px;
+	height: 300px;
+	position: relative;
+}
+
+.base {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100px;
+	border-bottom: 4px solid black;
+}
+
+.esquerda {
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	left: 48px;
+	border-left: 4px solid black;
+}
+
+.topo {
+	position: absolute;
+	top: 0;
+	left: 50px;
+	right: 50px;
+	border-bottom: 4px solid black;
+}
+
+.direita {
+	position: absolute;
+	top: 0;
+	height: 50px;
+	right: 48px;
+	border-left: 4px solid black;
+}
+
+.cabeca {
+	border-radius: 50%;
+	border: 2px solid black;
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 50px;
+	right: 23px;
+}
+
+.tronco {
+	position: absolute;
+	height: 100px;
+	border-right: 2px solid black;
+	right: 49px;
+	top: 100px;
+}
+
+.braco {
+	position: absolute;
+	border-right: 2px solid black;
+	height: 75px;
+	right: 49px;
+	top: 125px;
+}
+
+.esquerdo {
+	transform: rotate(45deg);
+	transform-origin: top center;
+}
+
+.direito {
+	transform: rotate(-45deg);
+	transform-origin: top center;
+}
+
+.perna {
+	position: absolute;
+	border-right: 2px solid black;
+	height: 75px;
+	right: 49px;
+	top: 200px;
+}
+
+.letras {
+	margin: 2em 0;
+	display: flex;
+}
+
+.letra {
+	display: inline-block;
+	font-size: 3em;
+	width: 2ch;
+	height: 1.5em;
+	text-align: center;
+	margin-right: 10px;
+	border-bottom: 1px solid black;
+}
+
+.botoes {
+	margin: -0.5em;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.botoes button {
+	margin: 0.5em;
+	padding: 0;
+	width: 3em;
+	height: 3em;
+	text-align: center;
+  outline: 0;
+}
+
+.botoes button:focus{
+  border: 2px solid red;
+}
+
+.hide {
+  display: none;
+}
