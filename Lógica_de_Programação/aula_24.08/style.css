@@ -1,0 +1,62 @@
+body {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url("https://wallpapertag.com/wallpaper/full/e/f/6/685630-download-nasa-desktop-backgrounds-1920x1200-photo.jpg");
+}
+
+h1 {
+    color: white;
+    font: bold 30px sans-serif;
+}
+
+.foguete, .gifFoguete {
+    max-width: 50vw;
+    margin-top: 20px;
+    box-shadow: 1px 0px 15px white;
+}
+
+
+.mensagens {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 50vw;
+    min-height: 9vh;
+    background-color: #cccc;
+    box-shadow: 1px 1px 10px white;
+    border-radius: 50px;
+    margin-top: 50px;
+    font: bold 3vh sans-serif;
+}
+
+.mensagens span { /* add um espaçamento entra as mensagens dentro do span criado no JS e a sua <div>*/
+    padding: 20px;
+}
+
+button {
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: transparent;
+    color: white;
+    box-shadow: 0px 0px 20px green;
+    margin-top: 50px;
+    min-height: 40px;
+    min-width: 200px;
+    outline: 0;
+}
+
+button:hover {
+    min-width: 250px;
+}
+
+.abortar {
+    box-shadow: 0px 0px 20px red;
+}
+
+.decolar {
+    box-shadow: 0px 0px 20px green;
+}
