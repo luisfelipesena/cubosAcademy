@@ -1,0 +1,12 @@
+|| Banco Santander  ||
+Extrato Bancário do José, CPF: 666.666.666-66
+Agência: (5555-5) - Conta Corrente: 777777-7
+---------------------------------------------
+|| Movimentações ||
+---------------------------------------------
+Transação | Tipo | Data da Ocorrência | Valor
+---------------------------------------------
+Realizada | saída | Fri Aug 28 2020 16:56:57 GMT-0300 (GMT-03:00) | R$ 140,00
+Realizada | entrada | Fri Aug 28 2020 16:56:57 GMT-0300 (GMT-03:00) | R$ 100,00
+Realizada | entrada | Fri Aug 28 2020 16:56:57 GMT-0300 (GMT-03:00) | R$ 240,00
+Saldo Atual: R$ 3200

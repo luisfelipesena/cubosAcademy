@@ -1,0 +1,12 @@
+|| Banco Santander  ||
+Extrato Bancário do Elias, CPF: 555.555.555-55
+Agência: (5556-5) - Conta Corrente: 777557-7
+---------------------------------------------
+|| Movimentações ||
+---------------------------------------------
+Transação | Tipo | Data da Ocorrência | Valor
+---------------------------------------------
+Realizada | entrada | Fri Aug 28 2020 16:56:57 GMT-0300 (GMT-03:00) | R$ 140,00
+Realizada | saída | Fri Aug 28 2020 16:56:57 GMT-0300 (GMT-03:00) | R$ 50,00
+Realizada | saída | Fri Aug 28 2020 16:56:57 GMT-0300 (GMT-03:00) | R$ 240,00
+Saldo Atual: R$ 50
