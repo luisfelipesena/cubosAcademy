@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap');
+body {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    min-width: 100vw;
+    background-color: #f5f5f5;
+    font-family: 'Zilla Slab';
+}
+
+h1 {
+    margin-right: auto;
+    color: palevioletred;
+}
+
+.blocoBranco {
+    display: flex;
+    flex-flow: column;
+    background-color: white;
+    min-height: 10vh;
+    box-shadow: 1px 5px 15px black;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    margin: 15px;
+}
+
+input[type="text"] {
+    margin-left: 5px;
+    min-width: 93%;
+    min-height: 25px;
+}
+
+.texto {
+    display: flex;
+    align-items: center;
+    padding: 0px 2px;
+    margin-bottom: 5px;
+    font-size: 1.4vh;
+}
+
+.texto span:nth-child(1) {
+    margin: 0 3vw 0 1vw;
+}
+
+.texto button:nth-child(2),.texto button:nth-child(3){
+    margin: 0 1vw 0 0;
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+.texto button:nth-child(4) {
+    margin-right: 2vw;
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+.texto button:last-child{
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+.texto button:nth-child(2):hover,.texto button:nth-child(3):hover,.texto button:nth-child(4):hover{
+    border: 1px solid palevioletred;
+}
+
+.aFazer,.feitas {
+    display: flex;
+    flex-flow: column;
+    list-style: none;
+    margin-left: 20px;
+    margin: 0 0 0 5px;
+    padding: 0;
+}
+
+.aFazer li, .feitas li {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+.aFazer li span, .feitas li span {
+    margin-left: 5px;
+}
+
+.aFazer button,.feitas button {
+    display: flex;
+    margin-left: auto;
+    background-color: transparent;
+    color: transparent;
+    border : 1px solid transparent;
+    outline: 0;
+}
+
+.aFazer li:hover button, .feitas li:hover button {
+    display: flex;
+    margin-left: auto;
+    background-color: transparent;
+    color: palevioletred;
+    border : 1px solid transparent
+}
+
+.feitas li span {
+      text-decoration: line-through;
+}
