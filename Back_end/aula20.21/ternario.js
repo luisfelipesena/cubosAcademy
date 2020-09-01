@@ -37,7 +37,7 @@ const calcularIdade = (animal, idade) => {
 }
 
 //Questão 2 - Servidor Web
-const contexto = (ctx) => {
+const contexto = async (ctx) => {
     ctx.body = "Olá Mundo ?";
     let barras = ctx.originalUrl.split("/");
 
