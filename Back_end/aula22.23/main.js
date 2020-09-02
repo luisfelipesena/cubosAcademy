@@ -141,22 +141,22 @@ const procurarCorrentista = (index) => {
     return null;
 }
 
-const atualizarCorrentista = (index,nome,idade,cpf) => { //É Possível mudar apenas esses parâmetros
+const atualizarCorrentista = (index,body) => { //saldo não pode ser modificado
     const correntista = procurarCorrentista(index);
-    if (nome) {
-        correntista.nome = nome;
+    if (body.nome) {
+        correntista.nome = body.nome;
     }
 
-    if (idade) {
-        correntista.idade = idade;
+    if (body.idade) {
+        correntista.idade = body.idade;
     }
 
-    if (cpf) {
-        cpf = (cpf.length == 11)? cpf :"Cpf Incompleto",
-        correntista.cpf = cpf;
+    if (body.cpf) {
+        body.cpf = (cpf.length == 11)? body.cpf :"Cpf Incompleto",
+        correntista.cpf = body.cpf;
     }
 
-    else if ((cpf == null || cpf == "") && (nome == null || nome == "") && (idade == null || idade == "")) {
+    else if ((body.cpf == null || body.cpf == "") && (body.nome == null || body.nome == "") && (body.idade == null || body.idade == "")) {
         return null;
     }
 
@@ -207,11 +207,9 @@ const contexto = async (ctx) => {
                     ctx.body = "Não Encontrado";
                 }
 
-                else { //saldo não pode ser modificado
-                    const nome = ctx.request.body.nome;
-                    const idade = ctx.request.body.idade;
-                    const cpf = ctx.request.body.cpf;
-                    const correntistaAtualizado = atualizarCorrentista(id,nome,idade,cpf);
+                else { 
+                    const body = ctx.request.body;
+                    const correntistaAtualizado = atualizarCorrentista(id,body);
                     if (correntistaAtualizado == null) {
                         ctx.status = 400;
                         ctx.body = "Requisição mal formatada";
