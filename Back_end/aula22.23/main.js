@@ -1,7 +1,7 @@
 const Koa = require("koa");
 const server = new Koa();
 const bodyparser = require ("koa-bodyparser");
-server.use(bodyparser());
+server.use(bodyparser()); // add no ctx.request.body as infos provinientes do body
 
 //CLASSE
 //Questão 0 
@@ -142,7 +142,7 @@ const procurarCorrentista = (index) => {
     return null;
 }
 
-const atualizarCorrentista = (index,nome,idade,cpf) => {
+const atualizarCorrentista = (index,nome,idade,cpf) => { //É Possível mudar apenas esses parâmetros
     const correntista = procurarCorrentista(index);
     if (nome) {
         correntista.nome = nome;
@@ -157,7 +157,7 @@ const atualizarCorrentista = (index,nome,idade,cpf) => {
         correntista.cpf = cpf;
     }
 
-    else if (cpf == null && nome == null && cpf == null) {
+    else if ((cpf == null || cpf == "") && (nome == null || nome == "") && (idade == null || idade == "")) {
         return null;
     }
 
@@ -174,11 +174,11 @@ const contexto = async (ctx) => {
     const method = ctx.method;
     if (path == "/correntistas") {
 
-        if (method === "GET") {
+        if (method === "GET") { 
             ctx.body = correntistas;
         }
 
-        else if (method == "POST") {
+        else if (method === "POST") {
             const correntista = ctx.request.body;
             const resposta = adicionarCorrentista(correntista);
             if (!resposta) {
@@ -208,14 +208,14 @@ const contexto = async (ctx) => {
                     ctx.body = "Não Encontrado";
                 }
 
-                else {
+                else { //saldo não pode ser modificado
                     const nome = ctx.request.body.nome;
                     const idade = ctx.request.body.idade;
                     const cpf = ctx.request.body.cpf;
                     const correntistaAtualizado = atualizarCorrentista(id,nome,idade,cpf);
                     if (correntistaAtualizado == null) {
-                        ctx.status = 404;
-                        ctx.body = "Atualização Incompleta";
+                        ctx.status = 400;
+                        ctx.body = "Requisição mal formatada";
                     }
 
                     else {
@@ -224,7 +224,7 @@ const contexto = async (ctx) => {
                 }
             }
 
-            else if (method == "DELETE") {
+            else if (method === "DELETE") {
                 const resposta = procurarCorrentista(id);
                 if (resposta == null) {
                     ctx.status = 404;
@@ -233,7 +233,7 @@ const contexto = async (ctx) => {
 
                 else {
                     deletarCorrentista(id);
-                    ctx.body = "Correntista deletado com sucesso";
+                    ctx.body = `Correntista: ${resposta.nome}, deletado com sucesso`; //Pode ser o CPF Também
                 }
             }
 
@@ -245,7 +245,7 @@ const contexto = async (ctx) => {
                 }
 
                 else {
-                    ctx.body = resposta;
+                    ctx.body = resposta; //Correntista Específico
                 }
             }
            

@@ -1,7 +1,6 @@
 const Koa = require("koa");
 const server = new Koa();
 const bodyparser = require("koa-bodyparser");
-const { request } = require("http");
 
 server.use(bodyparser()); // add no ctx.request.body as infos provinientes do body
 
