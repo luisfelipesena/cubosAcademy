@@ -25,7 +25,6 @@ correntistas.push({
     saldo: 500000
 });
 
-
 // const contexto = async (ctx) => {
 //     const path = ctx.url;
 //     const method = ctx.method;
