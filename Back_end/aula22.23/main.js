@@ -181,7 +181,7 @@ const contexto = async (ctx) => {
             const correntista = ctx.request.body;
             const resposta = adicionarCorrentista(correntista);
             if (!resposta) {
-                ctx.status = 404;
+                ctx.status = 400;
                 ctx.body = "Correntista já existente";
             }
             else {
