@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+form {
+    display: flex;
+    flex-flow: column;
+}
+
+label {
+    margin-top: 3vh;
+}
+
+button {
+    margin-top: 2vh;
+}
+
