@@ -6,10 +6,10 @@ const promessa = (milissegundos) => {
             resolve(undefined);
         },milissegundos)
     })
+    .then(valor => {
+        console.log(valor);
+    })
 }
 
-promessa(milissegundos).then(valor => {
-    console.log(valor);
-})
-
+promessa(milissegundos);
 console.log(`Promessa em ${milissegundos} milissegundos:`);

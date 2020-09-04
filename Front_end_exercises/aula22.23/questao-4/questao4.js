@@ -2,17 +2,8 @@ const button = document.querySelector("button");
 const autor = document.querySelector(".autor");
 const citacao = document.querySelector(".citacao");
 
-
-getCitacao();
 const milissegundos = 2000;
-
-const promessa = (milissegundos) => {
-    return new Promise (resolve => {
-        setTimeout(() => {
-            resolve();
-        },milissegundos)
-    })
-}
+getCitacao();
 
 button.addEventListener("click",() => {
     button.innerText = `Buscando outra citação em ${milissegundos / 1000} segundos`;
@@ -22,12 +13,17 @@ button.addEventListener("click",() => {
     })
     
 })
-   
-function getCitacao () {
-    fetch("https://programming-quotes-api.herokuapp.com/quotes/random/lang/en").then(resposta => {
-    return resposta.json();
-    })
 
+const promessa = (milissegundos) => {
+    return new Promise (resolve => {
+        setTimeout(() => {
+            resolve();
+        },milissegundos)
+    })
+}
+
+function getCitacao () {
+    fetch("https://programming-quotes-api.herokuapp.com/quotes/random/lang/en").then(resposta => resposta.json())
     .then(respostaJson => {
         citacao.innerText = respostaJson.en;
         autor.innerHTML =  `<i> -${respostaJson.author}</i>`;
