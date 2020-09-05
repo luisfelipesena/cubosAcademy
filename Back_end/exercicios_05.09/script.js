@@ -5,114 +5,6 @@ server.use(bodyparser());
 
 const urls = []; //associar o id com a url original
 
-const gerarId = () => Math.random().toString(36).substr(2, 9); //gerar uma id diferente para cada link criado
-
-const obterUrl = (codigo) => {
-    for (let i = 0; i < urls.length; i++) {
-        if (urls[i]["url_id"] == codigo) {
-            return urls[i]["url_original"];
-        } 
-    }
-    return null;
-}
-
-const erros = (ctx,status,mensagem) => {
-    ctx.status = status;
-    ctx.body = {
-        status: 'erro',
-        dados: {
-            mensagem: mensagem,
-        }
-    }
-}
-
-const conferirRepeticao = (url) => {
-    for (let i = 0; i < urls.length; i++) {
-        if (urls[i]["url_original"] === url) {
-            return true
-        }
-    }
-    return null
-}
-
-const encurtarLink = (ctx,id) => {
-    const bodyUrl = ctx.request.body.url;
-    if (conferirRepeticao(bodyUrl) === null) {
-        if (bodyUrl) {
-            urls.push({["url_original"]: bodyUrl, ["url_id"]: id});
-            ctx.status = 201; //conteúdo criado
-            ctx.body = {
-                status: "sucesso",
-                dados: {
-                    url_original : bodyUrl,
-                    url_encurtada: `localhost:8081/${id}`
-                }
-            }
-        }
-
-        else {
-            erros(ctx,400,"Url Mal Formatada");
-        }
-    }
-
-    else {
-        erros(ctx,400,"Url já encurtada");
-    }
-}
-
-const encurtarLinkComIdEspecifico = (ctx,arrayUrl) => {
-    const bodyUrl = ctx.request.body.url;
-    const idEspecifico = arrayUrl[2]; 
-    if (conferirRepeticao(bodyUrl) === null) {
-        if (idEspecifico) {
-            if (bodyUrl) {
-                urls.push({["url_original"]: bodyUrl, ["url_id"]: idEspecifico});
-                ctx.status = 201; //conteúdo criado
-                ctx.body = {
-                    status: "sucesso",
-                    dados: {
-                        url_original : bodyUrl,
-                        url_encurtada: `localhost:8081/${idEspecifico}`
-                    }
-                }
-            }
-
-            else {
-                erros(ctx,400,"Url mal Formatada");
-            }
-        }
-
-        else {
-            erros(ctx,400,"Url mal Formatada");
-        }
-    }
-
-    else {
-        erros(ctx,400,"Url já encurtada");
-    }
-}
-
-const usarLinkEncurtado = (ctx,arrayUrl) => {
-    const identificadorUrl = arrayUrl[1];
-    const url_original = obterUrl(identificadorUrl);
-
-    if (url_original != null) {
-        ctx.status = 301;
-        ctx.redirect(url_original);
-    }
-
-    else {
-        erros(ctx,400,"Não Encontrada");
-    }
-}
-
-const pegarLinksEncurtados = (ctx) => {
-    ctx.body = "";
-    for (let i = 0; i < urls.length; i++) {
-        ctx.body += `localhost:8081/${urls[i]["url_id"]} - ${urls[i]["url_original"]}\n`;
-    }
-}
-
 const contexto = async (ctx) => {
     const method = ctx.method;
     const url = ctx.url;
@@ -151,6 +43,116 @@ const contexto = async (ctx) => {
 
     else {
         erros(ctx,404,"Conteúdo não encontrado");
+    }
+}
+
+function gerarId () {
+    return Math.random().toString(36).substr(2, 9); //gerar uma id diferente para cada link criado
+} 
+
+function obterUrl (codigo) {
+    for (let i = 0; i < urls.length; i++) {
+        if (urls[i]["url_id"] == codigo) {
+            return urls[i]["url_original"];
+        } 
+    }
+    return null;
+}
+
+function erros (ctx,status,mensagem) {
+    ctx.status = status;
+    ctx.body = {
+        status: 'erro',
+        dados: {
+            mensagem: mensagem,
+        }
+    }
+}
+
+function conferirRepeticao (url) {
+    for (let i = 0; i < urls.length; i++) {
+        if (urls[i]["url_original"] === url) {
+            return true
+        }
+    }
+    return null
+}
+
+function encurtarLink (ctx,id) {
+    const bodyUrl = ctx.request.body.url;
+    if (conferirRepeticao(bodyUrl) === null) {
+        if (bodyUrl) {
+            urls.push({["url_original"]: bodyUrl, ["url_id"]: id});
+            ctx.status = 201; //conteúdo criado
+            ctx.body = {
+                status: "sucesso",
+                dados: {
+                    url_original : bodyUrl,
+                    url_encurtada: `localhost:8081/${id}`
+                }
+            }
+        }
+
+        else {
+            erros(ctx,400,"Url Mal Formatada");
+        }
+    }
+
+    else {
+        erros(ctx,400,"Url já encurtada");
+    }
+}
+
+function encurtarLinkComIdEspecifico (ctx,arrayUrl) {
+    const bodyUrl = ctx.request.body.url;
+    const idEspecifico = arrayUrl[2]; 
+    if (conferirRepeticao(bodyUrl) === null) {
+        if (idEspecifico) {
+            if (bodyUrl) {
+                urls.push({["url_original"]: bodyUrl, ["url_id"]: idEspecifico});
+                ctx.status = 201; //conteúdo criado
+                ctx.body = {
+                    status: "sucesso",
+                    dados: {
+                        url_original : bodyUrl,
+                        url_encurtada: `localhost:8081/${idEspecifico}`
+                    }
+                }
+            }
+
+            else {
+                erros(ctx,400,"Url mal Formatada");
+            }
+        }
+
+        else {
+            erros(ctx,400,"Url mal Formatada");
+        }
+    }
+
+    else {
+        erros(ctx,400,"Url já encurtada");
+    }
+}
+
+function usarLinkEncurtado (ctx,arrayUrl) {
+    const identificadorUrl = arrayUrl[1];
+    const url_original = obterUrl(identificadorUrl);
+
+    if (url_original != null) {
+        ctx.status = 301;
+        ctx.redirect(url_original);
+    }
+
+    else {
+        erros(ctx,400,"Não Encontrada");
+    }
+}
+
+function pegarLinksEncurtados (ctx) {
+    ctx.body = "";
+    for (let i = 0; i < urls.length; i++) {
+        ctx.body += `localhost:8081/${urls[i]["url_id"]} - ${urls[i]["url_original"]}\n`;
     }
 }
 
