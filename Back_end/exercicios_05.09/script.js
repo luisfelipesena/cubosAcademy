@@ -9,8 +9,8 @@ const gerarId = () => Math.random().toString(36).substr(2, 9); //gerar uma id di
 
 const obterUrl = (codigo) => {
     for (let i = 0; i < urls.length; i++) {
-        if (urls[i][codigo]) {
-            return urls[i][codigo];
+        if (urls[i]["url_id"] == codigo) {
+            return urls[i]["url_original"];
         } 
     }
     return null;
@@ -26,11 +26,20 @@ const erros = (ctx,status,mensagem) => {
     }
 }
 
+const conferirRepeticao = (url) => {
+    for (let i = 0; i < urls.length; i++) {
+        if (urls[i]["url_original"] === url) {
+            return true
+        }
+    }
+    return null
+}
+
 const encurtarLink = (ctx,id) => {
-    if (method === "POST") {
-        const bodyUrl = ctx.request.body.url;
+    const bodyUrl = ctx.request.body.url;
+    if (conferirRepeticao(bodyUrl) === null) {
         if (bodyUrl) {
-            urls.push({[id]: bodyUrl});
+            urls.push({["url_original"]: bodyUrl, ["url_id"]: id});
             ctx.status = 201; //conteúdo criado
             ctx.body = {
                 status: "sucesso",
@@ -42,37 +51,45 @@ const encurtarLink = (ctx,id) => {
         }
 
         else {
-            ctx.status = 400;
-            ctx.body = {
-                status: 'erro',
-                dados: {
-                    mensagem: "Url mal Formatada!",
-                }
-            }
+            erros(ctx,400,"Url Mal Formatada");
         }
+    }
+
+    else {
+        erros(ctx,400,"Url já encurtada");
     }
 }
 
 const encurtarLinkComIdEspecifico = (ctx,arrayUrl) => {
+    const bodyUrl = ctx.request.body.url;
     const idEspecifico = arrayUrl[2]; 
+    if (conferirRepeticao(bodyUrl) === null) {
         if (idEspecifico) {
-            const bodyUrl = ctx.request.body.url;
             if (bodyUrl) {
-                urls.push({[idEspecifico]: bodyUrl});
+                urls.push({["url_original"]: bodyUrl, ["url_id"]: idEspecifico});
                 ctx.status = 201; //conteúdo criado
                 ctx.body = {
                     status: "sucesso",
                     dados: {
                         url_original : bodyUrl,
-                        url_encurtada: `${idEspecifico}`
+                        url_encurtada: `localhost:8081/${idEspecifico}`
                     }
                 }
+            }
+
+            else {
+                erros(ctx,400,"Url mal Formatada");
             }
         }
 
         else {
             erros(ctx,400,"Url mal Formatada");
         }
+    }
+
+    else {
+        erros(ctx,400,"Url já encurtada");
+    }
 }
 
 const usarLinkEncurtado = (ctx,arrayUrl) => {
@@ -90,7 +107,10 @@ const usarLinkEncurtado = (ctx,arrayUrl) => {
 }
 
 const pegarLinksEncurtados = (ctx) => {
-    ctx.body = urls;
+    ctx.body = "";
+    for (let i = 0; i < urls.length; i++) {
+        ctx.body += `localhost:8081/${urls[i]["url_id"]} - ${urls[i]["url_original"]}\n`;
+    }
 }
 
 const contexto = async (ctx) => {
@@ -99,7 +119,7 @@ const contexto = async (ctx) => {
     const id = gerarId();
 
     if (url === "/encurta") {
-        
+
         if (method === "POST") {
            encurtarLink(ctx,id); 
         }
