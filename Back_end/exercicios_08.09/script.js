@@ -186,9 +186,8 @@ const contexto = async (ctx) => {
     else if (url.includes("/posts?")) {
         if (method === "GET") {
             const idAutor = ctx.query.autor;
-            
-            if (idAutor) {
-                let postsAutor = posts.filter(item => item.idAutor == idAutor) ;
+            let postsAutor = posts.filter(item => (item.idAutor == idAutor && item.deletado === false));
+            if (idAutor && postsAutor.length) {
                 sucesso(ctx,postsAutor);
             }
             
