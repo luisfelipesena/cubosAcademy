@@ -9,17 +9,17 @@ let posts = [];
 const contexto = async (ctx) => {
     const url = ctx.url;
     const method = ctx.method;
-    const body = ctx.request.body;
+    const body = ctx.request.body; //conteúdo json 
     if (url === "/autor") {
        
         if (method === "POST") { //Criar um novo autor
             const autor = criarAutor(body);
 
-            if (autor !== null) {
+            if (autor !== null) { //se o autor não existir cria-se um novo
                 sucesso(ctx,body);
             }
 
-            else {
+            else { //se existir da erro
                 erro(ctx,400,"Mal formatada");
             }
         }
@@ -31,17 +31,17 @@ const contexto = async (ctx) => {
 
     else if (url.includes("/autor/")) {
         const barras = url.split("/");
-        const identificador = barras[2]; //pode ser o CPF
+        const identificador = barras[2]; //pode ser o CPF ou outro identificador único
 
-        if (method === "GET") { //Obter info de um Autor
+        if (method === "GET") { //Obter informações de um Autor
             const autor = procurarAutor(identificador);
 
             if (!autor || autor.deletado === true) {
                 erro(ctx, 404, "Não Encontrado");
             }
 
-            else {
-                sucesso(ctx,autor);
+            else { //não pode mostrar a senha do autor
+                sucesso(ctx,`Nome:${autor.primeiro_nome} ${autor.ultimo_nome} Id:${autor.id} Email:${autor.email} `);
             }
 
         }
@@ -54,16 +54,8 @@ const contexto = async (ctx) => {
             }
 
             else {
-                const deletar = deletarAutor(autor);
-
-                if (!deletar) {
-                    erro(ctx, 400, "Autor com post publicado");
-                }
-
-                else {
-                    sucesso(ctx,`Autor ${autor.primeiro_nome} de id: ${autor.id}, deletado com sucesso`);
-                }
-                
+                deletarAutor(autor);
+                sucesso(ctx,`Autor ${autor.primeiro_nome} de id: ${autor.id} e seus posts, deletados com sucesso`);   
             }
         }
 
@@ -93,13 +85,13 @@ const contexto = async (ctx) => {
     }
 
     else if (url === "/posts") {
-        if (method === "GET") { //obtém todos os posts menos os deletados
+        if (method === "GET") { //obtém todos os posts menos os deletados e os últimos adicionados
             const filterPosts = posts.reverse().filter((item) => item.deletado === false)
             sucesso(ctx,filterPosts);
         } 
         
         else if (method === "POST") { //Cria um novo post
-            if (body.id && body.idAutor) {
+            if (body.id && body.idAutor) { //identificadores básicos necessários
                 const adicionar = adicionarPost(body.id,body);
 
                 if (adicionar) {
@@ -254,8 +246,8 @@ function criarAutor (body) {
 
 function deletarAutor (autor) {
     for (let i = 0; i < posts.length; i++) {
-        if (autor.id === posts[i].idAutor && posts[i].publicado === true) { 
-            return false;
+        if (autor.id === posts[i].idAutor && posts[i].publicado === true) { //caso o autor tenha um post publicado, seus posts são deletados
+            posts[i].deletado = true;
         }
     }
     const index = autores.indexOf(autor);
@@ -291,7 +283,7 @@ function atualizarAutor (autor,body) {
 
 function procurarPost (idPost) {
     for (let i = 0; i < posts.length; i++) {
-        if (posts[i].id === idPost) {
+        if (posts[i].id === idPost && posts[i].deletado === false) {
             return posts[i];
         }
     }
@@ -302,12 +294,12 @@ function adicionarPost (idPost,body) {
     const post = procurarPost(idPost);
     const autor = procurarAutor(body.idAutor);
 
-    if (!post && typeof(body.publicado) == "boolean" && body.titulo && body.subtitulo && body.idAutor && autor.deletado === false) {
+    if (!post && typeof(body.publicado) == "boolean" && body.titulo && body.idAutor && autor.deletado === false) {
         body.idAutor = body.idAutor.toString();
         posts.push({
             ["id"]: idPost,
             ["titulo"]: body.titulo,
-            ["subtitulo"]: body.subtitulo,
+            ["subtitulo"]: (body.subtitulo)? body.subtitulo :"Sem subtítulo",
             ["idAutor"]: body.idAutor,
             ["publicado"]: body.publicado,
             ["deletado"]: false
@@ -316,7 +308,7 @@ function adicionarPost (idPost,body) {
     }
 
     else if (autor.deletado === true) {
-        return null
+        return null;
     }
 
     else {
