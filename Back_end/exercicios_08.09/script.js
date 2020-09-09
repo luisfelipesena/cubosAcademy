@@ -3,8 +3,9 @@ const server = new Koa();
 const bodyparser = require("koa-bodyparser");
 server.use(bodyparser());
 
-let autores = []; //linkagem dos dois arrays com id autor em posts 
-let posts = [];
+let autores = []; // primeiro_nome - ultimo_nome - id - email - senha - deletado
+let posts = []; // id - titulo - subtitulo - idAutor - publicado - deletado
+//linkagem dos dois arrays com id autor em posts 
 
 const contexto = async (ctx) => {
     const url = ctx.url;
