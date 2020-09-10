@@ -1,0 +1,380 @@
+Grêmio	1	X	2	Santos
+Atlético-MG	2	X	1	Avaí
+Ceará	4	X	0	CSA
+Palmeiras	4	X	0	Fortaleza
+São Paulo	2	X	0	Botafogo
+Flamengo	3	X	1	Cruzeiro
+Fluminense	0	X	1	Goiás
+Chapecoense	2	X	0	Inter-RS
+Bahia	3	X	2	Corinthians
+Athletico-PR	4	X	1	Vasco
+Inter-RS	2	X	1	Flamengo
+Cruzeiro	1	X	0	Ceará
+Fortaleza	2	X	1	Athletico-PR
+Corinthians	1	X	0	Chapecoense
+Santos	2	X	1	Fluminense
+Vasco	1	X	2	Atlético-MG
+Botafogo	3	X	2	Bahia
+Avaí	1	X	1	Grêmio
+Goiás	1	X	2	São Paulo
+CSA	1	X	1	Palmeiras
+Grêmio	4	X	5	Fluminense
+Cruzeiro	2	X	1	Goiás
+Ceará	1	X	2	Atlético-MG
+Palmeiras	1	X	0	Inter-RS
+São Paulo	1	X	1	Flamengo
+Vasco	1	X	1	Corinthians
+Botafogo	1	X	0	Fortaleza
+Chapecoense	1	X	1	Athletico-PR
+Bahia	1	X	0	Avaí
+CSA	0	X	0	Santos
+Inter-RS	3	X	1	Cruzeiro
+Atlético-MG	0	X	2	Palmeiras
+Fortaleza	0	X	1	São Paulo
+Corinthians	0	X	0	Grêmio
+Santos	3	X	0	Vasco
+Flamengo	2	X	1	Chapecoense
+Fluminense	0	X	1	Botafogo
+Avaí	0	X	0	CSA
+Goiás	2	X	1	Ceará
+Athletico-PR	1	X	0	Bahia
+Inter-RS	2	X	0	CSA
+Atlético-MG	2	X	1	Flamengo
+Ceará	2	X	1	Grêmio
+Palmeiras	4	X	0	Santos
+São Paulo	0	X	0	Bahia
+Vasco	1	X	1	Avaí
+Fluminense	4	X	1	Cruzeiro
+Chapecoense	1	X	3	Fortaleza
+Goiás	1	X	0	Botafogo
+Athletico-PR	0	X	2	Corinthians
+Grêmio	1	X	0	Atlético-MG
+Cruzeiro	1	X	2	Chapecoense
+Fortaleza	1	X	1	Vasco
+Corinthians	1	X	0	São Paulo
+Santos	0	X	0	Inter-RS
+Flamengo	3	X	2	Athletico-PR
+Botafogo	0	X	1	Palmeiras
+Avaí	1	X	2	Ceará
+Bahia	3	X	2	Fluminense
+CSA	1	X	0	Goiás
+Inter-RS	2	X	0	Avaí
+Atlético-MG	4	X	0	CSA
+Ceará	0	X	1	Santos
+Corinthians	2	X	0	Goiás
+São Paulo	1	X	1	Cruzeiro
+Flamengo	2	X	0	Fortaleza
+Botafogo	1	X	0	Vasco
+Chapecoense	1	X	2	Palmeiras
+Bahia	1	X	0	Grêmio
+Athletico-PR	3	X	0	Fluminense
+Grêmio	1	X	0	Fortaleza
+Cruzeiro	0	X	0	Corinthians
+Ceará	0	X	0	Bahia
+Palmeiras	1	X	0	Athletico-PR
+Santos	3	X	1	Atlético-MG
+Vasco	2	X	1	Inter-RS
+Fluminense	0	X	0	Flamengo
+Avaí	0	X	0	São Paulo
+Goiás	3	X	1	Chapecoense
+CSA	1	X	2	Botafogo
+Inter-RS	3	X	1	Bahia
+Atlético-MG	1	X	1	São Paulo
+Fortaleza	2	X	1	Cruzeiro
+Palmeiras	2	X	0	Avaí
+Santos	1	X	0	Corinthians
+Vasco	1	X	0	Ceará
+Botafogo	0	X	1	Grêmio
+Chapecoense	1	X	1	Fluminense
+Goiás	2	X	1	Athletico-PR
+CSA	0	X	2	Flamengo
+Grêmio	2	X	1	Vasco
+Cruzeiro	0	X	0	Botafogo
+Fortaleza	2	X	0	Avaí
+Corinthians	1	X	0	CSA
+São Paulo	1	X	1	Palmeiras
+Flamengo	6	X	1	Goiás
+Fluminense	1	X	1	Ceará
+Chapecoense	1	X	2	Atlético-MG
+Bahia	0	X	1	Santos
+Athletico-PR	1	X	0	Inter-RS
+Inter-RS	1	X	1	Grêmio
+Atlético-MG	2	X	2	Fortaleza
+Ceará	2	X	0	Palmeiras
+Corinthians	1	X	1	Flamengo
+São Paulo	4	X	0	Chapecoense
+Vasco	2	X	1	Fluminense
+Botafogo	0	X	1	Santos
+Avaí	0	X	0	Goiás
+Bahia	0	X	0	Cruzeiro
+CSA	0	X	4	Athletico-PR
+Inter-RS	1	X	0	Ceará
+Cruzeiro	0	X	2	Athletico-PR
+Fortaleza	1	X	3	Corinthians
+Palmeiras	1	X	1	Vasco
+Santos	3	X	1	Avaí
+Flamengo	3	X	2	Botafogo
+Fluminense	1	X	2	São Paulo
+Chapecoense	0	X	0	Bahia
+Goiás	0	X	0	Atlético-MG
+CSA	0	X	0	Grêmio
+Grêmio	3	X	3	Chapecoense
+Atlético-MG	2	X	0	Cruzeiro
+Ceará	2	X	1	Fortaleza
+Corinthians	1	X	1	Palmeiras
+Santos	6	X	1	Goiás
+Vasco	0	X	0	CSA
+Fluminense	2	X	1	Inter-RS
+Avaí	0	X	2	Botafogo
+Bahia	3	X	0	Flamengo
+Athletico-PR	0	X	1	São Paulo
+Inter-RS	0	X	0	Corinthians
+Atlético-MG	2	X	1	Fluminense
+Ceará	4	X	1	Chapecoense
+Palmeiras	2	X	2	Bahia
+São Paulo	3	X	2	Santos
+Flamengo	3	X	1	Grêmio
+Botafogo	2	X	1	Athletico-PR
+Avaí	2	X	2	Cruzeiro
+Goiás	0	X	1	Vasco
+CSA	0	X	2	Fortaleza
+Grêmio	1	X	1	Palmeiras
+Cruzeiro	2	X	0	Santos
+Fortaleza	0	X	1	Inter-RS
+Corinthians	2	X	0	Botafogo
+São Paulo	1	X	0	Ceará
+Vasco	1	X	4	Flamengo
+Fluminense	0	X	1	CSA
+Chapecoense	1	X	0	Avaí
+Bahia	1	X	1	Goiás
+Athletico-PR	1	X	0	Atlético-MG
+Grêmio	2	X	1	Athletico-PR
+Atlético-MG	0	X	1	Bahia
+Ceará	0	X	3	Flamengo
+Palmeiras	3	X	0	Fluminense
+Santos	3	X	3	Fortaleza
+Vasco	2	X	0	São Paulo
+Botafogo	0	X	0	Chapecoense
+Avaí	1	X	1	Corinthians
+Goiás	2	X	1	Inter-RS
+CSA	1	X	1	Cruzeiro
+Inter-RS	3	X	2	Botafogo
+Cruzeiro	1	X	0	Vasco
+Fortaleza	2	X	0	Goiás
+Corinthians	1	X	0	Atlético-MG
+São Paulo	0	X	0	Grêmio
+Flamengo	3	X	0	Palmeiras
+Fluminense	0	X	1	Avaí
+Chapecoense	0	X	1	Santos
+Bahia	1	X	0	CSA
+Athletico-PR	1	X	0	Ceará
+Inter-RS	1	X	0	São Paulo
+Cruzeiro	1	X	4	Grêmio
+Fortaleza	0	X	1	Fluminense
+Corinthians	2	X	2	Ceará
+Santos	1	X	1	Athletico-PR
+Vasco	0	X	2	Bahia
+Botafogo	2	X	1	Atlético-MG
+Avaí	0	X	3	Flamengo
+Goiás	1	X	2	Palmeiras
+CSA	2	X	0	Chapecoense
+Grêmio	3	X	0	Goiás
+Atlético-MG	1	X	3	Inter-RS
+Ceará	0	X	0	Botafogo
+Palmeiras	1	X	0	Cruzeiro
+São Paulo	1	X	1	CSA
+Flamengo	1	X	0	Santos
+Fluminense	1	X	0	Corinthians
+Chapecoense	1	X	2	Vasco
+Bahia	1	X	1	Fortaleza
+Athletico-PR	0	X	1	Avaí
+Inter-RS	1	X	0	Chapecoense
+Cruzeiro	1	X	2	Flamengo
+Fortaleza	0	X	1	Palmeiras
+Corinthians	2	X	1	Bahia
+Santos	0	X	3	Grêmio
+Vasco	1	X	1	Athletico-PR
+Botafogo	1	X	2	São Paulo
+Avaí	1	X	0	Atlético-MG
+Goiás	3	X	0	Fluminense
+CSA	1	X	0	Ceará
+Grêmio	6	X	1	Avaí
+Atlético-MG	1	X	2	Vasco
+Ceará	0	X	0	Cruzeiro
+Palmeiras	6	X	2	CSA
+São Paulo	0	X	1	Goiás
+Flamengo	3	X	1	Inter-RS
+Fluminense	1	X	1	Santos
+Chapecoense	0	X	1	Corinthians
+Bahia	2	X	0	Botafogo
+Athletico-PR	2	X	1	Fortaleza
+Inter-RS	1	X	1	Palmeiras
+Atlético-MG	2	X	1	Ceará
+Fortaleza	1	X	0	Botafogo
+Corinthians	1	X	0	Vasco
+Santos	2	X	0	CSA
+Flamengo	0	X	0	São Paulo
+Fluminense	2	X	1	Grêmio
+Avaí	0	X	2	Bahia
+Goiás	1	X	0	Cruzeiro
+Athletico-PR	1	X	1	Chapecoense
+Grêmio	0	X	0	Corinthians
+Cruzeiro	1	X	1	Inter-RS
+Ceará	0	X	1	Goiás
+Palmeiras	1	X	1	Atlético-MG
+São Paulo	2	X	1	Fortaleza
+Vasco	0	X	1	Santos
+Botafogo	0	X	1	Fluminense
+Chapecoense	0	X	1	Flamengo
+Bahia	1	X	2	Athletico-PR
+CSA	3	X	1	Avaí
+Grêmio	2	X	1	Ceará
+Cruzeiro	0	X	0	Fluminense
+Fortaleza	2	X	0	Chapecoense
+Corinthians	2	X	2	Athletico-PR
+Santos	2	X	0	Palmeiras
+Flamengo	3	X	1	Atlético-MG
+Botafogo	3	X	1	Goiás
+Avaí	0	X	0	Vasco
+Bahia	0	X	0	São Paulo
+CSA	1	X	0	Inter-RS
+Inter-RS	0	X	0	Santos
+Atlético-MG	1	X	4	Grêmio
+Ceará	1	X	0	Avaí
+Palmeiras	1	X	0	Botafogo
+São Paulo	1	X	0	Corinthians
+Vasco	1	X	0	Fortaleza
+Fluminense	2	X	0	Bahia
+Chapecoense	1	X	1	Cruzeiro
+Goiás	1	X	0	CSA
+Athletico-PR	0	X	2	Flamengo
+Grêmio	0	X	1	Bahia
+Cruzeiro	1	X	0	São Paulo
+Fortaleza	1	X	2	Flamengo
+Palmeiras	1	X	0	Chapecoense
+Santos	2	X	1	Ceará
+Vasco	2	X	1	Botafogo
+Fluminense	1	X	2	Athletico-PR
+Avaí	0	X	2	Inter-RS
+Goiás	2	X	2	Corinthians
+CSA	2	X	2	Atlético-MG
+Inter-RS	0	X	1	Vasco
+Atlético-MG	2	X	0	Santos
+Fortaleza	2	X	1	Grêmio
+Corinthians	1	X	2	Cruzeiro
+São Paulo	1	X	0	Avaí
+Flamengo	2	X	0	Fluminense
+Botafogo	2	X	1	CSA
+Chapecoense	2	X	2	Goiás
+Bahia	1	X	2	Ceará
+Athletico-PR	1	X	1	Palmeiras
+Grêmio	3	X	0	Botafogo
+Cruzeiro	1	X	1	Fortaleza
+Ceará	1	X	1	Vasco
+Corinthians	0	X	0	Santos
+São Paulo	2	X	0	Atlético-MG
+Flamengo	1	X	0	CSA
+Fluminense	1	X	1	Chapecoense
+Avaí	1	X	2	Palmeiras
+Bahia	2	X	3	Inter-RS
+Athletico-PR	4	X	1	Goiás
+Inter-RS	1	X	1	Athletico-PR
+Atlético-MG	0	X	2	Chapecoense
+Ceará	2	X	0	Fluminense
+Palmeiras	3	X	0	São Paulo
+Santos	1	X	0	Bahia
+Vasco	1	X	3	Grêmio
+Botafogo	0	X	2	Cruzeiro
+Avaí	1	X	3	Fortaleza
+Goiás	2	X	2	Flamengo
+CSA	2	X	1	Corinthians
+Grêmio	2	X	0	Inter-RS
+Cruzeiro	1	X	1	Bahia
+Fortaleza	2	X	2	Atlético-MG
+Palmeiras	1	X	0	Ceará
+Santos	4	X	1	Botafogo
+Flamengo	4	X	1	Corinthians
+Fluminense	0	X	0	Vasco
+Chapecoense	0	X	3	São Paulo
+Goiás	2	X	0	Avaí
+Athletico-PR	1	X	0	CSA
+Grêmio	2	X	1	CSA
+Atlético-MG	2	X	0	Goiás
+Ceará	2	X	0	Inter-RS
+Corinthians	3	X	2	Fortaleza
+São Paulo	0	X	2	Fluminense
+Vasco	1	X	2	Palmeiras
+Botafogo	0	X	1	Flamengo
+Avaí	1	X	2	Santos
+Bahia	1	X	1	Chapecoense
+Athletico-PR	0	X	0	Cruzeiro
+Inter-RS	2	X	1	Fluminense
+Cruzeiro	0	X	0	Atlético-MG
+Fortaleza	1	X	0	Ceará
+Palmeiras	1	X	1	Corinthians
+São Paulo	0	X	1	Athletico-PR
+Flamengo	3	X	1	Bahia
+Botafogo	2	X	0	Avaí
+Chapecoense	0	X	1	Grêmio
+Goiás	0	X	3	Santos
+CSA	0	X	3	Vasco
+Grêmio	0	X	1	Flamengo
+Cruzeiro	0	X	0	Avaí
+Fortaleza	3	X	0	CSA
+Corinthians	0	X	0	Inter-RS
+Santos	1	X	1	São Paulo
+Vasco	1	X	1	Goiás
+Fluminense	1	X	1	Atlético-MG
+Chapecoense	1	X	0	Ceará
+Bahia	1	X	1	Palmeiras
+Athletico-PR	1	X	0	Botafogo
+Inter-RS	2	X	2	Fortaleza
+Atlético-MG	0	X	1	Athletico-PR
+Ceará	1	X	1	São Paulo
+Palmeiras	1	X	2	Grêmio
+Santos	4	X	1	Cruzeiro
+Flamengo	4	X	4	Vasco
+Botafogo	1	X	0	Corinthians
+Avaí	0	X	1	Chapecoense
+Goiás	4	X	3	Bahia
+CSA	0	X	1	Fluminense
+Inter-RS	1	X	2	Goiás
+Cruzeiro	0	X	1	CSA
+Fortaleza	2	X	1	Santos
+Corinthians	3	X	0	Avaí
+São Paulo	1	X	0	Vasco
+Flamengo	4	X	1	Ceará
+Fluminense	1	X	0	Palmeiras
+Chapecoense	0	X	1	Botafogo
+Bahia	1	X	1	Atlético-MG
+Athletico-PR	2	X	0	Grêmio
+Grêmio	3	X	0	São Paulo
+Atlético-MG	2	X	1	Corinthians
+Ceará	1	X	1	Athletico-PR
+Palmeiras	1	X	3	Flamengo
+Santos	2	X	0	Chapecoense
+Vasco	1	X	0	Cruzeiro
+Botafogo	0	X	1	Inter-RS
+Avaí	1	X	1	Fluminense
+Goiás	1	X	2	Fortaleza
+CSA	1	X	2	Bahia
+Grêmio	2	X	0	Cruzeiro
+Atlético-MG	2	X	0	Botafogo
+Ceará	0	X	1	Corinthians
+Palmeiras	5	X	1	Goiás
+São Paulo	2	X	1	Inter-RS
+Flamengo	6	X	1	Avaí
+Fluminense	0	X	0	Fortaleza
+Chapecoense	3	X	0	CSA
+Bahia	1	X	1	Vasco
+Athletico-PR	1	X	0	Santos
+Inter-RS	2	X	1	Atlético-MG
+Cruzeiro	0	X	2	Palmeiras
+Fortaleza	2	X	1	Bahia
+Corinthians	1	X	2	Fluminense
+Santos	4	X	0	Flamengo
+Vasco	1	X	1	Chapecoense
+Botafogo	1	X	1	Ceará
+Avaí	0	X	0	Athletico-PR
+Goiás	3	X	2	Grêmio
+CSA	1	X	2	São Paulo

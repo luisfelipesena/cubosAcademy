@@ -1,0 +1,20 @@
+1 lugar -> Flamengo - 90 pontos - 38 jogos - 27 vitorias - 4 derrotas - 6 empates - saldo de gols: -4
+2 lugar -> Santos - 74 pontos - 38 jogos - 21 vitorias - 8 derrotas - 8 empates - saldo de gols: 4
+3 lugar -> Palmeiras - 74 pontos - 38 jogos - 20 vitorias - 6 derrotas - 11 empates - saldo de gols: 2
+4 lugar -> Grêmio - 65 pontos - 38 jogos - 19 vitorias - 10 derrotas - 8 empates - saldo de gols: -1
+5 lugar -> Athletico-PR - 64 pontos - 38 jogos - 17 vitorias - 10 derrotas - 10 empates - saldo de gols: 0
+6 lugar -> São Paulo - 63 pontos - 38 jogos - 16 vitorias - 9 derrotas - 12 empates - saldo de gols: 1
+7 lugar -> Inter-RS - 57 pontos - 38 jogos - 16 vitorias - 12 derrotas - 9 empates - saldo de gols: 1
+8 lugar -> Corinthians - 56 pontos - 38 jogos - 14 vitorias - 9 derrotas - 14 empates - saldo de gols: -1
+9 lugar -> Fortaleza - 53 pontos - 38 jogos - 15 vitorias - 14 derrotas - 8 empates - saldo de gols: 1
+10 lugar -> Goiás - 52 pontos - 38 jogos - 14 vitorias - 16 derrotas - 7 empates - saldo de gols: 1
+11 lugar -> Vasco - 49 pontos - 38 jogos - 12 vitorias - 12 derrotas - 13 empates - saldo de gols: 0
+12 lugar -> Bahia - 49 pontos - 38 jogos - 11 vitorias - 13 derrotas - 13 empates - saldo de gols: -1
+13 lugar -> Atlético-MG - 48 pontos - 38 jogos - 12 vitorias - 16 derrotas - 9 empates - saldo de gols: -1
+14 lugar -> Fluminense - 46 pontos - 38 jogos - 12 vitorias - 15 derrotas - 10 empates - saldo de gols: 1
+15 lugar -> Botafogo - 43 pontos - 38 jogos - 13 vitorias - 20 derrotas - 4 empates - saldo de gols: 0
+16 lugar -> Ceará - 39 pontos - 38 jogos - 9 vitorias - 19 derrotas - 9 empates - saldo de gols: 0
+17 lugar -> Cruzeiro - 36 pontos - 38 jogos - 7 vitorias - 15 derrotas - 15 empates - saldo de gols: -2
+18 lugar -> CSA - 32 pontos - 38 jogos - 8 vitorias - 21 derrotas - 8 empates - saldo de gols: -1
+19 lugar -> Chapecoense - 32 pontos - 38 jogos - 6 vitorias - 20 derrotas - 11 empates - saldo de gols: 0
+20 lugar -> Avaí - 20 pontos - 38 jogos - 3 vitorias - 23 derrotas - 11 empates - saldo de gols: 0
