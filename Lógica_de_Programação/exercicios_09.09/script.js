@@ -1,11 +1,11 @@
 const fs = require("fs");
-const stream = fs.createReadStream("brasileirao.txt");
 
+const stream = fs.createReadStream("brasileirao.txt");
 const tabela = []; //guardará a tabela formatada do brasileirão
 let objetoJogos; //guardará todos os jogos separadamente formatados em objetos nomeados, útil pois usei uma função assíncrona
 
 stream.on("data", (data) => {
-    const stringBrasileirao = data.toString(); //String de todo o conteúdo
+    const stringBrasileirao = data.toString(); //String de todo o conteúdo, ainda pega a quebra de linha como "\r"
     const arrayJogos = stringBrasileirao.split("\n"); //Jogos por linha
     objetoJogos = arrayJogos.map(linha => { //Jogos Formatado em um objeto
         const jogo = linha.split("\t"); //quebrar em "/t" porque o arquivo está com tab entre linhas
@@ -18,7 +18,7 @@ stream.on("data", (data) => {
         return objeto;
     })
 
-    objetoJogos.forEach(item => { //ver empate, vitória derrota
+    objetoJogos.forEach(item => { //ver empate, vitória e derrota
         if (item.golsA === item.golsB) {
             //e = empate
             computarPontos(item.timeA,1,item.golsA,item.golsB,"e");
@@ -89,7 +89,7 @@ function computarPontos (time,pontos,golsFeitos,golsSofridos,sigla) {
 
 function ordenarTabela () {
     let temp;
-    for (let i = 0; i < tabela.length; i++) {
+    for (let i = 0; i < tabela.length; i++) { //ORDENA POR PONTOS
         for (let x = 0; x < tabela.length - 1; x++) {
             if (tabela[x].pontos < tabela[x+1].pontos) {
                 temp = tabela[x];
@@ -99,7 +99,7 @@ function ordenarTabela () {
         }
     }
 
-    for (let i = 0; i < tabela.length - 1; i++) {
+    for (let i = 0; i < tabela.length - 1; i++) { //ORDENA POR VITÓRIAS -> SALDO DE GOLS -> GOLS FEITOS
         if (tabela[i].pontos === tabela[i+1].pontos) {
             if (tabela[i].vitorias < tabela[i+1].vitorias) {
                 temp = tabela[i];
