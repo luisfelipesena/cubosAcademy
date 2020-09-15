@@ -240,3 +240,23 @@ body {
     background: linear-gradient(0deg, rgba(225, 123, 123, 0.6), rgba(225, 123, 123, 0.6)), #FFB6EB;
     box-shadow: 0px 16px 24px -12px rgba(226, 94, 191, 0.5);
 }
+
+.central .carrinho .itens .adicionarQtd{
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    color: green;
+    min-width: 20px;
+    min-height: 20px;
+    font-size: 17px;
+}
+
+.central .carrinho .itens .removerQtd {
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    color: red;
+    min-width: 20px;
+    min-height: 20px;
+    font-size: 17px;
+}

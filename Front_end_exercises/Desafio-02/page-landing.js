@@ -7,6 +7,7 @@ const spanCupom = document.querySelector(".spanCupom");
 
 botaoCupom.addEventListener("click",()=> {
     spanCupom.innerText = "HTMLNAOELINGUAGEM - (30% OFF)";
+    localStorage.setItem("spanCupom","HTMLNAOELINGUAGEM - (30% OFF)");
     inputCupom.forEach(item => item.setAttribute("hidden",""));
     cupom.innerHTML = "";
     clearInterval(idInterval);

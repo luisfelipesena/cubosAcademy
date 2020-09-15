@@ -7,6 +7,11 @@ let objetoTitulos = JSON.parse(titulos); //TITULOS = ITEM DO CARRINHO
 
 const divFilmes = document.querySelector(".carrinho .itens");
 
+const cupom = document.querySelector(".spanCupom");
+const spanCupom = localStorage.getItem("spanCupom");
+if (spanCupom) {
+    cupom.innerText = spanCupom;
+}
 
 //LOOP
 objetoTitulos.forEach(item => {

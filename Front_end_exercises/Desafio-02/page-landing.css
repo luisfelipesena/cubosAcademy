@@ -360,23 +360,3 @@
     display: flex;
     align-items: center;
 }
-
-.central .carrinho .itens .adicionarQtd{
-    cursor: pointer;
-    background-color: transparent;
-    border: 0;
-    color: green;
-    min-width: 20px;
-    min-height: 20px;
-    font-size: 17px;
-}
-
-.central .carrinho .itens .removerQtd {
-    cursor: pointer;
-    background-color: transparent;
-    border: 0;
-    color: red;
-    min-width: 20px;
-    min-height: 20px;
-    font-size: 17px;
-}
