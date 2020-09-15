@@ -1,0 +1,363 @@
+
+.central .main .cupom {
+    display: flex;
+    flex-flow: column;
+    max-height: 119px;
+    background: linear-gradient(39.6deg, #EE82D0 0.8%, #FFC8F0 141.63%);
+    font-family: 'Quantico', sans-serif;
+    color: #0F0915;
+    opacity: 0.8;
+}
+
+.central .main .cupom .cabecalho {
+    margin-left: 24px;
+    position: relative;
+    top: -160px;
+    display: flex;
+    align-items: center;
+}
+
+.central .main .cupom .retangulo {
+    min-height: 119px;
+    max-width: 90%;
+    flex: 0 1 auto;
+}
+
+
+.central .main .cupom .cabecalho h2 {
+    line-height: 40px;
+    padding-bottom: 25px;
+    padding-top: 10px;
+    min-width: 360px;
+    font-size: 40px;
+    font-weight: normal;
+    opacity: 0.8;
+}
+
+.central .main .cupom .cabecalho h3 {
+    min-width: 150px;
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: normal;
+    margin-left: 50px;
+    opacity: 0.8;
+}
+
+.central .main .cupom .cabecalho .money {
+    position: relative;
+    left: 110px;
+    max-height: 175px;
+}
+
+.central .main .cupom .conteudo {
+    position: relative;
+    top: -223px;
+    left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.central .main .cupom .circulo {
+    position: relative;  
+}
+
+.central .main .cupom .circulo .um {
+    position: absolute;
+    top: 12px;
+    left: 14px;
+}
+
+.central .main .cupom .circulo .dois {
+    position: absolute;
+    top: 7px;
+    left: 8px;
+    width: 16px;
+}
+
+.central .main .cupom .conteudo .descricao {
+    font-family: 'Quantico';
+    font-weight: normal;
+    font-size: 16px;
+    border: 0;
+    cursor: pointer;
+    background-color: transparent;
+    margin: -5px 110px 5px 10px;
+    color: #0F0915;
+    opacity: 0.8;
+}
+
+.central .main .filmes h2 {
+    color: #FDFDFD;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.central .main .filmes h2:nth-child(1) {
+    margin-bottom: -70px;
+}
+
+.central .main .filmes ul {
+    padding: 0;
+    max-width: 980px;
+    list-style-type: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.central .main .filmes li:hover button {
+    cursor: pointer;
+    outline: 1px solid red;
+}
+
+.central .main .filmes li button:focus {
+    outline: 1px solid green;
+}
+
+.central .main .filmes .generos {
+    padding: 0;
+    margin-left: 23px;
+    margin-bottom: -50px;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.5;
+}
+
+.central .main .filmes .generos button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #FFFFFF;
+    min-width: 170px;
+    min-height: 30px;
+    background-color: transparent;
+    font-family: 'Open Sans';
+    font-style: normal;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: -20px;
+}
+
+.central .main .filmes .generos button:hover, .central .main .filmes .generos button:focus {
+    background: rgba(225, 131, 200, 0.2);
+    color:#E183C8;
+    border: 2px solid #E183C8;
+    outline: 0;
+}
+
+.central .main .filmes ul li img{
+    max-width: 168px;
+    max-height: 301px;
+}
+
+.central .main .filmes ul li .titulo {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    font-size: 12px;
+    position: relative;
+    top: 320px;
+}
+
+.central .main .filmes ul li .titulo .tituloFilme {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 85%;
+    max-width: 164px;
+    max-height: 20px;
+    position: relative;
+    bottom: 35px;
+}
+
+.central .main .filmes ul li .titulo .tituloFilme span {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    color: #FDFDFD;
+}
+
+.central .main .filmes ul li .titulo .precoFilme {
+    border: 0;
+    cursor: pointer;
+    min-width: 90%;
+    min-height: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: bold;
+    font-size: 12px;
+    color: #EEE6FF;
+    background: #A785ED;
+}
+
+.central .main .filmes ul li .estrela {
+    position: relative;
+    top: 30px;
+    left: 5px;
+}
+
+.central .main .filmes ul li .titulo .tituloFilme .estrelinha {
+    margin: 0 5px;
+}
+
+.central .main .filmes ul li .titulo .tituloFilme .nota {
+    color: #FBCD6E;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.backgroundImage {
+    max-width: 168px;
+    min-height: 301px;
+    background-size: 168px 301px;
+}
+
+.backgroundImage div {
+    min-width: 168px;
+    min-height: 301px;
+    background-color: rgba(0, 1, 5, 0.5);
+}
+
+.central .carrinho {
+    position: sticky;
+    top: 15px;
+    margin-left: 50px;
+    margin-right: 300px;
+    min-width: 312px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.central .carrinho .sacola {
+    min-width: 100%;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(0deg, #A785ED, #A785ED), #C4C4C4;
+}
+
+.central .carrinho .sacola span {
+    padding-left: 15px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    color: #FDFDFD;
+}
+
+.central .carrinho form, .central .carrinho button {
+    margin: 0 16px 0px 10px;
+}
+
+.central .carrinho form span {
+    margin-bottom: 10px;
+}
+
+.central .carrinho .itens {
+    flex: 1;
+    margin: 10px 16px 30px 16px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.central .carrinho .itens p:nth-child(1) {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    color: #FDFDFD;
+}
+
+.central .carrinho .itens p:nth-child(2) {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #FDFDFD;
+    margin-bottom: 41px;
+    opacity: 0.8;
+}
+
+.central .carrinho label span {
+    display: block;
+    font-weight: normal;
+    font-size: 12px;
+    color: #FDFDFD;
+}
+
+.central .carrinho label input {
+    border: 0;
+    margin-top:15px;
+    padding-left: 5px;
+    min-width: 100%;
+    min-height: 40px;
+    background: #0B1217;
+    font-weight: normal;
+    color: #FDFDFD;
+    opacity: 0.4;
+}
+
+.central .carrinho label img {
+    position: relative;
+    left: 260px;
+    top: -30px;
+}
+
+.central .carrinho > button {
+    cursor: pointer;
+    border: 0;
+    margin-bottom: 16px;
+    display: none;     /* Java Script transforma para flex*/
+    align-items: center;
+    justify-content: space-around;
+    background: #E25EBF;
+    min-width: 92%;
+    min-height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FDFDFD;
+}
+
+.central .carrinho .itens div {
+    display: flex;
+    align-items: center;
+    color: #FDFDFD;
+    font-size: 15px;
+    max-width: 270px;
+    margin-bottom: 15px;
+}
+
+.central .carrinho .itens div div {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    min-width: 42px;
+    min-height: 63px;
+    background-size: contain;
+}
+
+.central .carrinho .itens div > span:nth-child(2) {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-left: 0px;
+    margin-right: 100px;
+    max-width: 20px;
+}
+
+.central .carrinho .itens div > span:nth-child(3) {
+    display: flex;
+    align-items: center;
+}
+
+.central .carrinho .itens div span button {
+    background-color: white;
+    border: 0;
+    min-width: 20px;
+    min-height: 20px;
+    font-size: 17px;
+}

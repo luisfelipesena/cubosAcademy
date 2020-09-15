@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sucesso {
+    position: absolute;
+    margin-top: 100px;
+}
+
+.musico {
+    position: relative;
+    top: 110px;
+    left: 130px;
+    margin-right: 40px;
+}
+
+button {
+    position: relative;
+    left: 164px;
+    top: 33px;
+    min-width: 456px;
+    min-height: 56px;
+    background: transparent;
+    border: 1px solid black;
+}

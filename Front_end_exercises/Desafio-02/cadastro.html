@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mainCss.css">
+    <link rel="stylesheet" href="cadastro.css">
+    <title>Cadastramento</title>
+</head>
+<body>
+    <div class="header">
+        <div class="conteudo">
+            <img src="./images/Arrow - Right 2.svg" alt="Logo">
+            <form action="">
+                <input type="text" placeholder="Pesquise filmes...">
+                <button><img src="./images/Search.png" alt="Lupa"></button>
+            </form>
+            <ul>
+                <li><img src="./images/Bookmark.png" alt="Bookmark"><a href="#">Favoritos</a></li>
+                <li><img src="./images/Discount.png" alt="Discount"><a href="#">Promoções</a></li>
+            </ul>
+            <span>Bem vindo Matheuso</span>
+            <img class="./images/fotoUser" src="./images/fotinha minha 1.svg" alt="Foto user">
+        </div>
+    </div>
+    <div class="central">
+        <div class="main">
+            <div class="informacoesIniciais">
+                <h2>Informacoes Iniciais</h2>
+                <form action="#">
+                    <label>
+                        <span>Insira seu nome completo</span>
+                        <input type="text" placeholder="Ex: Matheus Vinicius">
+                    </label>
+                    <label>
+                        <span>Insira seu e-mail</span>
+                        <input type="email" placeholder="Ex: matheusin@arroba.com">
+                    </label>
+                    <label>
+                        <span>Telefone</span>
+                        <input type="tel" placeholder="+55 (71) 9 9999-9999">
+                    </label>
+                    <button hidden></button>
+                </form>
+            </div>
+            <div class="informacoesEndereco">
+                <h2>Informacoes de Endereco</h2>
+                <form action="#">
+                    <label>
+                        <span>CEP</span>
+                        <input inputmode="numeric" placeholder="Ex: 00000-00">
+                    </label>
+                    <label>
+                        <span>Pais</span>
+                        <input type="text" placeholder= "Ex: Brasil">
+                    </label>
+                    <label>
+                        <span>Cidade</span>
+                        <input type="text" placeholder= "Ex: Salvador">
+                    </label>
+                    <label>
+                        <span>Bairro</span>
+                        <input type="text" placeholder= "Ex: Graça">
+                    </label>
+                    <label>
+                        <span>Número</span>
+                        <input inputmode="numeric" placeholder= "Ex: 00">
+                    </label>
+                    <button hidden></button>
+                </form>
+            </div>
+            <div class="informacoesPagamento">
+                <h2>Informacoes de Pagamento</h2>
+                <form action="#">
+                    <label>
+                        <span>Número do cartão</span>
+                        <input inputmode="numeric" placeholder= "Ex: 00000 00000 0000">
+                    </label>
+                    <label>
+                        <span>Nome do cartão</span>
+                        <input type="text" placeholder= "Ex: MATHEUS VINICIUS">
+                    </label>
+                    <label>
+                        <span>Data de expiração</span>
+                        <input type="text" placeholder= "MM/YYYY">
+                    </label>
+                    <label>
+                        <span>CVV</span>
+                        <input inputmode="numeric" placeholder= "000">
+                    </label>
+                    <button hidden></button>
+                </form>
+            </div>
+        </div>
+        <div class="carrinho">
+            <div class="sacola">
+                <img src="./images/Bag.png" alt="Sacola">
+                <span>Sacola</span>
+            </div>
+            <div class="itens">
+
+            </div>
+            <form action="#">
+                <label for="">
+                    <div class="divSubtotal"><span>Subtotal</span><span class="subtotal"></span></div>
+                    <span class="spanCupom">Insira seu cupom</span>
+                    <input class="inputCupom" type="text" placeholder="Cupom de desconto">
+                    <img class="inputCupom" src="./images/Stroke 7.png" alt="Cupom">
+                </label>
+            </form>
+            <button style= "display: block">Comprar Agora</button>
+        </div>
+    </div>
+    <script src="cadastro.js"></script>
+</body>
+</html>

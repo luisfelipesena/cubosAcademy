@@ -1,0 +1,51 @@
+.main {
+    margin-left: 100px;
+}
+
+.central .main .informacoesIniciais, .informacoesEndereco, .informacoesPagamento {
+    margin-top: -20px;
+    font-family: "Manrope";
+    max-width: 80%;
+    background: #171B1E;
+    min-height: 302px;
+}
+
+.central .main form {
+    margin: 30px 50px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.central .main h2 {
+    padding-top: 34px;
+    padding-left: 32px;
+    font-weight: 500;
+    font-size: 32px;
+    color: #FDFDFD;
+}
+
+.central .main span {
+    display: block;
+    font-weight: normal;
+    font-size: 12px;
+    color: #FDFDFD;
+    margin: 10px 0;
+}
+
+.central .main input {
+    margin-right: 23px;
+    margin-bottom: 15px;
+    background: #0B1217;
+    border: 0;
+    min-width: 330px;
+    min-height: 40px;
+    font-weight: normal;
+    font-size: 16px;
+    opacity: 0.4;
+    color: #FDFDFD;
+}
+
+.divSubtotal {
+    display: flex;
+    justify-content: space-between;
+}

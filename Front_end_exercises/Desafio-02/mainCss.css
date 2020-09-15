@@ -1,0 +1,232 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1D2226;
+    font-family: 'Manrope', sans-serif;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    min-width: 100%;
+    min-height: 100px;
+    max-height: 100px;
+    background-color: #0F1C26;
+}
+
+.header .conteudo {
+    display: flex; 
+    align-items: center;
+    margin-left: 120px;
+} 
+
+
+.header .conteudo form {
+    position: relative;
+}
+
+.header .conteudo form input {
+    padding-left: 15px; /*espaçamento do placeholder */
+    margin-left: 45px;
+    opacity: 0.8;
+    color: #FDFDFD;
+    font-size: 16px;
+    background-color: #171B1E;
+    border: 0;
+    min-width: 456px;
+    min-height: 50px;
+}
+
+.header .conteudo form button {
+    position: absolute;
+    cursor: pointer;
+    top: 15px;
+    right: 15px;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+}
+
+.header .conteudo ul{
+    padding: 0;
+    margin-left: 35px;
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+}
+
+.header .conteudo ul li {
+    display: flex;
+    align-items: center;
+    line-height: 35px;
+    margin-left: 88px;
+}
+
+.header .conteudo ul li a {
+    text-decoration: none;
+    color: #FDFDFD;
+    padding-left: 10px;
+    font-size: 15px; 
+}
+
+.header .conteudo > span {
+    margin-left: 250px;
+    padding-right: 15px;
+    color: #FDFDFD;
+    font-size: 15px;  
+}
+
+.header .conteudo .fotoUser {
+    margin-right: 20px;
+}
+
+.central {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-left: 120px;
+}
+
+.central .main {
+    min-width: 51vw;
+}
+
+.central .carrinho {
+    position: sticky;
+    top: 15px;
+    max-width: 312px;
+    margin-left: 50px;
+    margin-right: 300px;
+    min-width: 312px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.central .carrinho .sacola {
+    min-width: 100%;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(0deg, #A785ED, #A785ED), #C4C4C4;
+}
+
+.central .carrinho .sacola span {
+    padding-left: 15px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    color: #FDFDFD;
+}
+
+.central .carrinho form, .central .carrinho button {
+    margin: 0 16px 0px 10px;
+}
+
+.central .carrinho form span {
+    margin-bottom: 10px;
+}
+
+.central .carrinho .itens {
+    flex: 1;
+    margin: 10px 16px 30px 16px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.central .carrinho .itens p:nth-child(1) {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    color: #FDFDFD;
+}
+
+.central .carrinho .itens p:nth-child(2) {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #FDFDFD;
+    margin-bottom: 41px;
+    opacity: 0.8;
+}
+
+.central .carrinho label span {
+    display: block;
+    font-weight: normal;
+    font-size: 12px;
+    color: #FDFDFD;
+}
+
+.central .carrinho label input {
+    border: 0;
+    margin-top:15px;
+    padding-left: 5px;
+    min-width: 100%;
+    min-height: 40px;
+    background: #0B1217;
+    font-weight: normal;
+    color: #FDFDFD;
+    opacity: 0.4;
+}
+
+.central .carrinho label img {
+    position: relative;
+    left: 260px;
+    top: -30px;
+}
+
+.central .carrinho > button {
+    cursor: pointer;
+    border: 0;
+    margin-bottom: 16px;
+    display: none;     /* Java Script transforma para flex*/
+    align-items: center;
+    justify-content: space-around;
+    background: #E25EBF;
+    min-width: 92%;
+    min-height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FDFDFD;
+}
+
+.central .carrinho .itens div {
+    display: flex;
+    align-items: center;
+    color: #FDFDFD;
+    font-size: 15px;
+    max-width: 270px;
+    margin-bottom: 15px;
+}
+
+.central .carrinho .itens div div {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    min-width: 42px;
+    min-height: 63px;
+    background-size: contain;
+}
+
+.central .carrinho .itens div > span:nth-child(2) {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-left: 0px;
+    margin-right: 100px;
+    max-width: 20px;
+}
+
+.central .carrinho .itens div > span:nth-child(3) {
+    display: flex;
+    align-items: center;
+}
+
+.central .carrinho .itens div span button {
+    background-color: white;
+    border: 0;
+    min-width: 20px;
+    min-height: 20px;
+    font-size: 17px;
+}
