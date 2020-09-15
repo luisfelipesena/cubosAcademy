@@ -49,3 +49,15 @@
     display: flex;
     justify-content: space-between;
 }
+
+.erro {
+    outline: 1px solid red;
+}
+
+.main form input:hover {
+    outline: 1px solid #8C8C8C;
+}
+
+.main form input:focus {
+    outline: 1px solid #FDFDFD;;
+}

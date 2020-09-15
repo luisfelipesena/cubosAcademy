@@ -141,10 +141,17 @@
     margin-left: -20px;
 }
 
-.central .main .filmes .generos button:hover, .central .main .filmes .generos button:focus {
+.central .main .filmes .generos button:hover {
     background: rgba(225, 131, 200, 0.2);
     color:#E183C8;
     border: 2px solid #E183C8;
+    outline: 0;
+}
+
+.central .main .filmes .generos button:focus {
+    background: rgba(225, 131, 200, 0.2);
+    color:#E183C8;
+    border: 2px solid #A785ED;
     outline: 0;
 }
 
@@ -354,9 +361,21 @@
     align-items: center;
 }
 
-.central .carrinho .itens div span button {
-    background-color: white;
+.central .carrinho .itens .adicionarQtd{
+    cursor: pointer;
+    background-color: transparent;
     border: 0;
+    color: green;
+    min-width: 20px;
+    min-height: 20px;
+    font-size: 17px;
+}
+
+.central .carrinho .itens .removerQtd {
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    color: red;
     min-width: 20px;
     min-height: 20px;
     font-size: 17px;

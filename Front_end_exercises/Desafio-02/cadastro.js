@@ -51,9 +51,14 @@ const comprarAgora = document.querySelector(".carrinho > button");
 const inputs = document.querySelectorAll(".central form input");
 let x = 0;
 comprarAgora.addEventListener("click", () => {
-    for (let i = 0; i < inputs.length; i++) {
+    for (let i = 0; i < inputs.length - 1; i++) {
         if (inputs[i].value){
             x++;
+            inputs[i].classList.remove("erro");
+        }
+        
+        else {
+            inputs[i].classList.add("erro");
         }
     }
 
