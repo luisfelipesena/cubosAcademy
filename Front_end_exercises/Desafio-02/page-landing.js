@@ -126,12 +126,20 @@ function addSacola () {
     const botaoCarrinho = document.querySelector(".carrinho > button");
     const spanCarrinho = document.querySelector(".valorTotal");
     const botaoSacola = document.querySelectorAll(".precoFilme");
+    const spanCupom = document.querySelector(".spanCupom");
     botaoSacola.forEach(botao => {
         botao.addEventListener("click", (event) => {
             //add valorfilme ao valortotal
             let valorFilme = botao.innerText.split("\n");
             valorFilme = Number(valorFilme[1].slice(2));
-            valorTotal += valorFilme;
+            if (spanCupom.innerText === "Insira seu cupom") {
+                valorTotal += valorFilme;
+            }
+
+            else {
+                valorTotal += valorFilme * 0.7;
+            }
+            
             localStorage.setItem("valorTotal",valorTotal);
             spanCarrinho.innerHTML = `R$ ${valorTotal}`;
             botaoCarrinho.style["display"] = "flex";
