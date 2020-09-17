@@ -6,13 +6,6 @@ server.use(bodyparser());
 let produtos = [];
 let pedidos = [];
 
-/* Para adicionar um novo Pedido e um Novo Produto é necessário que sejam passados em formato
-de array, assim há a possibilidade da adição de +1 em uma vez só
-*/
-
-/* Os valores adicionados devem ser o valor normal, sem ser apenas em centavos
-*/
-
 const contexto = async (ctx) => {
     const url = ctx.url;
     const method = ctx.method;
@@ -86,7 +79,7 @@ const contexto = async (ctx) => {
                 }
 
                 else {
-                    sucesso(ctx,200,`Produto: ${resposta.nome} de id: ${resposta.id}, deletado com sucesso`);
+                    sucesso(ctx,200,resposta);
                 }
             }
 
@@ -195,7 +188,7 @@ const contexto = async (ctx) => {
                 }
 
                 else {
-                    sucesso(ctx,200,`Pedido de id: ${resposta.id}, deletado com sucesso`);
+                    sucesso(ctx,200,resposta);
                 }
             }
 
@@ -283,7 +276,7 @@ function atualizarProduto (id,body) {
 
     else {
         const index = produtos.indexOf(produto);
-        if (!body.nome && !body.quantidade && !body.valor && !body.peso) {
+        if (!body.nome && !body.quantidade && !body.valor && !body.peso && !body.estoqueMax) {
             return null;
         }
 
@@ -301,6 +294,10 @@ function atualizarProduto (id,body) {
 
         if (body.peso) {
             produtos[index].peso = body.peso;
+        }
+
+        if (body.estoqueMax) {
+            produtos[index].estoqueMax = body.estoqueMax;
         }
 
         return produtos[index];
@@ -362,27 +359,6 @@ function novoPedido (body) { //Pedido Adicionado em formato de Array (permite ad
     return pedidos.slice(-count);
 }
 
-function contabilizarQuantidadePedido (ctx,id,quantidade) {
-    const pedido = obterPedido(id);
-    if (!pedido) {
-        erro(ctx,404,"Pedido não encontrado")
-        return false;
-    }
-
-    else {
-        const index = pedidos.indexOf(pedido);
-        let valorTotal;
-        if (pedido.produtos) {
-            pedido.produtos.forEach(item => {
-                alterarQuantidadeProduto(item.id,quantidade,"-");
-                valorTotal = item.valor * item.quantidade;
-            })
-            pedidos[index].valorTotal = valorTotal;
-            return pedidos[index];
-        }   
-    }
-}
-
 function contabilizarPedido (ctx,id) {
     const pedido = obterPedido(id);
     if (!pedido) {
@@ -392,10 +368,10 @@ function contabilizarPedido (ctx,id) {
 
     else {
         const index = pedidos.indexOf(pedido);
-        let valorTotal;
+        let valorTotal = 0;
         if (pedido.produtos) {
             pedido.produtos.forEach(item => {
-                valorTotal = item.valor * item.quantidade;
+                valorTotal += item.valor * item.quantidade;
             })
             pedidos[index].valorTotal = valorTotal;
             return pedidos[index];
@@ -422,19 +398,6 @@ function alterarQuantidadeProduto (id,quantidade,add_remover) {
         }
     }
 
-}
-
-function modificarStatusPedido (id,status) {
-    const pedido = obterPedido(id);
-    if (!pedido) {
-        return null;
-    }
-
-    else {
-        const index = pedidos.indexOf(pedido);
-        pedidos[index].estado = status;
-        return true;
-    }
 }
 
 function obterPedido (id) {
@@ -479,7 +442,7 @@ function atualizarQuantidadeProdutoAdd (idPedido,idProduto,body,ctx) {
             if (pedidos[indexPedido].produtos[i].id == idProduto && pedidos[indexPedido].estado == "incompleto") {
                 if (produtos[indexProduto].estoqueMax >= body.quantidade) {
                     pedidos[indexPedido].produtos[i].quantidade = body.quantidade;
-                    contabilizarPedido(ctx,idPedido,body.quantidade);
+                    contabilizarPedido(ctx,idPedido);
                     return pedidos[indexPedido];
                 }
             }
@@ -521,25 +484,47 @@ function modificarPedido (id,body,ctx) {
                 }
                 return pedidos[index];
             }
-            return null;
+            return false;
         }
 
-        else if (obterProduto(body.id) && body.quantidade && body.valor && pedidos[index].estado == "incompleto" && pedidos[index].pedidos == undefined) { //Precisa do valor caso seja concedido algum desconto
+        else if (obterProduto(body.id) && body.quantidade && pedidos[index].estado == "incompleto") { 
+            const produto = obterProduto(body.id);
+            const indexProduto = produtos.indexOf(produto);
+            if (!produto) {
+                return null;
+            }
+
             body.valor = body.valor * 100;
             if (pedidos[index].produtos.length >= 1) {
                 for (let i = 0; i < pedidos[index].produtos.length; i++) {
-                    if (pedidos[index].produtos[i].id == body.id) {
+                    if (pedidos[index].produtos[i].id == body.id && produtos[indexProduto].quantidade >= pedidos[index].produtos[i].quantidade && body.quantidade >= 0) {
                         pedidos[index].produtos[i].quantidade += body.quantidade;
                         contabilizarPedido(ctx,id);
                         return pedidos[index];
                     }
                 }
+                if (produtos[indexProduto].quantidade >= body.quantidade && body.quantidade >= 0) {
+                    pedidos[index].produtos.push({["nome"]: produtos[indexProduto].nome, ["id"]: body.id,["quantidade"]: body.quantidade, ["valor"]: produtos[indexProduto].valor});
+                    contabilizarPedido(ctx,id);
+                    return pedidos[index];
+                }
+
+                else {
+                    return false;
+                }
             }
 
             else {
-                pedidos[index].produtos.push(body);
-                contabilizarPedido(ctx,id);
-                return pedidos[index];
+                if (produtos[indexProduto].quantidade >= body.quantidade && body.quantidade >= 0) {
+                    pedidos[index].produtos.push({["nome"]: produtos[indexProduto].nome, ["id"]: body.id,["quantidade"]: body.quantidade, ["valor"]: produtos[indexProduto].valor});
+                    contabilizarPedido(ctx,id);
+                    return pedidos[index];
+                }
+
+                else {
+                    return false;
+                }
+                
             }
             
         }
@@ -563,11 +548,11 @@ function deletarPedido (id) {
     else {
         const index = pedidos.indexOf(pedido);
         pedidos[index].deletado = true;
-        modificarStatusPedido(id,"cancelado");
-        pedidos[index].produtos.forEach(item => {
+        pedidos[index].estado = "cancelado";
+        pedidos[index].produtos.forEach((item,i) => {
            let produto = obterProduto(item.id);
            let index = produtos.indexOf(produto);
-           produtos[index].quantidade = produtos[index].estoqueMax;
+           produtos[index].quantidade += pedidos[index].produtos[i].quantidade;
         });
         return pedidos[index];
     }
