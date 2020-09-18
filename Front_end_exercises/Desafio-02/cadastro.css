@@ -2,10 +2,14 @@
     margin-left: 100px;
 }
 
+.central {
+    margin-left: 8vw;
+}
+
 .central .main .informacoesIniciais, .informacoesEndereco, .informacoesPagamento {
     margin-top: -20px;
     font-family: "Manrope";
-    max-width: 80%;
+    max-width: 85%;
     background: #171B1E;
     min-height: 302px;
 }
@@ -50,6 +54,12 @@
     justify-content: space-between;
 }
 
+.Subtotal {
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    color: #FDFDFD;
+}
+
 .erro {
     outline: 1px solid red;
 }
@@ -60,4 +70,14 @@
 
 .main form input:focus {
     outline: 1px solid #FDFDFD;;
+}
+
+.carrinho {
+    padding: 0 5px;
+    margin-left: -50px !important;
+}
+
+.central .carrinho .sacola {
+    background-color: transparent;
+    padding-bottom: 24px;
 }

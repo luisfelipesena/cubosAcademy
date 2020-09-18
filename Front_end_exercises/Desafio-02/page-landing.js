@@ -6,8 +6,8 @@ const inputCupom = document.querySelectorAll(".inputCupom"); //input + imagem
 const spanCupom = document.querySelector(".spanCupom");
 
 botaoCupom.addEventListener("click",()=> {
-    spanCupom.innerText = "HTMLNAOELINGUAGEM - (30% OFF)";
-    localStorage.setItem("spanCupom","HTMLNAOELINGUAGEM - (30% OFF)");
+    spanCupom.innerText = "CUPOM: HTMLNAOELINGUAGEM - (50% OFF) \n*desconto aplicado no subtotal*";
+    localStorage.setItem("spanCupom","HTMLNAOELINGUAGEM - (50% OFF)");
     inputCupom.forEach(item => item.setAttribute("hidden",""));
     cupom.innerHTML = "";
     clearInterval(idInterval);
@@ -58,10 +58,10 @@ function cupomContagem (count) {
 //Seção de Top Filmes
 const ulTopFilmes = document.querySelector(".topFilmes");
 const funcaoFetch = (url) => fetch(url).then(resposta => resposta.json())
-
+let filmes
 funcaoFetch("https://tmdb-proxy-workers.vhfmag.workers.dev/3/discover/movie?language=pt-BR")
     .then(respostaJson => {
-        let filmes = respostaJson.results;
+        filmes = respostaJson.results;
         adicionarTopFilmes(filmes);
     })
 
@@ -127,20 +127,12 @@ function addSacola () {
     const botaoCarrinho = document.querySelector(".carrinho > button");
     const spanCarrinho = document.querySelector(".valorTotal");
     const botaoSacola = document.querySelectorAll(".precoFilme");
-    const spanCupom = document.querySelector(".spanCupom");
     botaoSacola.forEach(botao => {
         botao.addEventListener("click", (event) => {
             //add valorfilme ao valortotal
             let valorFilme = botao.innerText.split("\n");
             valorFilme = Number(valorFilme[1].slice(2));
-            if (spanCupom.innerText === "Insira seu cupom") {
-                valorTotal += valorFilme;
-            }
-
-            else {
-                valorTotal += valorFilme * 0.7;
-            }
-            
+            valorTotal += valorFilme;
             localStorage.setItem("valorTotal",valorTotal);
             spanCarrinho.innerHTML = `R$ ${valorTotal}`;
             botaoCarrinho.style["display"] = "flex";
@@ -176,7 +168,7 @@ function addSacola () {
                             filme = filmesAdicionados[x];
                             const qtd = document.querySelectorAll(".contador");
                             qtd[i].innerText = filme.qtd;
-                            titulos[x].quantidade++;
+                            titulos[i].quantidade++;
                             localStorage.setItem("titulos",JSON.stringify(titulos));
                             return;
                         }
@@ -193,70 +185,45 @@ function addSacola () {
             if (filme.qtd === 1) {
                 titulos.push({["titulo"]: titulo.innerText, ["urlBackground"]: filme.urlStyle,["quantidade"]: filme.qtd, ["preco"]: filme.valorFilme});
                 localStorage.setItem("titulos",JSON.stringify(titulos));
-                botaoAddQuantidade.innerText = "+";
+                botaoAddQuantidade.style["background-image"] = `url(./images/add.png)`;
                 botaoAddQuantidade.classList.add("adicionarQtd");
                 spanQuantidade.append(botaoAddQuantidade);
                 spanQuantidade.innerHTML += `<span class="contador">${filme.qtd}</span>`;
-                botaoRemoverQuantidade.innerText = "-";
+                botaoRemoverQuantidade.style["background-image"] = `url(./images/Delete.png)`;
                 botaoRemoverQuantidade.classList.add("removerQtd");
                 spanQuantidade.append(botaoRemoverQuantidade);
                 divFilme.append(spanQuantidade);
                 itensCarrinho.append(divFilme);
-                const addItem = document.querySelectorAll(".adicionarQtd");
-                const removeItem = document.querySelectorAll(".removerQtd");
-
-                addItem.forEach((item,i) => {
-                    addItem[i].addEventListener("click",() => {
-                        localStorage.setItem("valorTotal",valorTotal);
-                        for (let x = 0; x < filmesAdicionados.length; x++) {
-                            if (filmesAdicionados[x].urlStyle === imagemFilme.style["background-image"]) {
-                                filmesAdicionados[x].qtd++;
-                                filme = filmesAdicionados[x];
-                                titulos[x].quantidade++;
-                                localStorage.setItem("titulos",JSON.stringify(titulos));
-                                const qtd = document.querySelectorAll(".contador");
-                                qtd[i].innerText = filme.qtd;
-                                let ValorFilme = filmesAdicionados[x].valorFilme;
-                                valorTotal += ValorFilme;
-                                localStorage.setItem("valorTotal",valorTotal);
-                                spanCarrinho.innerHTML = `R$ ${valorTotal}`;
-                                return;
-                            }
-                        }
-                    });
-    
-                    removeItem[i].addEventListener("click",() => {
-                        for (let x = 0; x < filmesAdicionados.length; x++) {
-                            if (filmesAdicionados[x].urlStyle === imagemFilme.style["background-image"]) {
-                                let ValorFilme = filmesAdicionados[x].valorFilme;
-                                filmesAdicionados[x].qtd--;
-                                if (filmesAdicionados[x].qtd === 0) {
-                                    valorTotal -= ValorFilme;
-                                    localStorage.setItem("valorTotal",valorTotal);
-                                    const Div = removeItem[i].closest("div");
-                                    Div.innerHTML = "";
-                                    spanCarrinho.innerHTML = `R$ ${valorTotal}`;
-                                    titulos.pop();
-                                    localStorage.setItem("titulos",JSON.stringify(titulos));
-                                    return;
-                                }
-    
-                                filme = filmesAdicionados[x];
-                                titulos[x].quantidade--;
-                                localStorage.setItem("titulos",JSON.stringify(titulos));
-                                const qtd = document.querySelectorAll(".contador");
-                                qtd[i].innerText = filme.qtd;
-                                valorTotal -= ValorFilme;
-                                localStorage.setItem("valorTotal",valorTotal);
-                                spanCarrinho.innerHTML = `R$ ${valorTotal}`;
-                                return;
-                            }
-                        }
-                    });
-                })  
             }
         })
     })  
+}
+
+function pesquisarFilme () {
+    const formPesquisa = document.querySelector(".conteudo form");
+    const topFilmes = document.querySelector(".topFilmes");
+    const allFilmes = document.querySelector(".allFilmes");
+    let titulos = allFilmes.querySelectorAll("li .titulo .tituloFilme span");
+    formPesquisa.addEventListener("submit", (event) => {
+        event.preventDefault();
+        let inputPesquisa = formPesquisa.querySelector("input");
+        let pesquisa = inputPesquisa.value;
+        if (pesquisa.length >= 12) {
+            pesquisa = `${pesquisa.slice(0,13)}...`;
+        }
+
+        for (let i = 0; i < titulos.length; i++) {
+            if (titulos[i].innerText.toLowerCase() == pesquisa.toLowerCase()) {
+                topFilmes.innerHTML = "";
+                topFilmes.append(titulos[i].closest("li"));
+                inputPesquisa.style["outline"] = "1px solid green";
+                return;
+            }  
+        }
+        inputPesquisa.style["outline"] = "1px solid red";
+        topFilmes.innerHTML = "";
+        adicionarTopFilmes(filmes)
+    })
 }
 
 function objetoFilme (titulo,qtd,urlStyle,valorFilme) {
@@ -277,6 +244,9 @@ function adicionarTopFilmes (filmes) {
 
         //add Título
         let titulo = filmes[i].title;
+        if (titulo.length >= 12) {
+            titulo = `${titulo.slice(0,13)}...`;
+        }
         const tituloDoFilme = document.createElement("span");
         tituloDoFilme.innerText = titulo;
         divTituloFilme.append(tituloDoFilme);
@@ -344,6 +314,9 @@ function adicionarFilmes (filmes,id) {
             
                 //add Título
                 let titulo = filmesEspecificos[i].title;
+                if (titulo.length >= 12) {
+                    titulo = `${titulo.slice(0,13)}...`;
+                }
                 const tituloDoFilme = document.createElement("span");
                 tituloDoFilme.innerText = titulo;
                 divTituloFilme.append(tituloDoFilme);
@@ -396,7 +369,10 @@ function adicionarFilmes (filmes,id) {
             }
             return;
         })
-        .then(reposta =>addSacola());
+        .then(reposta => {
+            pesquisarFilme();
+            addSacola();
+        });
     }
 
     else {
@@ -410,6 +386,9 @@ function adicionarFilmes (filmes,id) {
         
             //add Título
             let titulo = filmes[i].title;
+            if (titulo.length >= 12) {
+                titulo = `${titulo.slice(0,13)}...`;
+            }
             const tituloDoFilme = document.createElement("span");
             tituloDoFilme.innerText = titulo;
             divTituloFilme.append(tituloDoFilme);
@@ -461,6 +440,7 @@ function adicionarFilmes (filmes,id) {
             ulFilmes.append(li);   
         }
         addSacola();
+        pesquisarFilme()
     }
 }
 cupomContagem(300); //segundos

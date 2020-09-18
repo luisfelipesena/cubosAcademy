@@ -1,6 +1,5 @@
 const valorTotal = localStorage.getItem("valorTotal");
 const spanSubtotal = document.querySelector(".subtotal");
-spanSubtotal.innerHTML = `R$ ${valorTotal}`;
 
 const titulos = localStorage.getItem("titulos");
 let objetoTitulos = JSON.parse(titulos); //TITULOS = ITEM DO CARRINHO
@@ -11,8 +10,15 @@ const cupom = document.querySelector(".spanCupom");
 const spanCupom = localStorage.getItem("spanCupom");
 if (spanCupom) {
     cupom.innerText = spanCupom;
+    let desconto = valorTotal * 0.5
+    spanSubtotal.innerText = `R$ ${desconto}`
+
 }
 
+else {
+    spanSubtotal.innerText = `R$ ${valorTotal}`;
+}
+    
 //LOOP
 objetoTitulos.forEach(item => {
     const divPai = document.createElement("div");
@@ -38,7 +44,6 @@ objetoTitulos.forEach(item => {
     removerQtd.innerText = "-";
     removerQtd.classList.add("removerQtd");
 
-
     spanQtd.append(adicionarQtd);
     spanQtd.append(spanContador);
     spanQtd.append(removerQtd);
@@ -47,10 +52,6 @@ objetoTitulos.forEach(item => {
     divPai.append(spanQtd);
     divFilmes.append(divPai);
 })
-
-
-
-
 
 const comprarAgora = document.querySelector(".carrinho > button");
 const inputs = document.querySelectorAll(".central form input");

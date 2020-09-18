@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+
 body {
     display: flex;
     flex-flow: column;
@@ -5,24 +7,63 @@ body {
     justify-content: center;
 }
 
-.sucesso {
-    position: absolute;
-    margin-top: 100px;
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(40px);
+    min-width: 100% !important;
+    min-height: 443px !important;
+    min-width: 784px !important;
+    position: relative;
+    left: 100px;
+    top: 130px;
+}
+
+.informacoesSucesso {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+
+.informacoesSucesso img {
+    max-width: 82px;
+    max-height: 82px;
+}
+
+.informacoesSucesso h2 {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    color: #E8E8E8;
+}
+
+.informacoesSucesso p {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: -10px;
+    color: #E8E8E8;
+}
+
+.informacoesSucesso button {
+    background: #E25EBF;
+    border: 0;
+    min-width: 456px;
+    min-height: 56px;
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    color: #FDFDFD;
 }
 
 .musico {
     position: relative;
-    top: 110px;
-    left: 130px;
-    margin-right: 40px;
-}
-
-button {
-    position: relative;
-    left: 164px;
-    top: 33px;
-    min-width: 456px;
-    min-height: 56px;
-    background: transparent;
-    border: 1px solid black;
+    left: -100px;
+    top: 130px;
 }

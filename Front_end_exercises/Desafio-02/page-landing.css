@@ -3,6 +3,7 @@
     display: flex;
     flex-flow: column;
     max-height: 119px;
+    max-width: 980px;
     background: linear-gradient(39.6deg, #EE82D0 0.8%, #FFC8F0 141.63%);
     font-family: 'Quantico', sans-serif;
     color: #0F0915;
@@ -11,8 +12,8 @@
 
 .central .main .cupom .cabecalho {
     margin-left: 24px;
-    position: relative;
-    top: -160px;
+    position: absolute;
+    top: 90px;
     display: flex;
     align-items: center;
 }
@@ -45,13 +46,13 @@
 
 .central .main .cupom .cabecalho .money {
     position: relative;
-    left: 110px;
+    left: 75px;
     max-height: 175px;
 }
 
 .central .main .cupom .conteudo {
     position: relative;
-    top: -223px;
+    top: -50px;
     left: 15px;
     display: flex;
     align-items: center;
@@ -71,7 +72,7 @@
     position: absolute;
     top: 7px;
     left: 8px;
-    width: 16px;
+    max-width: 16px;
 }
 
 .central .main .cupom .conteudo .descricao {
@@ -91,10 +92,11 @@
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
+    margin-top: 40px;
 }
 
 .central .main .filmes h2:nth-child(1) {
-    margin-bottom: -70px;
+    margin-bottom: -60px;
 }
 
 .central .main .filmes ul {
@@ -117,11 +119,9 @@
 
 .central .main .filmes .generos {
     padding: 0;
-    margin-left: 23px;
     margin-bottom: -50px;
     display: flex;
-    justify-content: space-between;
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
 .central .main .filmes .generos button {
@@ -130,7 +130,8 @@
     justify-content: center;
     border: 2px solid #FFFFFF;
     min-width: 170px;
-    min-height: 30px;
+    min-height: 35px;
+    margin-bottom: 10px;
     background-color: transparent;
     font-family: 'Open Sans';
     font-style: normal;
@@ -138,7 +139,6 @@
     font-weight: 600;
     font-size: 16px;
     cursor: pointer;
-    margin-left: -20px;
 }
 
 .central .main .filmes .generos button:hover {
@@ -176,8 +176,7 @@
     min-width: 85%;
     max-width: 164px;
     max-height: 20px;
-    position: relative;
-    bottom: 35px;
+    margin-bottom: 10px;
 }
 
 .central .main .filmes ul li .titulo .tituloFilme span {
@@ -247,6 +246,7 @@
     align-items: center;
     justify-content: center;
     background: linear-gradient(0deg, #A785ED, #A785ED), #C4C4C4;
+    margin-bottom: 24px;
 }
 
 .central .carrinho .sacola span {
@@ -266,8 +266,6 @@
 }
 
 .central .carrinho .itens {
-    flex: 1;
-    margin: 10px 16px 30px 16px;
     display: flex;
     flex-flow: column;
     justify-content: space-between;
@@ -359,4 +357,21 @@
 .central .carrinho .itens div > span:nth-child(3) {
     display: flex;
     align-items: center;
+}
+
+.central .carrinho .itens div > span:nth-child(3) .adicionarQtd {
+    background-size: contain;
+}
+
+.central .carrinho .itens div > span:nth-child(3) .adicionarQtd:hover {
+    border: 1px solid green;
+}
+
+.central .carrinho .itens div > span:nth-child(3) .removerQtd {
+    background-size: contain;
+    margin-left: 15px;
+}
+
+.central .carrinho .itens div > span:nth-child(3) .removerQtd:hover {
+    border: 1px solid red;
 }
