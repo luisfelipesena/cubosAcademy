@@ -223,6 +223,7 @@ function pesquisarFilme () {
         inputPesquisa.style["outline"] = "1px solid red";
         topFilmes.innerHTML = "";
         adicionarTopFilmes(filmes)
+        addSacola()
     })
 }
 
