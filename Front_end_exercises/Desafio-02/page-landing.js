@@ -114,7 +114,7 @@ funcaoFetch("https://tmdb-proxy-workers.vhfmag.workers.dev/3/genre/movie/list?la
                 button.setAttribute("value",item.id);
             }
 
-            else if (item.name === "Thriller") {
+            else if (item.name === "Terror") {
                 const button = document.querySelector(".terror");
                 button.setAttribute("value",item.id);
             }
