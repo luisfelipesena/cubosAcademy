@@ -55,6 +55,25 @@ function cupomContagem (count) {
     },1000)
 }
 
+//Caso Escrevam o Cupom no input em vez de clicar
+const formCupom = document.querySelector(".carrinho form");
+formCupom.addEventListener("submit", (event) => {
+    let input = event.target.querySelector("input");
+    if (input.value.toLowerCase() == "htmlnaoelinguagem") {
+        spanCupom.innerText = "CUPOM: HTMLNAOELINGUAGEM - (50% OFF) \n*desconto aplicado no subtotal*";
+        localStorage.setItem("spanCupom","HTMLNAOELINGUAGEM - (50% OFF)");
+        inputCupom.forEach(item => item.setAttribute("hidden",""));
+        cupom.innerHTML = "";
+        clearInterval(idInterval);
+    }
+
+    else {
+        spanCupom.innerText = "Cupom Inválido";
+        setTimeout(() => spanCupom.innerText = "Insira seu cupom", 2000);
+    }
+})
+
+
 //Seção de Top Filmes
 const ulTopFilmes = document.querySelector(".topFilmes");
 const funcaoFetch = (url) => fetch(url).then(resposta => resposta.json())

@@ -75,12 +75,15 @@
     max-width: 16px;
 }
 
+.central .main .cupom .conteudo .descricao:nth-child(2) {
+    cursor: pointer;
+}
+
 .central .main .cupom .conteudo .descricao {
     font-family: 'Quantico';
     font-weight: normal;
     font-size: 16px;
     border: 0;
-    cursor: pointer;
     background-color: transparent;
     margin: -5px 110px 5px 10px;
     color: #0F0915;
@@ -119,7 +122,7 @@
 
 .central .main .filmes .generos {
     padding: 0;
-    margin-bottom: -50px;
+    margin-bottom: -70px;
     display: flex;
     opacity: 0.7;
 }
@@ -131,12 +134,11 @@
     border: 2px solid #FFFFFF;
     min-width: 170px;
     min-height: 35px;
-    margin-bottom: 10px;
     background-color: transparent;
-    font-family: 'Open Sans';
+    font-family: "Manrope";
     font-style: normal;
     color: #FFFFFF;
-    font-weight: 600;
+    font-weight: bold;
     font-size: 16px;
     cursor: pointer;
 }
@@ -291,7 +293,7 @@
 .central .carrinho label span {
     display: block;
     font-weight: normal;
-    font-size: 12px;
+    font-size: 13px;
     color: #FDFDFD;
 }
 

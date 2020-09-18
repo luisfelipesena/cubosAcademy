@@ -53,6 +53,28 @@ objetoTitulos.forEach(item => {
     divFilmes.append(divPai);
 })
 
+const formCupom = document.querySelector(".carrinho form");
+const inputCupom = document.querySelectorAll(".inputCupom");
+const SpanCupom = document.querySelector(".spanCupom");
+formCupom.addEventListener("submit", (event) => {
+    event.preventDefault();
+    let input = event.target.querySelector("input");
+    if (input.value.toLowerCase() == "htmlnaoelinguagem") {
+        SpanCupom.innerText = "CUPOM: HTMLNAOELINGUAGEM - (50% OFF) \n*desconto aplicado no subtotal*";
+        localStorage.setItem("spanCupom","HTMLNAOELINGUAGEM - (50% OFF)");
+        let descontoFinal = valorTotal * 0.5
+        spanSubtotal.innerText = `R$ ${descontoFinal}`
+        inputCupom.forEach(item => item.setAttribute("hidden",""));
+        cupom.innerHTML = "";
+        clearInterval(idInterval);
+    }
+
+    else {
+        SpanCupom.innerText = "Cupom Inválido";
+        setTimeout(() => SpanCupom.innerText = "Insira seu cupom", 2000);
+    }
+})
+
 const comprarAgora = document.querySelector(".carrinho > button");
 const inputs = document.querySelectorAll(".central form input");
 let x = 0;
