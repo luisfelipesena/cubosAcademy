@@ -159,11 +159,12 @@ function addSacola () {
             const botaoRemoverQuantidade = document.createElement("button");
             const divsImagens = document.querySelectorAll(".itens div div");
             filmesAdicionados.push(new objetoFilme(titulo,1,imagemFilme.style["background-image"],valorFilme)); 
-            
             for (let i = 0; i < divsImagens.length; i++) {
                 if (divsImagens[i].style["background-image"] === imagemFilme.style["background-image"]) {
                     for (let x = 0; x < filmesAdicionados.length; x++) {
                         if (filmesAdicionados[x].urlStyle === imagemFilme.style["background-image"]) {
+                            let remover = document.querySelector(".removerQtd");
+                            remover.style["background-image"] = `url(./images/menos.png)`;
                             filmesAdicionados[x].qtd++;
                             filme = filmesAdicionados[x];
                             const qtd = document.querySelectorAll(".contador");
@@ -181,7 +182,7 @@ function addSacola () {
                     filme = filmesAdicionados[i];
                 }
             }
-
+            
             if (filme.qtd === 1) {
                 titulos.push({["titulo"]: titulo.innerText, ["urlBackground"]: filme.urlStyle,["quantidade"]: filme.qtd, ["preco"]: filme.valorFilme});
                 localStorage.setItem("titulos",JSON.stringify(titulos));
@@ -194,6 +195,7 @@ function addSacola () {
                 spanQuantidade.append(botaoRemoverQuantidade);
                 divFilme.append(spanQuantidade);
                 itensCarrinho.append(divFilme);
+                return;
             }
         })
     })  
