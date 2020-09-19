@@ -81,3 +81,7 @@
     background-color: transparent;
     padding-bottom: 24px;
 }
+
+.adicionarQtd, .removerQtd {
+    background-size: contain !important; 
+}

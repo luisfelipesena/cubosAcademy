@@ -234,7 +234,7 @@ function pesquisarFilme () {
         }
 
         for (let i = 0; i < titulos.length; i++) {
-            if (titulos[i].innerText.toLowerCase() == pesquisa.toLowerCase()) {
+            if (titulos[i].innerText.slice(0,pesquisa.length).toLowerCase() == pesquisa.toLowerCase() && pesquisa.trim() != "") {
                 topFilmes.innerHTML = "";
                 topFilmes.append(titulos[i].closest("li"));
                 inputPesquisa.style["outline"] = "1px solid green";

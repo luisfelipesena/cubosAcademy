@@ -77,6 +77,7 @@
 
 .central .main .cupom .conteudo .descricao:nth-child(2) {
     cursor: pointer;
+    margin-left: -2px;
 }
 
 .central .main .cupom .conteudo .descricao {
@@ -111,13 +112,15 @@
     justify-content: space-between;
 }
 
-.central .main .filmes li:hover button {
+.central .main .filmes li button:hover {
     cursor: pointer;
-    outline: 1px solid red;
+    background: linear-gradient(0deg, rgba(225, 123, 123, 0.45), rgba(225, 123, 123, 0.45)), #FFB6EB !important;
+    box-shadow: 0px 16px 24px -12px rgba(226, 94, 191, 0.16) !important;
 }
 
 .central .main .filmes li button:focus {
-    outline: 1px solid green;
+    background: linear-gradient(0deg, rgba(225, 123, 123, 0.6), rgba(225, 123, 123, 0.6)), #FFB6EB !important;
+    box-shadow: 0px 16px 24px -12px rgba(226, 94, 191, 0.5) !important;
 }
 
 .central .main .filmes .generos {
@@ -175,7 +178,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-width: 85%;
+    min-width: 90%;
     max-width: 164px;
     max-height: 20px;
     margin-bottom: 10px;

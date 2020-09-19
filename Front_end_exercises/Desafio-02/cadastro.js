@@ -33,7 +33,7 @@ objetoTitulos.forEach(item => {
 
 
     const adicionarQtd = document.createElement("button");
-    adicionarQtd.innerText = "+";
+    adicionarQtd.style["background-image"] = `url(./images/add.png)`;
     adicionarQtd.classList.add("adicionarQtd");
 
     const spanContador = document.createElement("span");
@@ -41,7 +41,14 @@ objetoTitulos.forEach(item => {
     spanContador.innerText = item.quantidade;
 
     const removerQtd = document.createElement("button");
-    removerQtd.innerText = "-";
+    if (item.quantidade == 1) {
+        removerQtd.style["background-image"] = `url(./images/Delete.png)`;
+    }
+    
+    else {
+        removerQtd.style["background-image"] = `url(./images/menos.png)`;
+    }
+    
     removerQtd.classList.add("removerQtd");
 
     spanQtd.append(adicionarQtd);
