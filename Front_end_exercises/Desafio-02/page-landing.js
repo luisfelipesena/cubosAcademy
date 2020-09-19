@@ -1,3 +1,4 @@
+localStorage.clear(); //limpa o buffer
 //Banner de cupom de desconto
 const temporizador = document.querySelector(".temporizador");
 const cupom = document.querySelector(".cupom");
@@ -21,6 +22,17 @@ function cupomContagem (count) {
     count--; minutos--;
     let segundos = count % 60;
     idInterval = setInterval(async ()=> {
+        if (minutos === 0 && segundos === -1) {
+            cupom.innerHTML = "";
+            clearInterval(idInterval);
+            return;
+        }
+
+        else if (segundos === -1) {
+            segundos = 59;
+            minutos--;
+        }
+
         if (count >= 60) {
             if (segundos < 10) {
                 temporizador.innerText = `00:0${minutos}:0${segundos}`;
@@ -40,17 +52,7 @@ function cupomContagem (count) {
                 temporizador.innerText = `00:00:${segundos}`;
             }
         }
-
         count--;
-        if (minutos === 0 && segundos === -1) {
-            cupom.innerHTML = "";
-            clearInterval(idInterval);
-        }
-
-        else if (segundos === -1) {
-            segundos = 59;
-            minutos--;
-        }
         segundos--;
     },1000)
 }
@@ -229,8 +231,8 @@ function pesquisarFilme () {
         event.preventDefault();
         let inputPesquisa = formPesquisa.querySelector("input");
         let pesquisa = inputPesquisa.value;
-        if (pesquisa.length >= 12) {
-            pesquisa = `${pesquisa.slice(0,13)}...`;
+        if (pesquisa.length >= 11) {
+            pesquisa = `${pesquisa.slice(0,12)}...`;
         }
 
         for (let i = 0; i < titulos.length; i++) {
@@ -266,8 +268,8 @@ function adicionarTopFilmes (filmes) {
 
         //add Título
         let titulo = filmes[i].title;
-        if (titulo.length >= 12) {
-            titulo = `${titulo.slice(0,13)}...`;
+        if (titulo.length >= 11) {
+            titulo = `${titulo.slice(0,12)}...`;
         }
         const tituloDoFilme = document.createElement("span");
         tituloDoFilme.innerText = titulo;
@@ -336,8 +338,8 @@ function adicionarFilmes (filmes,id) {
             
                 //add Título
                 let titulo = filmesEspecificos[i].title;
-                if (titulo.length >= 12) {
-                    titulo = `${titulo.slice(0,13)}...`;
+                if (titulo.length >= 11) {
+                    titulo = `${titulo.slice(0,12)}...`;
                 }
                 const tituloDoFilme = document.createElement("span");
                 tituloDoFilme.innerText = titulo;
@@ -408,8 +410,8 @@ function adicionarFilmes (filmes,id) {
         
             //add Título
             let titulo = filmes[i].title;
-            if (titulo.length >= 12) {
-                titulo = `${titulo.slice(0,13)}...`;
+            if (titulo.length >= 11) {
+                titulo = `${titulo.slice(0,12)}...`;
             }
             const tituloDoFilme = document.createElement("span");
             tituloDoFilme.innerText = titulo;

@@ -97,14 +97,33 @@ comprarAgora.addEventListener("click", () => {
         }
     }
 
+    if (inputs[3].value && (inputs[3].value.length != 8 && inputs[3].value.length != 9)) {
+        inputs[3].classList.add("erro");
+        x--;
+    }
+
+    if (inputs[8].value && (inputs[8].value.length != 16 && inputs[8].value.length != 14)) {
+        inputs[8].classList.add("erro");
+        x--;
+    }
+
+    if (inputs[10].value && inputs[10].value.length != 7) {
+        inputs[10].classList.add("erro");
+        x--;
+    }
+
+    if (inputs[11].value && inputs[11].value.length != 3) {
+        inputs[11].classList.add("erro");
+        x--;
+    }
+
     if (x === 12) { //numero de inputs
         location.href = "./sucesso.html";
+        localStorage.clear();
     }
 
     else {
-        alert("Digite todo o formulário");
+        alert("Digite corretamente o formulário");
         x = 0;
     }
 })
-
-localStorage.clear();
