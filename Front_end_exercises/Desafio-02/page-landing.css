@@ -45,8 +45,7 @@
 }
 
 .central .main .cupom .cabecalho .money {
-    position: relative;
-    left: 75px;
+    margin-left: 75px;
     max-height: 175px;
 }
 
