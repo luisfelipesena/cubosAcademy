@@ -5,12 +5,14 @@ const cupom = document.querySelector(".cupom");
 const botaoCupom = document.querySelector(".botaoCupom");
 const inputCupom = document.querySelectorAll(".inputCupom"); //input + imagem
 const spanCupom = document.querySelector(".spanCupom");
+const corrigirMargem = document.querySelector(".central .main .filmes");
 
 botaoCupom.addEventListener("click",()=> {
     spanCupom.innerText = "CUPOM: HTMLNAOELINGUAGEM - (50% OFF) \n*desconto aplicado no subtotal*";
     localStorage.setItem("spanCupom","HTMLNAOELINGUAGEM - (50% OFF)");
     inputCupom.forEach(item => item.setAttribute("hidden",""));
     cupom.innerHTML = "";
+    corrigirMargem.style["margin-top"] = "-40px";
     clearInterval(idInterval);
 })
 
@@ -66,6 +68,7 @@ formCupom.addEventListener("submit", (event) => {
         localStorage.setItem("spanCupom","HTMLNAOELINGUAGEM - (50% OFF)");
         inputCupom.forEach(item => item.setAttribute("hidden",""));
         cupom.innerHTML = "";
+        corrigirMargem.style["margin-top"] = "-40px";
         clearInterval(idInterval);
     }
 
