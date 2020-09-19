@@ -187,8 +187,8 @@ function addSacola () {
                 if (divsImagens[i].style["background-image"] === imagemFilme.style["background-image"]) {
                     for (let x = 0; x < filmesAdicionados.length; x++) {
                         if (filmesAdicionados[x].urlStyle === imagemFilme.style["background-image"]) {
-                            let remover = document.querySelector(".removerQtd");
-                            remover.style["background-image"] = `url(./images/menos.png)`;
+                            let remover = document.querySelectorAll(".removerQtd");
+                            remover[i].style["background-image"] = `url(./images/menos.png)`;
                             filmesAdicionados[x].qtd++;
                             filme = filmesAdicionados[x];
                             const qtd = document.querySelectorAll(".contador");

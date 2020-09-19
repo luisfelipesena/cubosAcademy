@@ -201,8 +201,8 @@ body {
     align-items: center;
     color: #FDFDFD;
     font-size: 15px;
-    max-width: 270px;
     margin-bottom: 15px;
+    margin-left: 10px;
 }
 
 .central .carrinho .itens div div {
@@ -219,7 +219,8 @@ body {
     align-items: center;
     margin-left: 0px;
     margin-right: 100px;
-    max-width: 20px;
+    min-width: 40px;
+    max-width: 40px;
 }
 
 .central .carrinho .itens div > span:nth-child(3) {
@@ -230,7 +231,7 @@ body {
 .central .carrinho .itens div span button {
     background-color: white;
     border: 0;
-    min-width: 20px;
+    min-width: 19px;
     min-height: 20px;
     font-size: 17px;
 }
@@ -249,18 +250,11 @@ body {
     cursor: pointer;
     background-color: transparent;
     border: 0;
-    color: green;
-    min-width: 20px;
-    min-height: 20px;
-    font-size: 17px;
 }
 
 .central .carrinho .itens .removerQtd {
     cursor: pointer;
     background-color: transparent;
     border: 0;
-    color: red;
-    min-width: 20px;
-    min-height: 20px;
-    font-size: 17px;
+    margin-left: 15px;
 }
