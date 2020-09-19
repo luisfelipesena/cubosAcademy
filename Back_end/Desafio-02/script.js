@@ -286,6 +286,7 @@ function atualizarProduto (id,body) {
 
         if (body.quantidade) {
             produtos[index].quantidade = body.quantidade;
+            produtos[index].estoqueMax = body.quantidade;
         }
 
         if (body.valor) {
@@ -443,6 +444,9 @@ function atualizarQuantidadeProdutoAdd (idPedido,idProduto,body,ctx) {
                 if (produtos[indexProduto].estoqueMax >= body.quantidade) {
                     pedidos[indexPedido].produtos[i].quantidade = body.quantidade;
                     contabilizarPedido(ctx,idPedido);
+                    if (body.quantidade == 0) {
+                        pedidos[indexPedido].produtos.splice(i,1);
+                    }
                     return pedidos[indexPedido];
                 }
             }
@@ -530,7 +534,7 @@ function modificarPedido (id,body,ctx) {
         }
 
         else {
-            return false;
+            return null;
         }
     }
 
