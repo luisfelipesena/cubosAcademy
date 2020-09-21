@@ -85,3 +85,7 @@
 .adicionarQtd, .removerQtd {
     background-size: contain !important; 
 }
+
+.central .carrinho .itens div {
+    margin-left: 10px !important;
+}

@@ -60,6 +60,17 @@ body {
     font-size: 16px;
     text-align: center;
     color: #FDFDFD;
+    cursor: pointer;
+}
+
+.informacoesSucesso button:hover {
+    background: linear-gradient(0deg, rgba(225, 123, 123, 0.45), rgba(225, 123, 123, 0.45)), #FFB6EB;
+    box-shadow: 0px 16px 24px -12px rgba(226, 94, 191, 0.16);
+}
+
+.informacoesSucesso button:focus {
+    background: linear-gradient(0deg, rgba(225, 123, 123, 0.6), rgba(225, 123, 123, 0.6)), #FFB6EB;
+    box-shadow: 0px 16px 24px -12px rgba(226, 94, 191, 0.5);
 }
 
 .musico {

@@ -1,18 +1,20 @@
-const valorTotal = localStorage.getItem("valorTotal");
-const spanSubtotal = document.querySelector(".subtotal");
+let valorTotal = localStorage.getItem("valorTotal");
+let spanSubtotal = document.querySelector(".subtotal");
 
 const titulos = localStorage.getItem("titulos");
 let objetoTitulos = JSON.parse(titulos); //TITULOS = ITEM DO CARRINHO
 
 const divFilmes = document.querySelector(".carrinho .itens");
-
+const inputCupom = document.querySelectorAll(".inputCupom");
 const cupom = document.querySelector(".spanCupom");
 const spanCupom = localStorage.getItem("spanCupom");
-if (spanCupom) {
-    cupom.innerText = spanCupom;
-    let desconto = valorTotal * 0.5
-    spanSubtotal.innerText = `R$ ${desconto}`
 
+if (spanCupom && spanCupom.innerText != "Insira seu cupom") {
+    cupom.innerText = spanCupom;
+    valorTotal = valorTotal * 0.5
+    localStorage.setItem("valorTotal",valorTotal);
+    inputCupom.forEach(item => item.setAttribute("hidden",""));
+    spanSubtotal.innerText = `R$ ${valorTotal}`
 }
 
 else {
@@ -61,19 +63,17 @@ objetoTitulos.forEach(item => {
 })
 
 const formCupom = document.querySelector(".carrinho form");
-const inputCupom = document.querySelectorAll(".inputCupom");
 const SpanCupom = document.querySelector(".spanCupom");
 formCupom.addEventListener("submit", (event) => {
     event.preventDefault();
     let input = event.target.querySelector("input");
     if (input.value.toLowerCase() == "htmlnaoelinguagem") {
-        SpanCupom.innerText = "CUPOM: HTMLNAOELINGUAGEM - (50% OFF) \n*desconto aplicado no subtotal*";
         localStorage.setItem("spanCupom","HTMLNAOELINGUAGEM - (50% OFF)");
-        let descontoFinal = valorTotal * 0.5
-        spanSubtotal.innerText = `R$ ${descontoFinal}`
+        valorTotal = valorTotal * 0.5
+        localStorage.setItem("valorTotal",valorTotal);
+        spanSubtotal.innerText = `R$ ${valorTotal}`
         inputCupom.forEach(item => item.setAttribute("hidden",""));
         cupom.innerHTML = "";
-        clearInterval(idInterval);
     }
 
     else {

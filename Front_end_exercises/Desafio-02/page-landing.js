@@ -7,7 +7,7 @@ const inputCupom = document.querySelectorAll(".inputCupom"); //input + imagem
 const spanCupom = document.querySelector(".spanCupom");
 const corrigirMargem = document.querySelector(".central .main .filmes");
 
-botaoCupom.addEventListener("click",()=> {
+botaoCupom.addEventListener("click", ()=> { //Clique no cupom
     spanCupom.innerText = "CUPOM: HTMLNAOELINGUAGEM - (50% OFF) \n*desconto aplicado no subtotal*";
     localStorage.setItem("spanCupom","HTMLNAOELINGUAGEM - (50% OFF)");
     inputCupom.forEach(item => item.setAttribute("hidden",""));
@@ -18,7 +18,7 @@ botaoCupom.addEventListener("click",()=> {
 
 let idInterval;
 
-function cupomContagem (count) {
+function cupomContagem (count) { //contagem regressiva do cupom
     let minutos = Math.floor(count / 60).toFixed(0);
     temporizador.innerText = `00:0${minutos}:00`;
     count--; minutos--;
@@ -82,7 +82,7 @@ formCupom.addEventListener("submit", (event) => {
 //Seção de Top Filmes
 const ulTopFilmes = document.querySelector(".topFilmes");
 const funcaoFetch = (url) => fetch(url).then(resposta => resposta.json())
-let filmes
+let filmes;
 funcaoFetch("https://tmdb-proxy-workers.vhfmag.workers.dev/3/discover/movie?language=pt-BR")
     .then(respostaJson => {
         filmes = respostaJson.results;
@@ -243,12 +243,15 @@ function pesquisarFilme () {
                 topFilmes.innerHTML = "";
                 topFilmes.append(titulos[i].closest("li"));
                 inputPesquisa.style["outline"] = "1px solid green";
+                adicionarFilmes(filmes); //Para não retirar um filme da parte de todos os filmes
                 return;
             }  
         }
         inputPesquisa.style["outline"] = "1px solid red";
         topFilmes.innerHTML = "";
-        adicionarTopFilmes(filmes)
+        allFilmes.innerHTML = "";
+        adicionarTopFilmes(filmes);
+        adicionarFilmes(filmes);
         addSacola()
     })
 }
