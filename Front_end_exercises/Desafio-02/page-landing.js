@@ -62,6 +62,7 @@ function cupomContagem (count) { //contagem regressiva do cupom
 //Caso Escrevam o Cupom no input em vez de clicar
 const formCupom = document.querySelector(".carrinho form");
 formCupom.addEventListener("submit", (event) => {
+    event.preventDefault();
     let input = event.target.querySelector("input");
     if (input.value.toLowerCase() == "htmlnaoelinguagem") {
         spanCupom.innerText = "CUPOM: HTMLNAOELINGUAGEM - (50% OFF) \n*desconto aplicado no subtotal*";

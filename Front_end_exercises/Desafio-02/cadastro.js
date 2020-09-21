@@ -71,7 +71,7 @@ formCupom.addEventListener("submit", (event) => {
         localStorage.setItem("spanCupom","HTMLNAOELINGUAGEM - (50% OFF)");
         valorTotal = valorTotal * 0.5
         localStorage.setItem("valorTotal",valorTotal);
-        spanSubtotal.innerText = `R$ ${valorTotal}`
+        spanSubtotal.innerText = `R$ ${valorTotal} -> 50%`
         inputCupom.forEach(item => item.setAttribute("hidden",""));
         cupom.innerHTML = "";
     }
