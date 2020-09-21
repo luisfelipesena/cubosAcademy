@@ -25,6 +25,7 @@ function cupomContagem (count) { //contagem regressiva do cupom
     let segundos = count % 60;
     idInterval = setInterval(async ()=> {
         if (minutos === 0 && segundos === -1) {
+            corrigirMargem.style["margin-top"] = "-40px";
             cupom.innerHTML = "";
             clearInterval(idInterval);
             return;
