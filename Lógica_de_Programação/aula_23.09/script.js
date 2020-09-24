@@ -25,13 +25,7 @@ console.log(carro);
 
 //Questão 4 e 5 e 6- 
 const ordenar = (...args) => {
-    for (let i = 0; i < args.length; i++) {
-        for (let x = 0; x < args.length - 1; x++) {
-            if (args[x] > args[x+1]) {
-                [args[x],args[x+1]] = [args[x+1],args[x]];
-            }
-        }
-    }
+    args.sort((a,b) => a - b);
     console.log(args);
 }
 
