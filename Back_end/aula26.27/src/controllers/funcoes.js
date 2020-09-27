@@ -12,7 +12,7 @@ const obterProduto = (ctx) => {
 				return response(ctx, 200, produtos[i]);
 			}
 		}
-		return response(ctx, 404, 'Não Encontradoo');
+		return response(ctx, 404, 'Não Encontrado');
 	} else if (typeof ctx === 'number') {
 		const id = ctx;
 		for (let i = 0; i < produtos.length; i++) {
