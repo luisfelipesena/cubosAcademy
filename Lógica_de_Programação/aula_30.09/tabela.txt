@@ -1,0 +1,222 @@
+[
+    {
+        "nome": "Flamengo",
+        "jogos": 38,
+        "pontos": 90,
+        "vitorias": 28,
+        "derrotas": 4,
+        "empates": 6,
+        "golsFeitos": 86,
+        "golsSofridos": 37,
+        "saldo": 49
+    },
+    {
+        "nome": "Grêmio",
+        "jogos": 38,
+        "pontos": 65,
+        "vitorias": 19,
+        "derrotas": 11,
+        "empates": 8,
+        "golsFeitos": 64,
+        "golsSofridos": 39,
+        "saldo": 25
+    },
+    {
+        "nome": "Palmeiras",
+        "jogos": 38,
+        "pontos": 74,
+        "vitorias": 21,
+        "derrotas": 6,
+        "empates": 11,
+        "golsFeitos": 61,
+        "golsSofridos": 32,
+        "saldo": 29
+    },
+    {
+        "nome": "Santos",
+        "jogos": 38,
+        "pontos": 74,
+        "vitorias": 22,
+        "derrotas": 8,
+        "empates": 8,
+        "golsFeitos": 60,
+        "golsSofridos": 33,
+        "saldo": 27
+    },
+    {
+        "nome": "Fortaleza",
+        "jogos": 38,
+        "pontos": 53,
+        "vitorias": 15,
+        "derrotas": 15,
+        "empates": 8,
+        "golsFeitos": 50,
+        "golsSofridos": 47,
+        "saldo": 3
+    },
+    {
+        "nome": "Athletico-PR",
+        "jogos": 38,
+        "pontos": 64,
+        "vitorias": 18,
+        "derrotas": 10,
+        "empates": 10,
+        "golsFeitos": 49,
+        "golsSofridos": 32,
+        "saldo": 17
+    },
+    {
+        "nome": "Goiás",
+        "jogos": 38,
+        "pontos": 52,
+        "vitorias": 15,
+        "derrotas": 16,
+        "empates": 7,
+        "golsFeitos": 46,
+        "golsSofridos": 64,
+        "saldo": -18
+    },
+    {
+        "nome": "Atlético-MG",
+        "jogos": 38,
+        "pontos": 48,
+        "vitorias": 13,
+        "derrotas": 16,
+        "empates": 9,
+        "golsFeitos": 45,
+        "golsSofridos": 49,
+        "saldo": -4
+    },
+    {
+        "nome": "Inter-RS",
+        "jogos": 38,
+        "pontos": 57,
+        "vitorias": 16,
+        "derrotas": 13,
+        "empates": 9,
+        "golsFeitos": 44,
+        "golsSofridos": 39,
+        "saldo": 5
+    },
+    {
+        "nome": "Bahia",
+        "jogos": 38,
+        "pontos": 49,
+        "vitorias": 12,
+        "derrotas": 13,
+        "empates": 13,
+        "golsFeitos": 44,
+        "golsSofridos": 43,
+        "saldo": 1
+    },
+    {
+        "nome": "Corinthians",
+        "jogos": 38,
+        "pontos": 56,
+        "vitorias": 14,
+        "derrotas": 10,
+        "empates": 14,
+        "golsFeitos": 42,
+        "golsSofridos": 34,
+        "saldo": 8
+    },
+    {
+        "nome": "São Paulo",
+        "jogos": 38,
+        "pontos": 63,
+        "vitorias": 17,
+        "derrotas": 9,
+        "empates": 12,
+        "golsFeitos": 39,
+        "golsSofridos": 30,
+        "saldo": 9
+    },
+    {
+        "nome": "Vasco",
+        "jogos": 38,
+        "pontos": 49,
+        "vitorias": 12,
+        "derrotas": 13,
+        "empates": 13,
+        "golsFeitos": 39,
+        "golsSofridos": 45,
+        "saldo": -6
+    },
+    {
+        "nome": "Fluminense",
+        "jogos": 38,
+        "pontos": 46,
+        "vitorias": 12,
+        "derrotas": 16,
+        "empates": 10,
+        "golsFeitos": 38,
+        "golsSofridos": 46,
+        "saldo": -8
+    },
+    {
+        "nome": "Ceará",
+        "jogos": 38,
+        "pontos": 39,
+        "vitorias": 10,
+        "derrotas": 19,
+        "empates": 9,
+        "golsFeitos": 36,
+        "golsSofridos": 41,
+        "saldo": -5
+    },
+    {
+        "nome": "Botafogo",
+        "jogos": 38,
+        "pontos": 43,
+        "vitorias": 13,
+        "derrotas": 21,
+        "empates": 4,
+        "golsFeitos": 31,
+        "golsSofridos": 45,
+        "saldo": -14
+    },
+    {
+        "nome": "Chapecoense",
+        "jogos": 38,
+        "pontos": 32,
+        "vitorias": 7,
+        "derrotas": 20,
+        "empates": 11,
+        "golsFeitos": 31,
+        "golsSofridos": 52,
+        "saldo": -21
+    },
+    {
+        "nome": "Cruzeiro",
+        "jogos": 38,
+        "pontos": 36,
+        "vitorias": 7,
+        "derrotas": 16,
+        "empates": 15,
+        "golsFeitos": 27,
+        "golsSofridos": 46,
+        "saldo": -19
+    },
+    {
+        "nome": "CSA",
+        "jogos": 38,
+        "pontos": 32,
+        "vitorias": 8,
+        "derrotas": 22,
+        "empates": 8,
+        "golsFeitos": 24,
+        "golsSofridos": 58,
+        "saldo": -34
+    },
+    {
+        "nome": "Avaí",
+        "jogos": 38,
+        "pontos": 20,
+        "vitorias": 3,
+        "derrotas": 24,
+        "empates": 11,
+        "golsFeitos": 18,
+        "golsSofridos": 62,
+        "saldo": -44
+    }
+]
