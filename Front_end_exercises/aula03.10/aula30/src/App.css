@@ -1,0 +1,12 @@
+.App {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.imagem {
+  min-width: 400px;
+  min-height: 400px;
+}
