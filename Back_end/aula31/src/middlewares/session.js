@@ -3,7 +3,11 @@ require('dotenv').config();
 const response = require('../controllers/response');
 
 const verify = async (ctx, next) => {
-	const [bearer, token = null] = ctx.headers.authorization.split(' ');
+	const { authorization = null } = ctx.headers;
+	if (!authorization) {
+		return response(ctx, 403, 'Ação proibida');
+	}
+	const [bearer, token = null] = authorization.split(' ');
 	try {
 		const verification = await jwt.verify(token, process.env.JWT_SECRET);
 		ctx.state.userId = verification.id;
