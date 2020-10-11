@@ -1,0 +1,28 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  font-size: 2rem;
+  width: 1.5em;
+  height: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: center;
+}
+
+td + td {
+  border-left: 2px solid black;
+}
+
+tr + tr {
+  border-top: 2px solid black;
+}
