@@ -22,7 +22,7 @@ const autenticar = async (ctx) => {
 					expiresIn: '1h',
 				}
 			);
-			return response(ctx, 200, { mensagem: token });
+			return response(ctx, 200, { token });
 		}
 	}
 
