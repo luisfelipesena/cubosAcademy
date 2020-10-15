@@ -1,0 +1,26 @@
+.AppMain {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.App {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+input {
+  padding: 5px;
+  margin: 10px 20px 5px 0px;
+}
+
+.invalida,
+.erro {
+  font-size: 18px;
+  color: red;
+}
+
+.erro {
+  margin-top: 10px;
+}
