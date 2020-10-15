@@ -1,38 +1,44 @@
 import React from "react";
 import "./App.css";
 
-function dataEhValida(data) {
-  const barras = data.toString().split("/");
-  const formatado = `${barras[2]}/${barras[1]}/${barras[0]}`;
-  if (barras[2] !== undefined && barras[2][0] !== undefined) {
-    return !Number.isNaN(new Date(formatado).valueOf()) && barras[2][0];
+const formatarData = (dataString) => {
+  const [dia = null, mes = null, ano = null] = dataString.split("/");
+  if (
+    !dia ||
+    !mes ||
+    !ano ||
+    Number(mes) > 12 ||
+    Number(mes) < 1 ||
+    Number(dia) < 1 ||
+    Number(dia) > 31
+  ) {
+    return new Date(NaN);
   }
-  return false;
+  return new Date(ano, mes - 1, dia);
+};
+
+function dataEhValida(data) {
+  return !Number.isNaN(data.valueOf());
 }
 
-function dataPartidaRetorno(partida, retorno) {
-  const barrasPartida = partida.toString().split("/");
-  const formatadoPartida = `${barrasPartida[2]}/${barrasPartida[1]}/${barrasPartida[0]}`;
-  const barrasRetorno = retorno.toString().split("/");
-  const formatadoRetorno = `${barrasRetorno[2]}/${barrasRetorno[1]}/${barrasRetorno[0]}`;
-  if (!dataEhValida(partida) || !dataEhValida(retorno)) {
+function erroPosterior(partida, retorno) {
+  if (
+    !dataEhValida(formatarData(partida)) ||
+    !dataEhValida(formatarData(retorno))
+  ) {
     return true;
-  } else if (+new Date(formatadoPartida) > +new Date(formatadoRetorno)) {
-    return false;
   } else {
-    return true;
+    if (+formatarData(partida) > +formatarData(retorno)) {
+      return false;
+    } else {
+      return true;
+    }
   }
 }
 
 function App() {
-  const [partida, mudarPartida] = React.useState({
-    valor: "",
-    esconder: true,
-  });
-  const [retorno, mudarRetorno] = React.useState({
-    valor: "",
-    esconder: true,
-  });
+  const [partida, mudarPartida] = React.useState("");
+  const [retorno, mudarRetorno] = React.useState("");
 
   return (
     <div className="AppMain">
@@ -41,39 +47,40 @@ function App() {
           <div>Partida</div>
           <input
             onInput={(ev) => {
-              mudarPartida({
-                ...partida,
-                valor: ev.target.value,
-              });
+              mudarPartida(ev.target.value);
             }}
           />
-          {!dataEhValida(partida.valor) && partida.valor !== "" ? (
-            <div className="invalida">Data inválida</div>
-          ) : (
-            ""
-          )}
+          <div
+            className="invalida"
+            hidden={partida === "" ? true : dataEhValida(formatarData(partida))}
+          >
+            Data inválida
+          </div>
         </label>
         <label>
           <div>Retorno</div>
           <input
             onInput={(ev) => {
-              mudarRetorno({
-                ...retorno,
-                valor: ev.target.value,
-              });
+              mudarRetorno(ev.target.value);
             }}
           />
-          {!dataEhValida(retorno.valor) && retorno.valor !== "" ? (
-            <div className="invalida">Data inválida</div>
-          ) : (
-            ""
-          )}
+          <div
+            className="invalida"
+            hidden={retorno === "" ? true : dataEhValida(formatarData(retorno))}
+          >
+            Data inválida
+          </div>
         </label>
       </div>
-      <div className="erro">
-        {dataPartidaRetorno(partida.valor, retorno.valor)
-          ? ""
-          : "A data de partida é posterior à de retorno."}
+      <div
+        className="erro"
+        hidden={
+          partida === "" || retorno === ""
+            ? true
+            : erroPosterior(partida, retorno)
+        }
+      >
+        A data de partida é posterior à de retorno.
       </div>
     </div>
   );
