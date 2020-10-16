@@ -1,5 +1,5 @@
 /* Questão 1 */
-/* .App {
+.App {
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -44,10 +44,10 @@ li {
 
 .clicado {
   outline: 1px solid red;
-} */
+}
 
 /* Questão 2 */
-/* body {
+body {
   background-color: #f3f3f3;
   margin: 1em;
 }
@@ -83,11 +83,11 @@ li {
 .ultimo {
   margin: 2rem 0;
   font-size: 3em;
-} */
+}
 
 /* Questão 3 */
 
-/* .App {
+.App {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
@@ -121,7 +121,7 @@ td:nth-child(2),
 th:nth-child(2) {
   text-align: left;
   padding-left: 10px;
-} */
+}
 
 /* Questão 4 */
 body {
@@ -135,9 +135,16 @@ body {
   color: hsl(224.2, 30%, 25%);
 }
 
+h1 {
+  text-align: center;
+}
+
 ul {
   list-style-type: none;
   display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
   margin: -1em;
 }
 
@@ -147,4 +154,9 @@ li {
 
 h2 {
   font-size: 1.25em;
+}
+
+.descricao {
+  display: flex;
+  flex-flow: column wrap;
 }
