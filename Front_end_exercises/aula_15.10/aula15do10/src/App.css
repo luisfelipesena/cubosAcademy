@@ -1,0 +1,150 @@
+/* Questão 1 */
+/* .App {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.mainDiv {
+  margin-bottom: 25px;
+}
+
+img {
+  width: 250px;
+  height: 140px;
+}
+
+.mainImg {
+  width: 500px;
+  height: 300px;
+}
+
+ul,
+li {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+li {
+  margin-bottom: 20px;
+  margin-left: 10px;
+  padding: 2px 2px 5px 2px;
+}
+
+.clicado {
+  outline: 1px solid red;
+} */
+
+/* Questão 2 */
+/* body {
+  background-color: #f3f3f3;
+  margin: 1em;
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+ul {
+  display: flex;
+  flex-flow: row wrap;
+  margin: -1em;
+}
+
+li {
+  margin: 1em;
+  background-color: white;
+  padding: 0.5em;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+    0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+    0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+}
+
+.dia {
+  font-weight: bold;
+  font-size: 1.25em;
+  margin-bottom: 0.5rem;
+}
+
+.ultimo {
+  margin: 2rem 0;
+  font-size: 3em;
+} */
+
+/* Questão 3 */
+
+/* .App {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+table {
+  min-width: 50vw;
+  text-align: center;
+}
+
+table,
+tr,
+td,
+th {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+button {
+  margin-left: 5px;
+}
+
+td {
+  padding: 0.25em;
+}
+
+td:nth-child(2),
+th:nth-child(2) {
+  text-align: left;
+  padding-left: 10px;
+} */
+
+/* Questão 4 */
+body {
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: hsl(224.2, 30%, 75%);
+  color: hsl(224.2, 30%, 25%);
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  margin: -1em;
+}
+
+li {
+  margin: 1em;
+}
+
+h2 {
+  font-size: 1.25em;
+}
