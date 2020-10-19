@@ -45,6 +45,11 @@ body {
   color: white;
   font-weight: bold;
   font-size: 2em;
+  transition: 0.5s;
+}
+
+.conteudo h1:hover {
+  color: red;
 }
 
 .direita {
@@ -137,8 +142,18 @@ body {
 
 .centro .jogos .cabecalho button {
   border: 0;
+  outline: 0;
   background-color: transparent;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.centro .jogos .cabecalho button:nth-child(1):hover {
+  transform: rotate(360deg);
+}
+
+.centro .jogos .cabecalho button:nth-child(3):hover {
+  transform: rotate(360deg);
 }
 
 .centro .jogos .jogosRodada {
@@ -154,7 +169,7 @@ body {
 .centro .jogos .jogosRodada li {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   font-size: 1.1em;
   padding: 0.5em;
@@ -184,11 +199,15 @@ body {
   right: -2.5em;
   display: flex;
   align-items: center;
-  background-color: transparent;
   border: 0;
   border-radius: 50%;
   background-color: rgb(138, 185, 157);
   padding: 0.2em;
+  transition: 0.3s;
+}
+
+.centro .jogos .jogosRodada li button:hover {
+  padding: 0.5em;
 }
 
 .tabela {
@@ -262,4 +281,18 @@ tbody tr td:nth-child(1) {
 
 td {
   text-align: right;
+}
+
+.lugar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: rgba(12, 150, 12, 0.8);
+}
+
+.icones {
+  margin-left: 1em;
+  margin-right: auto;
+  width: 20px;
+  height: 20px;
 }

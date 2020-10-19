@@ -41,7 +41,8 @@ const schema = {
  * Para evitar duplicações, primordialmente deleta todas as informações da tabela
  */
 const insertJogos = async () => {
-	await db.query(`DELETE FROM jogos`);
+	await drop('jogos');
+	await up(1);
 	const sql = await lerJogos('./jogos.sql');
 	return db.query(sql.toString());
 };
