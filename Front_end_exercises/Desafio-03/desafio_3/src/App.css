@@ -1,5 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Sora", sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.App {
+  display: flex;
+  flex-flow: column;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  background-color: rgb(236, 235, 220);
+}
+
+.header {
+  width: 100%;
+  max-height: 70px;
+  background-color: #2b7148;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em 2em;
+}
+
+.conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 0 1 1200px;
+}
+
+.conteudo h1 {
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.direita {
+  margin-left: 2em;
+}
+
+.direita form {
+  display: flex;
+  align-items: center;
+}
+
+.direita form > label {
+  margin-right: 2.5em;
+}
+
+.direita form span {
+  font-size: 1em;
+  font-weight: lighter;
+  color: white;
+  margin-right: 0.5em;
+}
+
+.direita form input {
+  border: 2px solid transparent;
+  padding: 0.3em 0.5em;
+  border-radius: 0.3em;
+  transition: 0.5s;
+}
+
+.direita form input:hover {
+  box-shadow: 0px 5px 0px 0px red;
+}
+
+.direita form input:focus {
+  box-shadow: 0px 5px 0px 0px blue;
+}
+
+.direita form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 0.3em;
+  height: 2em;
+  color: white;
+  background-color: #04375c;
+  padding: 1em 2em;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.direita form button:hover {
+  box-shadow: 0px 5px 0px 0px red;
+}
+
+.direita form button:focus {
+  box-shadow: 0px 5px 0px 0px blue;
+}
+
+.colunas {
+  display: flex;
+  justify-content: center;
+  padding: 2em;
+}
+
+.centro {
+  width: 100%;
+  flex: 0 1 1200px;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+}
+
+.centro .jogos {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  width: 100%;
+  flex: 0 1 400px;
+  background-color: white;
+  margin-bottom: 2em;
+}
+
+.centro .jogos .cabecalho {
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(138, 185, 157);
+}
+
+.centro .jogos .cabecalho button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.centro .jogos .jogosRodada {
+  display: flex;
+  justify-content: center;
+}
+
+.centro .jogos .jogosRodada ul {
+  width: 100%;
+  flex: 0 1 300px;
+}
+
+.centro .jogos .jogosRodada li {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1em;
+  padding: 0.5em;
+}
+
+.centro .jogos .jogosRodada li div {
+  display: flex;
+  flex: 0 1 300px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.centro .jogos .jogosRodada li .gols {
+  font-size: 1.5em;
+}
+
+.centro .jogos .jogosRodada li div input {
+  max-width: 50px;
+  max-height: 30px;
+  padding: 0.5em;
+  font-size: 1em !important;
+}
+
+.centro .jogos .jogosRodada li button {
+  position: absolute;
+  right: -2.5em;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgb(138, 185, 157);
+  padding: 0.2em;
+}
+
+.tabela {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  flex: 0 1 719px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+thead {
+  font-size: 1.2em;
+  background-color: rgb(138, 185, 157);
+}
+
+thead tr th {
+  padding: 0.2em;
+}
+
+thead tr th span {
+  text-decoration: underline dotted;
+}
+
+.posicao,
+.time {
+  text-decoration: none;
+}
+
+.time {
+  text-align: left;
+}
+
+thead tr button {
+  margin-left: 0.8em;
+  background-color: transparent;
+  border: 0;
+  transition: 0.3s;
+}
+
+thead tr img {
+  max-height: 1.3em;
+}
+
+thead tr button:hover {
+  transform: rotate(15deg);
+}
+
+thead tr button:focus {
+  transform: rotate(0);
+}
+
+tbody {
+  background-color: white;
+}
+
+tbody tr td {
+  padding-top: 0.3em;
+  padding-right: 0.5em;
+}
+
+tbody tr td:nth-child(2) {
+  padding-right: 0em;
+}
+
+tbody tr td:nth-child(1) {
+  padding-right: 1em;
+}
+
+td {
+  text-align: right;
 }
