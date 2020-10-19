@@ -38,8 +38,10 @@ const schema = {
 
 /**
  * Função exclusiva para que adiciona na tabela jogos um sql inserindo os dados jogo a jogo
+ * Para evitar duplicações, primordialmente deleta todas as informações da tabela
  */
 const insertJogos = async () => {
+	await db.query(`DELETE FROM jogos`);
 	const sql = await lerJogos('./jogos.sql');
 	return db.query(sql.toString());
 };
@@ -62,16 +64,16 @@ const drop = async (table = null) => {
 };
 
 /**
- * Caso queira criar as tabelas
+ * cria as tabelas
  */
 up()
 	/**
-	 * Caso queira inserir na tabela jogos o seu sql com jogo a jogo
+	 * insere na tabela jogos o seu sql com jogo a jogo
 	 */
 	.then(() => insertJogos())
 
 	/**
-	 * Caso queira formatar a tabela e adicionar no banco de dados
+	 * formata a tabela e adiciona no banco de dados
 	 */
 	.then(() => formatarTabela());
 

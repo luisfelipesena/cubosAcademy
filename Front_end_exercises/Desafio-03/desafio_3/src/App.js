@@ -159,14 +159,13 @@ function App() {
 }
 
 async function autenticar(ev = null, email, senha) {
-  ev.preventDefault();
   const result = await fazerRequisicaoComBody(
     "http://localhost:8081/classificacao",
     "GET"
   );
   alert(result);
 }
-
+autenticar();
 /**
  * Função que formata o html necessário para o funcionamento da tabela
  */

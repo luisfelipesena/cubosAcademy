@@ -2,10 +2,12 @@ const Koa = require('koa');
 const bodyparser = require('koa-bodyparser');
 const router = require('./src/routes');
 const response = require('./src/utils/response');
+const cors = require('cors');
 
 const server = new Koa();
 require('dotenv').config();
 
+server.use(cors());
 server.use(bodyparser());
 server.use(router.routes());
 
