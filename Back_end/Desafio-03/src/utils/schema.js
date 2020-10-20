@@ -33,17 +33,28 @@ const schema = {
 		gols_feitos int not null default 0,
 		gols_sofridos int not null default 0,
 		saldo_de_gols int not null default 0
-	)`,
+	);`,
+
+	4: `CREATE TABLE IF NOT EXISTS times (
+		id SERIAL,
+		time varchar(255),
+		link_imagem varchar(255)
+	);`
 };
 
 /**
  * Função exclusiva para que adiciona na tabela jogos um sql inserindo os dados jogo a jogo
- * Para evitar duplicações, primordialmente deleta todas as informações da tabela
+ * e inseri na tabela times, o nome do time e seus respectivos links de logo
+ * Para evitar duplicações, é necessário apagar a tabela e fazer uma reinserção
  */
 const insertJogos = async () => {
 	await drop('jogos');
 	await up(1);
-	const sql = await lerJogos('./jogos.sql');
+	await drop('times');
+	await up(4)
+	let sql = await lerJogos('./jogos.sql');
+	await db.query(sql.toString());
+	sql = await lerJogos('./linkImagens.sql');
 	return db.query(sql.toString());
 };
 
@@ -65,16 +76,16 @@ const drop = async (table = null) => {
 };
 
 /**
- * cria as tabelas
+ * Caso queira criar as tabelas
  */
 up()
 	/**
-	 * insere na tabela jogos o seu sql com jogo a jogo
+	 * Caso queira inserir na tabela jogos o seu sql com jogo a jogo
 	 */
 	.then(() => insertJogos())
 
 	/**
-	 * formata a tabela e adiciona no banco de dados
+	 * Caso queira formatar a tabela e adicionar no banco de dados
 	 */
 	.then(() => formatarTabela());
 

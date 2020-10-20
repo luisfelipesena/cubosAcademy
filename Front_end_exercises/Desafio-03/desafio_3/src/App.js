@@ -12,44 +12,7 @@ const images = {
   caneta: "https://systemuicons.com/images/icons/pen.svg",
 };
 
-const linkLogos = {
-  flamengo:
-    "https://s.glbimg.com/es/sde/f/organizacoes/2018/04/10/Flamengo-2018.svg",
-  internacional:
-    "https://s.glbimg.com/es/sde/f/organizacoes/2018/03/11/internacional.svg",
-  atleticoMg:
-    "https://s.glbimg.com/es/sde/f/organizacoes/2018/03/10/atletico-mg.svg",
-  saoPaulo:
-    "https://s.glbimg.com/es/sde/f/organizacoes/2018/03/11/sao-paulo.svg",
-  santos: "https://s.glbimg.com/es/sde/f/organizacoes/2018/03/12/santos.svg",
-  fluminense:
-    "https://s.glbimg.com/es/sde/f/organizacoes/2018/03/11/fluminense.svg",
-  fortaleza:
-    "https://s.glbimg.com/es/sde/f/organizacoes/2018/06/10/optimised.svg",
-  palmeiras:
-    "https://s.glbimg.com/es/sde/f/organizacoes/2019/07/06/Palmeiras.svg",
-  atleticoGo:
-    "https://s.glbimg.com/es/sde/f/organizacoes/2020/07/02/atletico-go-2020.svg",
-  gremio: "https://s.glbimg.com/es/sde/f/organizacoes/2018/03/12/gremio.svg",
-  sport: "https://s.glbimg.com/es/sde/f/organizacoes/2018/03/11/sport.svg",
-  ceara: "https://s.glbimg.com/es/sde/f/organizacoes/2019/10/10/ceara.svg",
-  vasco: "https://s.glbimg.com/es/sde/f/organizacoes/2018/03/11/vasco.svg",
-  corinthians:
-    "https://s.glbimg.com/es/sde/f/organizacoes/2019/09/30/Corinthians.svg",
-  botafogo:
-    "https://s.glbimg.com/es/sde/f/organizacoes/2019/02/04/botafogo-svg.svg",
-  bahia: "https://s.glbimg.com/es/sde/f/organizacoes/2018/03/11/bahia.svg",
-  athleticoPr:
-    "https://s.glbimg.com/es/sde/f/organizacoes/2019/09/09/Athletico-PR.svg",
-  coritiba:
-    "https://s.glbimg.com/es/sde/f/organizacoes/2018/03/11/coritiba.svg",
-  bragantino: "https://s.glbimg.com/es/sde/f/organizacoes/2019/12/30/svg.svg",
-  goias: "https://s.glbimg.com/es/sde/f/organizacoes/2019/05/01/Goias_SVG.svg",
-};
-
 function App() {
-  // Ordenação guarda a propriedadade chamada: (Posição, Time, Pts, ...)
-  // e também valor: ("crescente", "decrescente")
   const [ordenacao, setOrdenacao] = React.useState({
     propriedade: "",
     valor: "",
@@ -57,10 +20,8 @@ function App() {
 
   const [inputEmail, setEmail] = React.useState(null);
   const [inputSenha, setSenha] = React.useState(null);
-  const [rodada, setRodada] = React.useState(1);
-  const [editarPlacar, setEditarPlacar] = React.useState("caneta");
 
-  React.useEffect(() => {}, []);
+  const [editarPlacar, setEditarPlacar] = React.useState("caneta");
 
   return (
     <div className="App">
@@ -95,23 +56,15 @@ function App() {
         <div className="centro">
           <div className="jogos">
             <div className="cabecalho">
-              <button
-                onClick={() => {
-                  rodada === 0 ? setRodada(0) : setRodada(rodada - 1);
-                }}
-              >
+              <button>
                 <img src={images.setaEsquerda} alt="seta esquerda"></img>
               </button>
 
               <h2>
-                <span className="rodada">{rodada}</span> rodada
+                <span className="rodada">2ª</span> rodada
               </h2>
 
-              <button
-                onClick={() => {
-                  rodada === 38 ? setRodada(38) : setRodada(rodada + 1);
-                }}
-              >
+              <button>
                 <img src={images.setaDireita} alt="seta direita"></img>
               </button>
             </div>
@@ -175,15 +128,8 @@ function App() {
 
               <tbody>
                 <tr>
-                  <td className="lugar">
-                    <img
-                      src={linkLogos.flamengo}
-                      alt="flamengo"
-                      className="icones"
-                    ></img>
-                    1
-                  </td>
-                  <td> Flamengo</td>
+                  <td className="lugar">1</td>
+                  <td>Flamengo</td>
                   <td>89</td>
                   <td>5</td>
                   <td>28</td>
@@ -193,14 +139,7 @@ function App() {
                   <td>39</td>
                 </tr>
                 <tr>
-                  <td className="lugar">
-                    <img
-                      src={linkLogos.athleticoPr}
-                      alt="flamengo"
-                      className="icones"
-                    ></img>
-                    2
-                  </td>
+                  <td className="lugar">1</td>
                   <td>Atletico</td>
                   <td>89</td>
                   <td>5</td>
@@ -227,7 +166,6 @@ async function autenticar(ev = null, email, senha) {
   alert(result);
 }
 autenticar();
-
 /**
  * Função que formata o html necessário para o funcionamento da tabela
  */

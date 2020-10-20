@@ -11,8 +11,9 @@ const obterUser = async (email) => {
 };
 
 const obterTabela = async () => {
-	const query = `SELECT * FROM tabela
-		ORDER BY pontos desc, vitorias desc, saldo_de_gols desc, gols_feitos desc, time desc`;
+	const query = `SELECT * FROM tabela AS ta
+		INNER JOIN times as t on t.time = ta.time
+		ORDER BY ta.pontos desc, ta.vitorias desc, ta.saldo_de_gols desc, ta.gols_feitos desc, ta.time desc`;
 	const result = await db.query(query);
 	return result.rows;
 };
@@ -21,7 +22,6 @@ const inserirNaTabela = async (tabela) => {
 	// Caso haja uma atualização previne dados repetidos
 	const query = `DELETE FROM tabela`;
 	await db.query({ text: query });
-
 	let result;
 	for (const time of tabela) {
 		const query = `INSERT INTO tabela
