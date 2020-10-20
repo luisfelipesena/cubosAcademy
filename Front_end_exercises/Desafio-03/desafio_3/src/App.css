@@ -279,15 +279,35 @@ tbody tr td:nth-child(1) {
   padding-right: 1em;
 }
 
-td {
+tbody td {
   text-align: right;
 }
 
-.lugar {
+.libertadores,
+.prelibertadores,
+.rebaixamento,
+.americana,
+.permanece {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  padding: 0.2em;
+  justify-content: flex-end;
+}
+
+.libertadores {
   background-color: rgba(12, 150, 12, 0.8);
+}
+
+.prelibertadores {
+  background-color: rgba(0, 154, 192, 0.8);
+}
+
+.rebaixamento {
+  background-color: rgb(255, 38, 0);
+}
+
+.americana {
+  background-color: rgb(255, 174, 0);
 }
 
 .icones {

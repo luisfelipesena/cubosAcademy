@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-require("dotenv").config();
 
 const images = {
   setaEsquerda: "https://systemuicons.com/images/icons/arrow_left.svg",
@@ -18,10 +17,46 @@ function App() {
     valor: "",
   });
 
-  const [inputEmail, setEmail] = React.useState(null);
-  const [inputSenha, setSenha] = React.useState(null);
+  const [email, setEmail] = React.useState(null);
+  const [senha, setSenha] = React.useState(null);
+  const [submit, setSubmit] = React.useState(false); // Estado que chama a função async de autenticar
+  const [logado, setLogado] = React.useState(false); // Guarda o Token
 
-  const [editarPlacar, setEditarPlacar] = React.useState("caneta");
+  const [rodada, setRodada] = React.useState(1);
+  const [jogosRodada, setJogosRodada] = React.useState([]);
+
+  const [tabela, setTabela] = React.useState([]);
+  const [editarPlacar, setEditarPlacar] = React.useState(null);
+
+  React.useEffect(() => {
+    autenticar(email, senha).then((res) => {
+      if (res) {
+        setLogado(res);
+        setEditarPlacar("caneta");
+      } else {
+        setLogado(false);
+      }
+    });
+  }, [submit]);
+
+  React.useEffect(() => {
+    setJogosRodada(null);
+    obterRodada(rodada)
+      .then((res) => res.json())
+      .then((respJson) => {
+        setJogosRodada(respJson.dados);
+      });
+
+    let tempTabela = [];
+    obterTabela()
+      .then((res) => res.json())
+      .then((respJson) => {
+        respJson.dados.forEach((time, i) => {
+          tempTabela.push({ ...time, posicao: i + 1 });
+        });
+        setTabela(tempTabela);
+      });
+  }, [rodada]);
 
   return (
     <div className="App">
@@ -31,22 +66,41 @@ function App() {
             <h1>Brasileirão</h1>
           </a>
           <div className="direita">
-            <form onSubmit={(ev) => autenticar(ev, inputEmail, inputSenha)}>
-              <label>
-                <span>Email</span>
-                <input
-                  type="email"
-                  onInput={(ev) => setEmail(ev.target.value)}
-                />
-              </label>
-              <label>
-                <span>Senha</span>
-                <input
-                  type="password"
-                  onInput={(ev) => setSenha(ev.target.value)}
-                />
-              </label>
-              <button>Logar</button>
+            <form
+              onSubmit={(ev) => {
+                ev.preventDefault();
+              }}
+            >
+              {!logado && (
+                <label>
+                  <span>Email</span>
+                  <input
+                    type="email"
+                    onInput={(ev) => setEmail(ev.target.value)}
+                  />
+                </label>
+              )}
+              {!logado && (
+                <label>
+                  <span>Senha</span>
+                  <input
+                    type="password"
+                    onInput={(ev) => setSenha(ev.target.value)}
+                  />
+                </label>
+              )}
+
+              <button
+                onClick={(ev) => {
+                  if (ev.target.innerText === "Deslogar") {
+                    setLogado(false);
+                    return;
+                  }
+                  submit ? setSubmit(false) : setSubmit(true);
+                }}
+              >
+                {logado ? "Deslogar" : "Logar"}
+              </button>
             </form>
           </div>
         </div>
@@ -56,28 +110,43 @@ function App() {
         <div className="centro">
           <div className="jogos">
             <div className="cabecalho">
-              <button>
+              <button
+                onClick={(ev) => {
+                  rodada === 1 ? (ev.disabled = true) : setRodada(rodada - 1);
+                }}
+              >
                 <img src={images.setaEsquerda} alt="seta esquerda"></img>
               </button>
 
               <h2>
-                <span className="rodada">2ª</span> rodada
+                <span className="rodada">{rodada}ª</span> rodada
               </h2>
 
-              <button>
+              <button
+                onClick={(ev) => {
+                  rodada === 38 ? (ev.disabled = true) : setRodada(rodada + 1);
+                }}
+              >
                 <img src={images.setaDireita} alt="seta direita"></img>
               </button>
             </div>
 
             <div className="jogosRodada">
               <ul>
-                {editarRodadas(
-                  "Gremio",
-                  1,
-                  "Santos",
-                  2,
-                  editarPlacar,
-                  setEditarPlacar
+                {jogosRodada === null ? (
+                  <li>Carregando ...</li>
+                ) : (
+                  jogosRodada.map((jogo) =>
+                    editarRodadas(
+                      jogo.id,
+                      jogo.time_casa,
+                      jogo.gols_casa,
+                      jogo.time_visitante,
+                      jogo.gols_visitante,
+                      editarPlacar,
+                      setEditarPlacar
+                    )
+                  )
                 )}
               </ul>
             </div>
@@ -89,66 +158,122 @@ function App() {
                 <tr>
                   <th>
                     <span className="posicao">Posição</span>
-                    {formatarBotaoTabela(setOrdenacao, ordenacao, "posicao")}
+                    {formatarBotaoTabela(
+                      setOrdenacao,
+                      tabela,
+                      ordenacao,
+                      "posicao"
+                    )}
                   </th>
                   <th className="time">
                     <span className="time">Time</span>
-                    {formatarBotaoTabela(setOrdenacao, ordenacao, "time")}
+                    {formatarBotaoTabela(
+                      setOrdenacao,
+                      tabela,
+                      ordenacao,
+                      "time"
+                    )}
                   </th>
                   <th>
                     <span>PTS</span>
-                    {formatarBotaoTabela(setOrdenacao, ordenacao, "pontos")}
+                    {formatarBotaoTabela(
+                      setOrdenacao,
+                      tabela,
+                      ordenacao,
+                      "pontos"
+                    )}
                   </th>
                   <th>
                     <span>E</span>
-                    {formatarBotaoTabela(setOrdenacao, ordenacao, "empates")}
+                    {formatarBotaoTabela(
+                      setOrdenacao,
+                      tabela,
+                      ordenacao,
+                      "empates"
+                    )}
                   </th>
                   <th>
                     <span>V</span>
-                    {formatarBotaoTabela(setOrdenacao, ordenacao, "vitorias")}
+                    {formatarBotaoTabela(
+                      setOrdenacao,
+                      tabela,
+                      ordenacao,
+                      "vitorias"
+                    )}
                   </th>
                   <th>
                     <span>D</span>
-                    {formatarBotaoTabela(setOrdenacao, ordenacao, "derrotas")}
+                    {formatarBotaoTabela(
+                      setOrdenacao,
+                      tabela,
+                      ordenacao,
+                      "derrotas"
+                    )}
                   </th>
                   <th>
                     <span>GF</span>
-                    {formatarBotaoTabela(setOrdenacao, ordenacao, "feitos")}
+                    {formatarBotaoTabela(
+                      setOrdenacao,
+                      tabela,
+                      ordenacao,
+                      "gols_feitos"
+                    )}
                   </th>
                   <th>
                     <span>GS</span>
-                    {formatarBotaoTabela(setOrdenacao, ordenacao, "sofridos")}
+                    {formatarBotaoTabela(
+                      setOrdenacao,
+                      tabela,
+                      ordenacao,
+                      "gols_sofridos"
+                    )}
                   </th>
                   <th>
                     <span>SG</span>
-                    {formatarBotaoTabela(setOrdenacao, ordenacao, "saldo")}
+                    {formatarBotaoTabela(
+                      setOrdenacao,
+                      tabela,
+                      ordenacao,
+                      "saldo_de_gols"
+                    )}
                   </th>
                 </tr>
               </thead>
 
               <tbody>
-                <tr>
-                  <td className="lugar">1</td>
-                  <td>Flamengo</td>
-                  <td>89</td>
-                  <td>5</td>
-                  <td>28</td>
-                  <td>5</td>
-                  <td>85</td>
-                  <td>37</td>
-                  <td>39</td>
-                </tr>
-                <tr>
-                  <td className="lugar">1</td>
-                  <td>Atletico</td>
-                  <td>89</td>
-                  <td>5</td>
-                  <td>28</td>
-                  <td>5</td>
-                  <td>37</td>
-                  <td>85</td>
-                  <td>37</td>
-                </tr>
+                {tabela &&
+                  tabela.map((time) => (
+                    <tr key={time.id}>
+                      <td
+                        className={
+                          time.posicao <= 4
+                            ? "libertadores"
+                            : time.posicao >= 17
+                            ? "rebaixamento"
+                            : time.posicao > 4 && time.posicao <= 6
+                            ? "prelibertadores"
+                            : time.posicao > 6 && time.posicao <= 12
+                            ? "americana"
+                            : "permanece"
+                        }
+                      >
+                        <img
+                          className="icones"
+                          src={time.link_imagem}
+                          alt={time.time}
+                        ></img>
+                        {time.posicao}
+                      </td>
+                      <td>{time.time}</td>
+                      <td>{time.pontos}</td>
+                      <td>{time.empates}</td>
+                      <td>{time.vitorias}</td>
+                      <td>{time.derrotas}</td>
+                      <td>{time.gols_feitos}</td>
+                      <td>{time.gols_sofridos}</td>
+                      <td>{time.saldo_de_gols}</td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>
@@ -158,22 +283,63 @@ function App() {
   );
 }
 
-async function autenticar(ev = null, email, senha) {
+/**
+ * Função que obtém a tabela de times do Back-end
+ */
+async function obterTabela() {
   const result = await fazerRequisicaoComBody(
     "http://localhost:8081/classificacao",
     "GET"
   );
-  alert(result);
+  return result;
 }
-autenticar();
+
+/**
+ * Função que obtém os jogos da rodada do Back-end
+ */
+async function obterRodada(rodada) {
+  const result = await fazerRequisicaoComBody(
+    `http://localhost:8081/jogos/${rodada}`,
+    "GET"
+  );
+  return result;
+}
+
+/**
+ * Função que obtém os jogos da rodada do Back-end
+ */
+async function autenticar(email = null, password = null) {
+  if (!email || !password) {
+    return false;
+  }
+
+  const objetoJson = {
+    email,
+    password,
+  };
+
+  const result = await fazerRequisicaoComBody(
+    `http://localhost:8081/auth`,
+    "POST",
+    objetoJson
+  );
+
+  const dados = await result.json();
+  if (dados.dados.token) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 /**
  * Função que formata o html necessário para o funcionamento da tabela
  */
-function formatarBotaoTabela(setOrdenacao, ordenacao, prop) {
+function formatarBotaoTabela(setOrdenacao, tabela, ordenacao, prop) {
   return (
     <button onClick={() => setOrdenacao(organizarSetas(ordenacao, prop))}>
       <img
-        src={ordenarSetas(ordenacao, prop) || images.setaDupla}
+        src={ordenarSetas(ordenacao, prop, tabela) || images.setaDupla}
         alt="Ordenação"
       ></img>
     </button>
@@ -182,12 +348,25 @@ function formatarBotaoTabela(setOrdenacao, ordenacao, prop) {
 
 /**
  * Função que analisa o estado de ordenação para caso seja igual a propriedade (posição, time ...), retorne a imagem correspondente
+ * e reorganiza a tabela baseada na ordenação e prop
  */
-function ordenarSetas(ordenacao, prop) {
+function ordenarSetas(ordenacao, prop, tabela) {
   if (ordenacao.propriedade === prop) {
     if (ordenacao.valor === "crescente") {
+      const tempTabela = tabela;
+      if (prop === "time") {
+        tempTabela.sort((a, b) => a[prop].localeCompare(b[prop]));
+      } else {
+        tempTabela.sort((a, b) => a[prop] - b[prop]);
+      }
       return images.setaCima;
     } else {
+      const tempTabela = tabela;
+      if (prop === "time") {
+        tempTabela.sort((a, b) => b[prop].localeCompare(a[prop]));
+      } else {
+        tempTabela.sort((a, b) => b[prop] - a[prop]);
+      }
       return images.setaBaixo;
     }
   }
@@ -195,7 +374,7 @@ function ordenarSetas(ordenacao, prop) {
 }
 
 /**
- * Função que retorna um novo objeto com a priedade valor modificada, consequentemente mudando a imagem das setas
+ * Função que retorna um novo objeto com a propriedade valor modificada, consequentemente mudando a imagem das setas
  */
 function organizarSetas(ordenacao, prop) {
   const { ...novoObj } = ordenacao;
@@ -209,6 +388,7 @@ function organizarSetas(ordenacao, prop) {
  * Responsável pela dinâmica das imagens
  */
 function editarRodadas(
+  id,
   timeA,
   golsA,
   timeB,
@@ -223,7 +403,7 @@ function editarRodadas(
   } else if (editarPlacar === "check") {
     imagem = images.check;
     return (
-      <li>
+      <li key={id}>
         <div>
           <span>{timeA} </span>
           <input className="gols" placeholder={golsA}></input>
@@ -250,7 +430,7 @@ function editarRodadas(
   }
 
   return (
-    <li>
+    <li key={id}>
       <div>
         <span>{timeA} </span>
         <span className="gols">{golsA} </span>
