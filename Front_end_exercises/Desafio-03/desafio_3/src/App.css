@@ -126,7 +126,6 @@ body {
 .centro .jogos {
   display: flex;
   flex-flow: column;
-  justify-content: center;
   width: 100%;
   flex: 0 1 400px;
   background-color: white;
@@ -156,58 +155,41 @@ body {
   transform: rotate(360deg);
 }
 
-.centro .jogos .jogosRodada {
-  display: flex;
-  justify-content: center;
-}
-
-.centro .jogos .jogosRodada ul {
-  width: 100%;
-  flex: 0 1 300px;
-}
-
-.centro .jogos .jogosRodada li {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.1em;
-  padding: 0.5em;
-}
-
-.centro .jogos .jogosRodada li div {
-  display: flex;
-  flex: 0 1 300px;
-  justify-content: space-between;
-  align-items: center;
+.centro .jogos .jogosRodada table {
   width: 100%;
 }
 
-.centro .jogos .jogosRodada li .gols {
+.centro .jogos .jogosRodada table tr td:first-child {
+  text-align: right;
+  min-width: 120px;
+}
+
+.carregando {
+  text-align: center !important;
+}
+
+.centro .jogos .jogosRodada table tr td {
+  padding: 0.4em;
+}
+
+.centro .jogos .jogosRodada .gols {
   font-size: 1.5em;
 }
 
-.centro .jogos .jogosRodada li div input {
-  max-width: 50px;
+.centro .jogos .jogosRodada table input {
+  max-width: 35px;
   max-height: 30px;
   padding: 0.5em;
   font-size: 1em !important;
 }
 
-.centro .jogos .jogosRodada li button {
-  position: absolute;
-  right: -2.5em;
+.centro .jogos .jogosRodada button {
   display: flex;
   align-items: center;
   border: 0;
   border-radius: 50%;
   background-color: rgb(138, 185, 157);
   padding: 0.2em;
-  transition: 0.3s;
-}
-
-.centro .jogos .jogosRodada li button:hover {
-  padding: 0.5em;
 }
 
 .tabela {

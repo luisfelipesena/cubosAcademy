@@ -46,7 +46,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Inter-RS', 2, 1, 'Flamengo', 1);
+    ('Inter-RS', 2, 1, 'Flamengo', 2);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -86,7 +86,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Grêmio', 4, 5, 'Fluminense', 2);
+    ('Grêmio', 4, 5, 'Fluminense', 3);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -126,7 +126,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Inter-RS', 3, 1, 'Cruzeiro', 3);
+    ('Inter-RS', 3, 1, 'Cruzeiro', 4);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -166,7 +166,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Inter-RS', 2, 0, 'CSA', 4);
+    ('Inter-RS', 2, 0, 'CSA', 5);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -206,7 +206,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Grêmio', 1, 0, 'Atlético-MG', 5);
+    ('Grêmio', 1, 0, 'Atlético-MG', 6);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -246,7 +246,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Inter-RS', 2, 0, 'Avaí', 6);
+    ('Inter-RS', 2, 0, 'Avaí', 7);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -286,7 +286,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Grêmio', 1, 0, 'Fortaleza', 7);
+    ('Grêmio', 1, 0, 'Fortaleza', 8);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -326,7 +326,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Inter-RS', 3, 1, 'Bahia', 8);
+    ('Inter-RS', 3, 1, 'Bahia', 9);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -366,7 +366,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Grêmio', 2, 1, 'Vasco', 9);
+    ('Grêmio', 2, 1, 'Vasco', 10);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -406,7 +406,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Inter-RS', 1, 1, 'Grêmio', 10);
+    ('Inter-RS', 1, 1, 'Grêmio', 11);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -446,7 +446,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Inter-RS', 1, 0, 'Ceará', 11);
+    ('Inter-RS', 1, 0, 'Ceará', 12);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -486,7 +486,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Grêmio', 3, 3, 'Chapecoense', 12);
+    ('Grêmio', 3, 3, 'Chapecoense', 13);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -526,7 +526,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Inter-RS', 0, 0, 'Corinthians', 13);
+    ('Inter-RS', 0, 0, 'Corinthians', 14);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -566,7 +566,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Grêmio', 1, 1, 'Palmeiras', 14);
+    ('Grêmio', 1, 1, 'Palmeiras', 15);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -606,7 +606,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Grêmio', 2, 1, 'Athletico-PR', 15);
+    ('Grêmio', 2, 1, 'Athletico-PR', 16);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -646,7 +646,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Inter-RS', 3, 2, 'Botafogo', 16);
+    ('Inter-RS', 3, 2, 'Botafogo', 17);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -686,7 +686,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Inter-RS', 1, 0, 'São Paulo', 17);
+    ('Inter-RS', 1, 0, 'São Paulo', 18);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -726,7 +726,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Grêmio', 3, 0, 'Goiás', 18);
+    ('Grêmio', 3, 0, 'Goiás', 19);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -766,7 +766,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Inter-RS', 1, 0, 'Chapecoense', 19);
+    ('Inter-RS', 1, 0, 'Chapecoense', 20);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -806,7 +806,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Grêmio', 6, 1, 'Avaí', 20);
+    ('Grêmio', 6, 1, 'Avaí', 21);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -846,7 +846,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Inter-RS', 1, 1, 'Palmeiras', 21);
+    ('Inter-RS', 1, 1, 'Palmeiras', 22);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -886,7 +886,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Grêmio', 0, 0, 'Corinthians', 22);
+    ('Grêmio', 0, 0, 'Corinthians', 23);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -926,7 +926,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Grêmio', 2, 1, 'Ceará', 23);
+    ('Grêmio', 2, 1, 'Ceará', 24);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -966,7 +966,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Inter-RS', 0, 0, 'Santos', 24);
+    ('Inter-RS', 0, 0, 'Santos', 25);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -1006,7 +1006,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Grêmio', 0, 1, 'Bahia', 25);
+    ('Grêmio', 0, 1, 'Bahia', 26);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -1046,7 +1046,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Inter-RS', 0, 1, 'Vasco', 26);
+    ('Inter-RS', 0, 1, 'Vasco', 27);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -1086,7 +1086,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Grêmio', 3, 0, 'Botafogo', 27);
+    ('Grêmio', 3, 0, 'Botafogo', 28);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -1126,7 +1126,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Inter-RS', 1, 1, 'Athletico-PR', 28);
+    ('Inter-RS', 1, 1, 'Athletico-PR', 29);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -1166,7 +1166,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Grêmio', 2, 0, 'Inter-RS', 29);
+    ('Grêmio', 2, 0, 'Inter-RS', 30);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -1206,7 +1206,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Grêmio', 2, 1, 'CSA', 30);
+    ('Grêmio', 2, 1, 'CSA', 31);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -1246,7 +1246,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Inter-RS', 2, 1, 'Fluminense', 31);
+    ('Inter-RS', 2, 1, 'Fluminense', 32);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -1286,7 +1286,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Grêmio', 0, 1, 'Flamengo', 32);
+    ('Grêmio', 0, 1, 'Flamengo', 33);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -1326,7 +1326,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Inter-RS', 2, 2, 'Fortaleza', 33);
+    ('Inter-RS', 2, 2, 'Fortaleza', 34);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -1366,7 +1366,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Inter-RS', 1, 2, 'Goiás', 34);
+    ('Inter-RS', 1, 2, 'Goiás', 35);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -1406,7 +1406,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Grêmio', 3, 0, 'São Paulo', 35);
+    ('Grêmio', 3, 0, 'São Paulo', 36);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -1446,7 +1446,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Grêmio', 2, 0, 'Cruzeiro', 36);
+    ('Grêmio', 2, 0, 'Cruzeiro', 37);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
@@ -1486,7 +1486,7 @@ values
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
-    ('Inter-RS', 2, 1, 'Atlético-MG', 37);
+    ('Inter-RS', 2, 1, 'Atlético-MG', 38);
 insert into jogos
     (time_casa, gols_casa, gols_visitante, time_visitante, rodada)
 values
