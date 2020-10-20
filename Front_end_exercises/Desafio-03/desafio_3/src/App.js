@@ -241,39 +241,40 @@ function App() {
               </thead>
 
               <tbody>
-                {tabela &&
-                  tabela.map((time) => (
-                    <tr key={time.id}>
-                      <td
-                        className={
-                          time.posicao <= 4
-                            ? "libertadores"
-                            : time.posicao >= 17
-                            ? "rebaixamento"
-                            : time.posicao > 4 && time.posicao <= 6
-                            ? "prelibertadores"
-                            : time.posicao > 6 && time.posicao <= 12
-                            ? "americana"
-                            : "permanece"
-                        }
-                      >
-                        <img
-                          className="icones"
-                          src={time.link_imagem}
-                          alt={time.time}
-                        ></img>
-                        {time.posicao}
-                      </td>
-                      <td>{time.time}</td>
-                      <td>{time.pontos}</td>
-                      <td>{time.empates}</td>
-                      <td>{time.vitorias}</td>
-                      <td>{time.derrotas}</td>
-                      <td>{time.gols_feitos}</td>
-                      <td>{time.gols_sofridos}</td>
-                      <td>{time.saldo_de_gols}</td>
-                    </tr>
-                  ))}
+                {tabela.length === 0
+                  ? "Carregando ..."
+                  : tabela.map((time) => (
+                      <tr key={time.id}>
+                        <td
+                          className={
+                            time.posicao <= 4
+                              ? "libertadores"
+                              : time.posicao >= 17
+                              ? "rebaixamento"
+                              : time.posicao > 4 && time.posicao <= 6
+                              ? "prelibertadores"
+                              : time.posicao > 6 && time.posicao <= 12
+                              ? "americana"
+                              : "permanece"
+                          }
+                        >
+                          <img
+                            className="icones"
+                            src={time.link_imagem}
+                            alt={time.time}
+                          ></img>
+                          {time.posicao}
+                        </td>
+                        <td>{time.time}</td>
+                        <td>{time.pontos}</td>
+                        <td>{time.empates}</td>
+                        <td>{time.vitorias}</td>
+                        <td>{time.derrotas}</td>
+                        <td>{time.gols_feitos}</td>
+                        <td>{time.gols_sofridos}</td>
+                        <td>{time.saldo_de_gols}</td>
+                      </tr>
+                    ))}
               </tbody>
             </table>
           </div>
