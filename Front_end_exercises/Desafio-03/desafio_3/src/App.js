@@ -1,5 +1,7 @@
 import React from "react";
 import "./App.css";
+require("dotenv").config();
+const PORT = process.env.PORT || 8081;
 
 const images = {
   setaEsquerda: "https://systemuicons.com/images/icons/arrow_left.svg",
@@ -19,8 +21,8 @@ function App() {
 
   const [email, setEmail] = React.useState(null);
   const [senha, setSenha] = React.useState(null);
-  const [submit, setSubmit] = React.useState(false); // Estado que chama a função async de autenticar
-  const [logado, setLogado] = React.useState(false); // Guarda o Token
+  const [submit, setSubmit] = React.useState(false); // Estado que se modifica para chamar a função async de autenticar quando o form da submit
+  const [logado, setLogado] = React.useState(false); // Enquanto deslogado = false; quando logado -> Guarda o Token de autenticação
 
   const [rodada, setRodada] = React.useState(1);
   const [jogosRodada, setJogosRodada] = React.useState([]);
@@ -51,7 +53,6 @@ function App() {
 
   React.useEffect(() => {
     setJogosRodada(null);
-    setTabela([]);
 
     obterRodada(rodada)
       .then((respJson) => {
@@ -192,7 +193,7 @@ function App() {
                       setOrdenacao,
                       tabela,
                       ordenacao,
-                      "time"
+                      "nome"
                     )}
                   </th>
                   <th>
@@ -289,7 +290,7 @@ function App() {
                         ></img>
                         {time.posicao}
                       </td>
-                      <td>{time.time}</td>
+                      <td>{time.nome}</td>
                       <td>{time.pontos}</td>
                       <td>{time.empates}</td>
                       <td>{time.vitorias}</td>
@@ -308,13 +309,12 @@ function App() {
     </div>
   );
 }
-
 /**
  * Função que obtém a tabela de times do Back-end
  */
 async function obterTabela() {
   const result = await fazerRequisicaoComBody(
-    "http://localhost:8081/classificacao",
+    `http://localhost:${PORT}/classificacao`,
     "GET"
   );
   return result.json();
@@ -325,7 +325,7 @@ async function obterTabela() {
  */
 async function obterRodada(rodada) {
   const result = await fazerRequisicaoComBody(
-    `http://localhost:8081/jogos/${rodada}`,
+    `http://localhost:${PORT}/jogos/${rodada}`,
     "GET"
   );
   return result.json();
@@ -336,7 +336,7 @@ async function obterRodada(rodada) {
  */
 async function editarRodada(id, golsCasa = 0, golsVisitante = 0, token) {
   const result = await fazerRequisicaoComBody(
-    `http://localhost:8081/jogos`,
+    `http://localhost:${PORT}/jogos`,
     "POST",
     {
       id,
@@ -345,7 +345,6 @@ async function editarRodada(id, golsCasa = 0, golsVisitante = 0, token) {
     },
     token
   );
-  console.log(await result.json());
 }
 
 /**
@@ -362,7 +361,7 @@ async function autenticar(email = null, password = null) {
   };
 
   const result = await fazerRequisicaoComBody(
-    `http://localhost:8081/auth`,
+    `http://localhost:${PORT}/auth`,
     "POST",
     objetoJson
   );
@@ -397,7 +396,7 @@ function ordenarSetas(ordenacao, prop, tabela) {
   if (ordenacao.propriedade === prop) {
     if (ordenacao.valor === "crescente") {
       const tempTabela = tabela;
-      if (prop === "time") {
+      if (prop === "nome") {
         tempTabela.sort((a, b) => a[prop].localeCompare(b[prop]));
       } else {
         tempTabela.sort((a, b) => a[prop] - b[prop]);
@@ -405,7 +404,7 @@ function ordenarSetas(ordenacao, prop, tabela) {
       return images.setaCima;
     } else {
       const tempTabela = tabela;
-      if (prop === "time") {
+      if (prop === "nome") {
         tempTabela.sort((a, b) => b[prop].localeCompare(a[prop]));
       } else {
         tempTabela.sort((a, b) => b[prop] - a[prop]);

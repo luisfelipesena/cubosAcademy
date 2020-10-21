@@ -1,9 +1,11 @@
 # Desafio 3 - Cubos Academy -> Back End
 
-## Funcionalidades:
+## Utilização:
 
-1. É necessário rodar uma vez o node `./src/utils/schema.js`, para criação de todas as tabelas do banco de dados e a criação da tabela ordenada
-2. Depois que conectar e terminar todo esse processo, aparecerá a mensagem: `Tabela Criada` e apenas ai, estará tudo pronto no Banco de Dados e organizado
-   **_O schema.js tende a demorar um pouco (7s) a aparecer tal mensagem devido a relação dele com o banco de dados e a leitura das inserções do sql_**
-3. XXX
-   **_Todas as querys feitas ao banco de dados são feitas com o `db.query()`_**
+**_Para que seja possível rodar em qualquer servidor, utilizei sqls que inserem dados nas tabelas criadas, assim é só rodar o schema.js e o servidor que a aplicação estará pronta_**
+
+1. É necessário rodar uma vez o node `./src/utils/schema.js`, para criação de todas as tabelas do banco de dados e a inserção do link das logos na table times
+   **_Tinha feito uma table tabela que dava innerjoin com times para pegar id e o link_imagem, mas o processo ficou muito assíncrono e demorava, então mudei para tabela feita na memoria_**
+2. Rodar o servidor para que o front consiga realizar o `fetch()`
+3. Utilizar a mesma porta presente no .env de back, no `.env` de front para sincronizar os endpoints
+4. Não adicionei no `.gitignore` o .env, o jogos.sql e o linkImagens.sql para servir de análise

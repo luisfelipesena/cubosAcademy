@@ -1,4 +1,5 @@
 const db = require('../utils/database');
+const { formatarTabela } = require('../utils/tabela');
 
 const obterUser = async (email) => {
 	const query = `SELECT * FROM users
@@ -10,39 +11,23 @@ const obterUser = async (email) => {
 	return result.rows.shift();
 };
 
+/**
+ * 1: obtem os jogos do banco de dados
+ * 2: obtem o id dos times e suas respectivas logos do banco de dados
+ * 3: formata a tabela com jogos e "images" - (une as informações das duas)
+ * 4: retorna pro ctx.body os times == tabela já ordenada
+ */
 const obterTabela = async () => {
-	const query = `SELECT * FROM tabela AS ta
-		INNER JOIN times as t on t.time = ta.time
-		ORDER BY ta.pontos desc, ta.vitorias desc, ta.saldo_de_gols desc, ta.gols_feitos desc, ta.time desc`;
-	const result = await db.query(query);
-	return result.rows;
+	const jogos = await obterJogos();
+	const images = await obterTimes();
+	const times = await formatarTabela(jogos, images);
+	return times;
 };
 
-const inserirNaTabela = async (tabela) => {
-	// Caso haja uma atualização previne dados repetidos
-	const query = `DELETE FROM tabela`;
-	await db.query({ text: query });
-	let result;
-	for (const time of tabela) {
-		const query = `INSERT INTO tabela
-			(time,jogos,pontos,empates,vitorias,derrotas,gols_feitos,gols_sofridos,saldo_de_gols)
-			VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)`;
-		result = await db.query({
-			text: query,
-			values: [
-				time.nome,
-				time.jogos,
-				time.pontos,
-				time.empates,
-				time.vitorias,
-				time.derrotas,
-				time.golsFeitos,
-				time.golsSofridos,
-				time.saldo,
-			],
-		});
-	}
-	return result;
+const obterTimes = async () => {
+	const query = `SELECT * FROM times`;
+	const result = await db.query(query);
+	return result.rows;
 };
 
 const obterJogos = async () => {
@@ -74,7 +59,7 @@ const editarPlacar = async (id, golsCasa, golsVisitante) => {
 
 module.exports = {
 	obterJogos,
-	inserirNaTabela,
+	obterTimes,
 	obterTabela,
 	obterJogosRodada,
 	obterUser,

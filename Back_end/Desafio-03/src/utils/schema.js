@@ -1,12 +1,8 @@
 const db = require('./database');
-const { formatarTabela } = require('./tabela');
 const fs = require('fs');
 const util = require('util');
-const lerArquivo = util.promisify(fs.readFile); // Para ler o arquivo sql que insere jogo a jogo nas tabelas criadas abaixo
+const lerArquivo = util.promisify(fs.readFile); // Para ler o arquivo sql que insere jogo a jogo nas tabelas criadas abaixo e o link da logo de cada time
 
-/**
- * Tabelas relacionadas ao desafio
- */
 const schema = {
 	1: `CREATE TABLE IF NOT EXISTS jogos (
 			id serial,
@@ -23,19 +19,7 @@ const schema = {
 			senha varchar(255)
 	);`,
 
-	3: `CREATE TABLE IF NOT EXISTS tabela (
-		time varchar(255),
-		jogos int not null default 0,
-		pontos int not null default 0,
-		empates int not null default 0,
-		vitorias int not null default 0,
-		derrotas int not null default 0,
-		gols_feitos int not null default 0,
-		gols_sofridos int not null default 0,
-		saldo_de_gols int not null default 0
-	);`,
-
-	4: `CREATE TABLE IF NOT EXISTS times (
+	3: `CREATE TABLE IF NOT EXISTS times (
 		id SERIAL,
 		time varchar(255),
 		link_imagem varchar(255)
@@ -43,13 +27,13 @@ const schema = {
 };
 
 /**
- * Função exclusiva para que adiciona na tabela jogos um sql inserindo os dados jogo a jogo
+ * Função exclusiva que adiciona na tabela jogos um sql inserindo os dados jogo a jogo
  * e inseri na tabela times, o nome do time e seus respectivos links de logo
- * Para evitar duplicações, é necessário apagar a tabela e fazer uma reinserção
+ * Para evitar duplicações, é necessário apagar as tabelas e fazer uma reinserção
  */
-const insertJogos = async () => {
+const leiturasSql = async () => {
 	await drop('jogos').then(() => up(1));
-	await drop('times').then(() => up(4));
+	await drop('times').then(() => up(3));
 	let sql = await lerArquivo('./jogos.sql');
 	await db.query(sql.toString());
 	sql = await lerArquivo('./linkImagens.sql');
@@ -74,18 +58,13 @@ const drop = async (table = null) => {
 };
 
 /**
- * Caso queira criar as tabelas
+ * Criar as tabelas
  */
 up()
 	/**
-	 * Caso queira inserir na tabela jogos o seu sql com jogo a jogo
+	 * Insere na tabela jogos o seu sql com jogo a jogo e na tabela times, o seu nome e o link da sua logo
 	 */
-	.then(() => insertJogos())
-
-	/**
-	 * Caso queira formatar a tabela e adicionar no banco de dados
-	 */
-	.then(() => formatarTabela());
+	.then(() => leiturasSql());
 
 /**
  * Caso queira deletar uma tabela específica

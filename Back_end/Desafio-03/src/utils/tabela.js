@@ -1,6 +1,4 @@
-const Brasileirao = require('../repositories/brasileirao');
-
-let times = [];
+let times; // times == tabela
 
 /**
  * Função que já formata a tabela baseada no banco de dados dos jogos;
@@ -9,9 +7,9 @@ let times = [];
  * Terceiro: ordena os times na tabela e insere na table tabela as informações por time;
  */
 
-const formatarTabela = async () => {
+const formatarTabela = async (jogos = null, images = null) => {
 	times = [];
-	const jogosDb = await Brasileirao.obterJogos();
+	const jogosDb = jogos;
 	jogosDb.forEach((jogo) => {
 		if (jogo.gols_casa > jogo.gols_visitante) {
 			computarPontos(jogo.time_casa, 3, jogo.gols_casa, jogo.gols_visitante, 'v');
@@ -25,8 +23,8 @@ const formatarTabela = async () => {
 		}
 	});
 
-	await Brasileirao.inserirNaTabela(times);
-	console.log('Tabela Formatada');
+	ordenarTimes(images);
+	return times;
 };
 
 /**
@@ -38,9 +36,9 @@ function computarPontos(time, pontos, golsFeitos, golsSofridos, sigla) {
 	for (let i = 0; i < times.length; i++) {
 		if (times[i].nome == time) {
 			times[i].jogos++;
-			times[i].golsFeitos += golsFeitos;
-			times[i].golsSofridos += golsSofridos;
-			times[i].saldo = times[i].golsFeitos - times[i].golsSofridos;
+			times[i].gols_feitos += golsFeitos;
+			times[i].gols_sofridos += golsSofridos;
+			times[i].saldo_de_gols = times[i].gols_feitos - times[i].gols_sofridos;
 			times[i].pontos += pontos;
 			if (sigla === 'v') {
 				times[i].vitorias++;
@@ -61,13 +59,56 @@ function computarPontos(time, pontos, golsFeitos, golsSofridos, sigla) {
 		vitorias: sigla === 'v' ? 1 : 0,
 		derrotas: sigla === 'd' ? 1 : 0,
 		empates: sigla === 'e' ? 1 : 0,
-		golsFeitos: golsFeitos,
-		golsSofridos: golsSofridos,
-		saldo: golsFeitos - golsSofridos,
+		gols_feitos: golsFeitos,
+		gols_sofridos: golsSofridos,
+		saldo_de_gols: golsFeitos - golsSofridos,
 	});
 }
 
 /**
- * Exporta a função formatarTabela para schema.js e a variável jogos que contem jogo a jogo formatado
+ * `Função de ordena corretamente os times no Brasileirão`
+ * 1: Salva as logos e a id dos times em seus respectivos objetos
+ * 2: Ordena os times baseado nas regras do Brasileirão
  */
+function ordenarTimes(images) {
+	for (let x = 0; x < images.length; x++) {
+		for (let time = 0; time < times.length; time++) {
+			if (times[time].nome === images[x].time) {
+				times[time] = {
+					...times[time],
+					id: images[x].id,
+					link_imagem: images[x].link_imagem,
+				};
+			}
+		}
+	}
+	times.sort((a, b) => {
+		if (a.pontos > b.pontos) {
+			return -1;
+		} else if (a.pontos < b.pontos) {
+			return 1;
+		} else {
+			if (a.vitorias > b.vitorias) {
+				return -1;
+			} else if (a.vitorias < b.vitorias) {
+				return 1;
+			} else {
+				if (a.saldo > b.saldo) {
+					return -1;
+				} else if (a.saldo < b.saldo) {
+					return 1;
+				} else {
+					if (a.gols_feitos > b.gols_feitos) {
+						return -1;
+					} else if (a.gols_feitos < b.gols_feitos) {
+						return 1;
+					} else {
+						a.nome.localeCompare(b.nome);
+					}
+				}
+			}
+		}
+	});
+}
+
 module.exports = { formatarTabela };

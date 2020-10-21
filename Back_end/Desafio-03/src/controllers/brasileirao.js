@@ -12,19 +12,24 @@ const obterJogosRodada = async (ctx) => {
 	if (!rodada) {
 		return response(ctx, 400, 'Rodada não encontrada');
 	}
-
 	const result = await Brasileirao.obterJogosRodada(rodada);
 	return response(ctx, 200, result);
 };
 
+/**
+ * 1: Atualiza os jogos no banco de dados
+ * 2: Obtem os jogos e os times e suas logos nas tabelas de jogos e times, respectivamente
+ * 3: Formatam a tabela baseada nessa nova edição dos jogos e salva as logos nos objetos
+ */
 const editarPlacar = async (ctx) => {
 	const { id = null, golsCasa = null, golsVisitante = null } = ctx.request.body;
 	if (id === null || golsCasa === null || golsVisitante === null) {
 		return response(ctx, 400, 'Placar mal formatado');
 	}
-
 	const result = await Brasileirao.editarPlacar(id, golsCasa, golsVisitante);
-	await formatarTabela();
+	const jogos = await Brasileirao.obterJogos();
+	const images = await Brasileirao.obterTimes();
+	await formatarTabela(jogos, images);
 	return response(ctx, 200, result);
 };
 

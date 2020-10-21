@@ -2,7 +2,7 @@ const Koa = require('koa');
 const bodyparser = require('koa-bodyparser');
 const router = require('./src/routes');
 const response = require('./src/utils/response');
-const cors = require('@koa/cors');
+const cors = require('@koa/cors'); // Evita o erro {'no-acess'}
 
 const server = new Koa();
 require('dotenv').config();
