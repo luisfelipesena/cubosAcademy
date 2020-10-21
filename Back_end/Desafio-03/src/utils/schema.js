@@ -2,7 +2,7 @@ const db = require('./database');
 const { formatarTabela } = require('./tabela');
 const fs = require('fs');
 const util = require('util');
-const lerJogos = util.promisify(fs.readFile); // Para ler o arquivo sql que insere jogo a jogo nas tabelas criadas abaixo
+const lerArquivo = util.promisify(fs.readFile); // Para ler o arquivo sql que insere jogo a jogo nas tabelas criadas abaixo
 
 /**
  * Tabelas relacionadas ao desafio
@@ -39,7 +39,7 @@ const schema = {
 		id SERIAL,
 		time varchar(255),
 		link_imagem varchar(255)
-	);`
+	);`,
 };
 
 /**
@@ -48,13 +48,11 @@ const schema = {
  * Para evitar duplicações, é necessário apagar a tabela e fazer uma reinserção
  */
 const insertJogos = async () => {
-	await drop('jogos');
-	await up(1);
-	await drop('times');
-	await up(4)
-	let sql = await lerJogos('./jogos.sql');
+	await drop('jogos').then(() => up(1));
+	await drop('times').then(() => up(4));
+	let sql = await lerArquivo('./jogos.sql');
 	await db.query(sql.toString());
-	sql = await lerJogos('./linkImagens.sql');
+	sql = await lerArquivo('./linkImagens.sql');
 	return db.query(sql.toString());
 };
 

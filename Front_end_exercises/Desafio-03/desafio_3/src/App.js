@@ -51,9 +51,12 @@ function App() {
 
   React.useEffect(() => {
     setJogosRodada(null);
+    setTabela([]);
+
     obterRodada(rodada)
       .then((respJson) => {
         setJogosRodada(respJson.dados);
+        return;
       })
       .then(() => {
         let tempTabela = [];
@@ -331,7 +334,7 @@ async function obterRodada(rodada) {
 /**
  * Função que edita os jogos de uma rodada no banco de dados
  */
-async function editarRodada(id, golsCasa, golsVisitante, token) {
+async function editarRodada(id, golsCasa = 0, golsVisitante = 0, token) {
   const result = await fazerRequisicaoComBody(
     `http://localhost:8081/jogos`,
     "POST",
@@ -450,7 +453,7 @@ function editarRodadas(
         <td>{timeA} </td>
         <td>
           <input
-            onInput={(ev) => (golsCasa = ev.target.value)}
+            onInput={(ev) => (golsCasa = Number(ev.target.value))}
             className="gols"
             placeholder={golsA}
           />
@@ -458,7 +461,7 @@ function editarRodadas(
         <td>x </td>
         <td>
           <input
-            onInput={(ev) => (golsVisitante = ev.target.value)}
+            onInput={(ev) => (golsVisitante = Number(ev.target.value))}
             className="gols"
             placeholder={golsB}
           />
