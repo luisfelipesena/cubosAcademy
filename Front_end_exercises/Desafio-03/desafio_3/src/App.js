@@ -149,7 +149,7 @@ function App() {
 
             <div className="jogosRodada">
               <table>
-                <tfoot>
+                <tbody>
                   {jogosRodada === null ? (
                     <tr>
                       <td className="carregando">Carregando ...</td>
@@ -169,7 +169,12 @@ function App() {
                       )
                     )
                   )}
-                </tfoot>
+                  {/* <tr>
+                    <td>
+                      <button>Adicionar Jogos</button>
+                    </td>
+                  </tr> */}
+                </tbody>
               </table>
             </div>
           </div>
