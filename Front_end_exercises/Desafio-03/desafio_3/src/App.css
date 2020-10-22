@@ -51,7 +51,6 @@ body {
 .conteudo h1:hover {
   color: red;
 }
-
 .direita {
   margin-left: 2em;
 }
@@ -169,7 +168,7 @@ body {
 }
 
 .centro .jogos .jogosRodada table tr td {
-  padding: 0.4em;
+  padding: 0.5em;
 }
 
 .centro .jogos .jogosRodada .gols {
@@ -177,10 +176,10 @@ body {
 }
 
 .centro .jogos .jogosRodada table input {
-  max-width: 35px;
-  max-height: 30px;
+  width: 35px;
+  height: 38px;
   padding: 0.5em;
-  font-size: 1em !important;
+  font-size: 0.8em !important;
 }
 
 .centro .jogos .jogosRodada button {
@@ -237,7 +236,7 @@ thead tr img {
 }
 
 thead tr button:hover {
-  transform: rotate(15deg);
+  transform: rotate(360deg);
 }
 
 thead tr button:focus {

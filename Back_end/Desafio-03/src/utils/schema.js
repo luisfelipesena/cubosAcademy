@@ -32,11 +32,14 @@ const schema = {
  * Para evitar duplicações, é necessário apagar as tabelas e fazer uma reinserção
  */
 const leiturasSql = async () => {
-	await drop('jogos').then(() => up(1));
-	await drop('times').then(() => up(3));
+	await drop('jogos');
+	await up(1);
+	await drop('times');
+	await up(3);
 	let sql = await lerArquivo('./jogos.sql');
 	await db.query(sql.toString());
 	sql = await lerArquivo('./linkImagens.sql');
+	console.log('Schema.js rodado');
 	return db.query(sql.toString());
 };
 

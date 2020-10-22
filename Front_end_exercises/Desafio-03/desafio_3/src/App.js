@@ -1,74 +1,39 @@
 import React from "react";
 import "./App.css";
-require("dotenv").config();
-const PORT = process.env.PORT || 8081;
+import { EditarRodadas, formatarBotaoTabela } from "./components/components";
+import {
+  images,
+  editarRodada,
+  tentarLogar,
+  rodadasTabela,
+} from "./functions/functions";
 
-const images = {
-  setaEsquerda: "https://systemuicons.com/images/icons/arrow_left.svg",
-  setaDireita: "https://systemuicons.com/images/icons/arrow_right.svg",
-  setaBaixo: "https://systemuicons.com/images/icons/arrow_down.svg",
-  setaCima: "https://systemuicons.com/images/icons/arrow_up.svg",
-  setaDupla: "https://systemuicons.com/images/icons/sort.svg",
-  check: "https://systemuicons.com/images/icons/check.svg",
-  caneta: "https://systemuicons.com/images/icons/pen.svg",
-};
+require("dotenv").config();
 
 function App() {
+  // Objeto responsável pela ordenação da tabela e a setas correspondentes
   const [ordenacao, setOrdenacao] = React.useState({
     propriedade: "",
     valor: "",
   });
 
-  const [email, setEmail] = React.useState(null);
-  const [senha, setSenha] = React.useState(null);
-  const [submit, setSubmit] = React.useState(false); // Estado que se modifica para chamar a função async de autenticar quando o form da submit
+  const [email, setEmail] = React.useState(null); // Guarda o email posto no input
+  const [senha, setSenha] = React.useState(null); // Guarda a senha posta no input
   const [logado, setLogado] = React.useState(false); // Enquanto deslogado = false; quando logado -> Guarda o Token de autenticação
 
   const [rodada, setRodada] = React.useState(1);
   const [jogosRodada, setJogosRodada] = React.useState([]);
 
-  const [rodadaEditada, setRodadaEditada] = React.useState({
-    id: null,
-    golsCasa: null,
-    golsVisitante: null,
-  });
-
   const [tabela, setTabela] = React.useState([]);
   const [editarPlacar, setEditarPlacar] = React.useState({
+    //Objeto que define as imagens do checkbox (caneta,check) e o id do responsável pela mudança
     valor: null,
     id: null,
   });
 
   React.useEffect(() => {
-    autenticar(email, senha).then((res) => {
-      if (res !== false) {
-        setLogado(res);
-        const newPlacar = { ...editarPlacar, valor: "caneta" };
-        setEditarPlacar(newPlacar);
-      } else {
-        setLogado(false);
-      }
-    });
-  }, [submit]);
-
-  React.useEffect(() => {
-    setJogosRodada(null);
-
-    obterRodada(rodada)
-      .then((respJson) => {
-        setJogosRodada(respJson.dados);
-        return;
-      })
-      .then(() => {
-        let tempTabela = [];
-        obterTabela().then((respJson) => {
-          respJson.dados.forEach((time, i) => {
-            tempTabela.push({ ...time, posicao: i + 1 });
-          });
-          setTabela(tempTabela);
-        });
-      });
-  }, [rodada, rodadaEditada]);
+    rodadasTabela(setTabela, setJogosRodada, rodada);
+  }, [rodada]);
 
   return (
     <div className="App">
@@ -106,11 +71,20 @@ function App() {
                 onClick={(ev) => {
                   if (ev.target.innerText === "Deslogar") {
                     setLogado(false);
+                    setEmail(null);
+                    setSenha(null);
                     const newPlacar = { ...editarPlacar, valor: null };
                     setEditarPlacar(newPlacar);
                     return;
                   }
-                  submit ? setSubmit(false) : setSubmit(true);
+
+                  tentarLogar(
+                    email,
+                    senha,
+                    setLogado,
+                    setEditarPlacar,
+                    editarPlacar
+                  );
                 }}
               >
                 {logado ? "Deslogar" : "Logar"}
@@ -127,6 +101,7 @@ function App() {
               <button
                 title="Anterior"
                 onClick={(ev) => {
+                  setJogosRodada(null);
                   rodada === 1 ? (ev.disabled = true) : setRodada(rodada - 1);
                 }}
               >
@@ -140,6 +115,7 @@ function App() {
               <button
                 title="Próxima"
                 onClick={(ev) => {
+                  setJogosRodada(null);
                   rodada === 38 ? (ev.disabled = true) : setRodada(rodada + 1);
                 }}
               >
@@ -153,21 +129,28 @@ function App() {
                   {jogosRodada === null ? (
                     <tr>
                       <td className="carregando">Carregando ...</td>
+                      <td>
+                        <img
+                          src="https://www.blogson.com.br/wp-content/uploads/2017/10/loading-2.gif"
+                          alt="carregando"
+                        ></img>
+                      </td>
                     </tr>
                   ) : (
-                    jogosRodada.map((jogo) =>
-                      editarRodadas(
-                        jogo.id,
-                        jogo.time_casa,
-                        jogo.gols_casa,
-                        jogo.time_visitante,
-                        jogo.gols_visitante,
-                        editarPlacar,
-                        setEditarPlacar,
-                        setRodadaEditada,
-                        logado
-                      )
-                    )
+                    jogosRodada.map((jogo) => (
+                      <EditarRodadas
+                        key={jogo.id}
+                        editarRodada={editarRodada}
+                        rodadasTabela={rodadasTabela}
+                        jogo={jogo}
+                        editarPlacar={editarPlacar}
+                        setEditarPlacar={setEditarPlacar}
+                        logado={logado}
+                        setTabela={setTabela}
+                        setJogosRodada={setJogosRodada}
+                        rodada={rodada}
+                      />
+                    ))
                   )}
                   {/* <tr>
                     <td>
@@ -202,7 +185,7 @@ function App() {
                     )}
                   </th>
                   <th>
-                    <span>PTS</span>
+                    <span title="Pontos">PTS</span>
                     {formatarBotaoTabela(
                       setOrdenacao,
                       tabela,
@@ -211,7 +194,7 @@ function App() {
                     )}
                   </th>
                   <th>
-                    <span>E</span>
+                    <span title="Empates">E</span>
                     {formatarBotaoTabela(
                       setOrdenacao,
                       tabela,
@@ -220,7 +203,7 @@ function App() {
                     )}
                   </th>
                   <th>
-                    <span>V</span>
+                    <span title="Vitórias">V</span>
                     {formatarBotaoTabela(
                       setOrdenacao,
                       tabela,
@@ -229,7 +212,7 @@ function App() {
                     )}
                   </th>
                   <th>
-                    <span>D</span>
+                    <span title="Derrotas">D</span>
                     {formatarBotaoTabela(
                       setOrdenacao,
                       tabela,
@@ -238,7 +221,7 @@ function App() {
                     )}
                   </th>
                   <th>
-                    <span>GF</span>
+                    <span title="Gols Feitos">GF</span>
                     {formatarBotaoTabela(
                       setOrdenacao,
                       tabela,
@@ -247,7 +230,7 @@ function App() {
                     )}
                   </th>
                   <th>
-                    <span>GS</span>
+                    <span title="Gols Sofridos">GS</span>
                     {formatarBotaoTabela(
                       setOrdenacao,
                       tabela,
@@ -256,7 +239,7 @@ function App() {
                     )}
                   </th>
                   <th>
-                    <span>SG</span>
+                    <span title="Saldo de Gols">SG</span>
                     {formatarBotaoTabela(
                       setOrdenacao,
                       tabela,
@@ -270,7 +253,13 @@ function App() {
               <tbody>
                 {tabela.length === 0 ? (
                   <tr>
-                    <td className="carregando">Carregando...</td>
+                    <td className="carregando">Carregando ...</td>
+                    <td>
+                      <img
+                        src="https://www.blogson.com.br/wp-content/uploads/2017/10/loading-2.gif"
+                        alt="carregando"
+                      ></img>
+                    </td>
                   </tr>
                 ) : (
                   tabela.map((time) => (
@@ -291,7 +280,8 @@ function App() {
                         <img
                           className="icones"
                           src={time.link_imagem}
-                          alt={time.time}
+                          alt={time.nome}
+                          title={time.nome}
                         ></img>
                         {time.posicao}
                       </td>
@@ -313,221 +303,6 @@ function App() {
       </div>
     </div>
   );
-}
-/**
- * Função que obtém a tabela de times do Back-end
- */
-async function obterTabela() {
-  const result = await fazerRequisicaoComBody(
-    `http://localhost:${PORT}/classificacao`,
-    "GET"
-  );
-  return result.json();
-}
-
-/**
- * Função que obtém os jogos da rodada do Back-end
- */
-async function obterRodada(rodada) {
-  const result = await fazerRequisicaoComBody(
-    `http://localhost:${PORT}/jogos/${rodada}`,
-    "GET"
-  );
-  return result.json();
-}
-
-/**
- * Função que edita os jogos de uma rodada no banco de dados
- */
-async function editarRodada(id, golsCasa = 0, golsVisitante = 0, token) {
-  const result = await fazerRequisicaoComBody(
-    `http://localhost:${PORT}/jogos`,
-    "POST",
-    {
-      id,
-      golsCasa,
-      golsVisitante,
-    },
-    token
-  );
-}
-
-/**
- * Função que obtém os jogos da rodada do Back-end
- */
-async function autenticar(email = null, password = null) {
-  if (!email || !password) {
-    return false;
-  }
-
-  const objetoJson = {
-    email,
-    password,
-  };
-
-  const result = await fazerRequisicaoComBody(
-    `http://localhost:${PORT}/auth`,
-    "POST",
-    objetoJson
-  );
-
-  const dados = await result.json();
-  if (dados.dados.token) {
-    return dados.dados.token;
-  } else {
-    return false;
-  }
-}
-
-/**
- * Função que formata o html necessário para o funcionamento da tabela
- */
-function formatarBotaoTabela(setOrdenacao, tabela, ordenacao, prop) {
-  return (
-    <button onClick={() => setOrdenacao(organizarSetas(ordenacao, prop))}>
-      <img
-        src={ordenarSetas(ordenacao, prop, tabela) || images.setaDupla}
-        alt="Ordenação"
-      ></img>
-    </button>
-  );
-}
-
-/**
- * Função que analisa o estado de ordenação para caso seja igual a propriedade (posição, time ...), retorne a imagem correspondente
- * e reorganiza a tabela baseada na ordenação e prop
- */
-function ordenarSetas(ordenacao, prop, tabela) {
-  if (ordenacao.propriedade === prop) {
-    if (ordenacao.valor === "crescente") {
-      const tempTabela = tabela;
-      if (prop === "nome") {
-        tempTabela.sort((a, b) => a[prop].localeCompare(b[prop]));
-      } else {
-        tempTabela.sort((a, b) => a[prop] - b[prop]);
-      }
-      return images.setaCima;
-    } else {
-      const tempTabela = tabela;
-      if (prop === "nome") {
-        tempTabela.sort((a, b) => b[prop].localeCompare(a[prop]));
-      } else {
-        tempTabela.sort((a, b) => b[prop] - a[prop]);
-      }
-      return images.setaBaixo;
-    }
-  }
-  return false;
-}
-
-/**
- * Função que retorna um novo objeto com a propriedade valor modificada, consequentemente mudando a imagem das setas
- */
-function organizarSetas(ordenacao, prop) {
-  const { ...novoObj } = ordenacao;
-  novoObj.propriedade = prop;
-  novoObj.valor = novoObj.valor === "crescente" ? "decrescente" : "crescente";
-  return novoObj;
-}
-
-/**
- * Função que edita as rodadas, tornando possivel a modificação dos valores
- * Responsável pela dinâmica das imagens
- */
-function editarRodadas(
-  id,
-  timeA,
-  golsA,
-  timeB,
-  golsB,
-  editarPlacar,
-  setEditarPlacar,
-  setRodadaEditada,
-  logado
-) {
-  let hidden = false;
-  let imagem = images.caneta;
-  let golsVisitante, golsCasa;
-  if (editarPlacar.valor === null) {
-    hidden = true;
-  } else if (editarPlacar.valor === "check" && editarPlacar.id === id) {
-    imagem = images.check;
-    return (
-      <tr key={id}>
-        <td>{timeA} </td>
-        <td>
-          <input
-            onInput={(ev) => (golsCasa = Number(ev.target.value))}
-            className="gols"
-            placeholder={golsA}
-          />
-        </td>
-        <td>x </td>
-        <td>
-          <input
-            onInput={(ev) => (golsVisitante = Number(ev.target.value))}
-            className="gols"
-            placeholder={golsB}
-          />
-        </td>
-        <td>{timeB}</td>
-        <td>
-          <button
-            className="editar"
-            onClick={() => {
-              editarRodada(id, golsCasa, golsVisitante, logado);
-              const newPartida = { id, golsCasa, golsVisitante };
-              setRodadaEditada(newPartida);
-
-              const newPlacar = { id: null, valor: "caneta" };
-              setEditarPlacar(newPlacar);
-            }}
-            hidden={hidden}
-          >
-            <img src={imagem} alt="Editar/Confirmar"></img>
-          </button>
-        </td>
-      </tr>
-    );
-  } else {
-    imagem = images.caneta;
-  }
-
-  return (
-    <tr key={id}>
-      <td>{timeA}</td>
-      <td className="gols">{golsA}</td>
-      <td>x </td>
-      <td className="gols">{golsB}</td>
-      <td>{timeB}</td>
-      <td>
-        <button
-          className="editar"
-          onClick={() => {
-            const newPlacar = { id, valor: "check" };
-            setEditarPlacar(newPlacar);
-          }}
-          hidden={hidden}
-        >
-          <img src={imagem} alt="Editar/Confirmar"></img>
-        </button>
-      </td>
-    </tr>
-  );
-}
-
-/**
- * Para fazer requisições POST, PUT, DELETE, etc
- */
-function fazerRequisicaoComBody(url, metodo, conteudo, token = null) {
-  return fetch(url, {
-    method: metodo,
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: token && `Bearer ${token}`,
-    },
-    body: JSON.stringify(conteudo),
-  });
 }
 
 export default App;

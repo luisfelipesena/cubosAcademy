@@ -38,7 +38,8 @@ const obterJogos = async () => {
 
 const obterJogosRodada = async (rodada) => {
 	const query = `SELECT * FROM jogos
-			WHERE rodada= $1`;
+			WHERE rodada= $1
+			ORDER BY id asc`;
 	const result = await db.query({
 		text: query,
 		values: [rodada],
