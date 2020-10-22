@@ -63,7 +63,7 @@ async function editarRodada(id, golsCasa = 0, golsVisitante = 0, token) {
 }
 
 /**
- * Função que obtém os jogos da rodada do Back-end
+ * Função que realiza a autenticação dos dados do input com os users Db
  */
 async function autenticar(email = null, password = null) {
   if (!email || !password) {
@@ -125,7 +125,7 @@ function organizarSetas(ordenacao, prop) {
 }
 
 /**
- * Função que trabalha sobre o login so usuário
+ * Função que trabalha sobre o login do usuário e a possibilidade de edição dos resultados
  */
 async function tentarLogar(
   email,
@@ -145,6 +145,9 @@ async function tentarLogar(
   });
 }
 
+/**
+ * Função que obtem rodada e depois refaz a tabela caso haja mudanças
+ */
 async function rodadasTabela(setTabela, setJogosRodada, rodada) {
   obterRodada(rodada)
     .then((respJson) => {
