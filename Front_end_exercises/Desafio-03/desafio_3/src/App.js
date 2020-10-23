@@ -41,7 +41,13 @@ function App() {
       <div className="main">
         <div className="header">
           <div className="conteudo">
-            <a href="app.js" title="Menu Principal">
+            <a href="app.js" title="Menu Principal" className="page-landing">
+              <img
+                className="logoBr"
+                src="http://cdn.bleacherreport.net/images/team_logos/328x328/brasileirao.png"
+                alt="Logo"
+                title="Logo Brasileirão"
+              ></img>
               <h1>Brasileirão</h1>
             </a>
             <div className="direita">
@@ -290,6 +296,18 @@ function App() {
                             alt={time.nome}
                             title={time.nome}
                           ></img>
+
+                          {Number(time.posicao) === 1 ? (
+                            <img
+                              title="Líder"
+                              className="lider"
+                              src="http://clevervinicius.com.br/virtual/wp-content/uploads/2016/11/Trofeu_Campeonato-300x300.png"
+                              alt="lider"
+                            ></img>
+                          ) : (
+                            ""
+                          )}
+
                           {time.posicao}
                         </td>
                         <td>{time.nome}</td>
@@ -305,6 +323,24 @@ function App() {
                   )}
                 </tbody>
               </table>
+              <div className="quadrados">
+                <span className="quadrados">
+                  <div className="verdeLiberta"></div>
+                  <span>Libertadores</span>
+                </span>
+                <span className="quadrados">
+                  <div className="azulPreLiberta"></div>
+                  <span>Pré-libertadores</span>
+                </span>
+                <span className="quadrados">
+                  <div className="amareloAmericana"></div>
+                  <span>Sul-americana</span>
+                </span>
+                <span className="quadrados">
+                  <div className="vermelhoRebaixamento"></div>
+                  <span>Rebaixamento</span>
+                </span>
+              </div>
             </div>
           </div>
         </div>

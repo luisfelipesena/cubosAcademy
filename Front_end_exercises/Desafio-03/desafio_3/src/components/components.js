@@ -35,6 +35,9 @@ function EditarRodadas(props) {
       <tr>
         <td>{jogo.time_casa} </td>
         <td>
+          <img className="logos" src={jogo.logo_casa} alt="Logo Time"></img>
+        </td>
+        <td>
           <input
             onChange={(ev) => setgolsA(Number(ev.target.value))}
             className="gols"
@@ -48,6 +51,13 @@ function EditarRodadas(props) {
             className="gols"
             value={golsBEstado}
           />
+        </td>
+        <td>
+          <img
+            className="logos"
+            src={jogo.logo_visitante}
+            alt="Logo Time"
+          ></img>
         </td>
         <td>{jogo.time_visitante}</td>
         <td>
@@ -85,9 +95,15 @@ function EditarRodadas(props) {
   return (
     <tr>
       <td>{jogo.time_casa}</td>
+      <td>
+        <img className="logos" src={jogo.logo_casa} alt="Logo Time"></img>
+      </td>
       <td className="gols">{jogo.gols_casa}</td>
       <td>x </td>
       <td className="gols">{jogo.gols_visitante}</td>
+      <td>
+        <img className="logos" src={jogo.logo_visitante} alt="Logo Time"></img>
+      </td>
       <td>{jogo.time_visitante}</td>
       <td>
         <button

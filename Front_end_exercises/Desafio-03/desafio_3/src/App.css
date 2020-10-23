@@ -48,6 +48,17 @@
   flex: 0 1 1200px;
 }
 
+.page-landing {
+  flex: 0 1 250px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.conteudo .logoBr {
+  max-width: 50px;
+}
+
 .conteudo h1 {
   color: white;
   font-weight: bold;
@@ -128,8 +139,9 @@
 .centro .jogos {
   display: flex;
   flex-flow: column;
-  min-width: 370px;
-  flex: 0 1 420px;
+  min-width: 410px;
+  max-height: 610px;
+  flex: 0 1 440px;
   background-color: white;
   margin-bottom: 2em;
   transition: 0.4s;
@@ -195,13 +207,13 @@
 }
 
 .centro .jogos .jogosRodada button {
-  margin-left: -1.5em;
+  margin-left: -1em;
   display: flex;
   align-items: center;
   border: 0;
   border-radius: 50%;
   background-color: rgb(138, 185, 157);
-  padding: 0.2em;
+  padding: 0.1em;
 }
 
 .tabela {
@@ -282,6 +294,39 @@ thead tr button:focus {
   text-align: right;
 }
 
+.quadrados {
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.verdeLiberta,
+.azulPreLiberta,
+.amareloAmericana,
+.vermelhoRebaixamento {
+  margin-right: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.verdeLiberta {
+  background-color: rgba(12, 150, 12, 0.8);
+}
+
+.azulPreLiberta {
+  background-color: rgba(0, 154, 192, 0.8);
+}
+
+.amareloAmericana {
+  background-color: rgb(255, 174, 0);
+}
+
+.vermelhoRebaixamento {
+  background-color: rgb(255, 38, 0);
+}
+
 .libertadores,
 .prelibertadores,
 .rebaixamento,
@@ -332,4 +377,14 @@ thead tr button:focus {
 
 .footer:hover {
   box-shadow: 0px 0px 15px red;
+}
+
+.logos {
+  max-width: 20px;
+  margin: 0.3em -0.5em;
+}
+
+.lider {
+  margin: -0.1em -0.5em -1em -0.5em;
+  max-width: 40px;
 }

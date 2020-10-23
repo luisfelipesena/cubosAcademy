@@ -37,9 +37,13 @@ const obterJogos = async () => {
 };
 
 const obterJogosRodada = async (rodada) => {
-	const query = `SELECT * FROM jogos
-			WHERE rodada= $1
-			ORDER BY id asc`;
+	const query = `SELECT j.id, j.time_casa , j.time_visitante , j.gols_casa , j.gols_visitante , j.rodada,
+	 c.link_imagem as logo_casa, v.link_imagem as logo_visitante 
+		FROM jogos as j
+		INNER JOIN times as c ON c.time = j.time_casa 
+		INNER JOIN times as v ON v.time = j.time_visitante
+		WHERE j.rodada= $1
+		ORDER BY j.id asc`;
 	const result = await db.query({
 		text: query,
 		values: [rodada],
