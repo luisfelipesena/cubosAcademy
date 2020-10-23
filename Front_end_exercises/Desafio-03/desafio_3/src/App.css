@@ -137,6 +137,7 @@
 }
 
 .centro .jogos {
+  box-shadow: 0 0 15px rgb(19, 16, 16);
   display: flex;
   flex-flow: column;
   min-width: 410px;
@@ -226,6 +227,10 @@
 table {
   border-collapse: collapse;
   transition: 0.4s;
+}
+
+.tabela table {
+  box-shadow: 0 0 15px rgb(19, 16, 16);
 }
 
 .tabela table:hover {
