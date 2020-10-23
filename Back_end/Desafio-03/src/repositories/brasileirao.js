@@ -36,6 +36,9 @@ const obterJogos = async () => {
 	return result.rows;
 };
 
+/**
+ * Obtém todos os jogos da rodada e pega a logo dos times fazendo um inner join com a table times
+ */
 const obterJogosRodada = async (rodada) => {
 	const query = `SELECT j.id, j.time_casa , j.time_visitante , j.gols_casa , j.gols_visitante , j.rodada,
 	 c.link_imagem as logo_casa, v.link_imagem as logo_visitante 
