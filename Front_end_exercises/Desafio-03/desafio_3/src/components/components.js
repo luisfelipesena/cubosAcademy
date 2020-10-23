@@ -3,6 +3,7 @@ const {
   images,
   organizarSetas,
   ordenarSetas,
+  deletarJogo,
 } = require("../functions/functions");
 
 /**
@@ -85,6 +86,21 @@ function EditarRodadas(props) {
             <img src={imagem} alt="Editar/Confirmar"></img>
           </button>
         </td>
+        <td>
+          <button
+            className="remover"
+            onClick={() => {
+              deletarJogo(jogo.id, logado).then(() =>
+                rodadasTabela(setTabela, setJogosRodada, rodada)
+              );
+            }}
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Red_x.svg/50px-Red_x.svg.png"
+              alt="Remover"
+            ></img>
+          </button>
+        </td>
       </tr>
     );
   } else if (editarPlacar.valor === null) {
@@ -115,6 +131,22 @@ function EditarRodadas(props) {
           hidden={hidden}
         >
           <img src={imagem} alt="Editar/Confirmar"></img>
+        </button>
+      </td>
+      <td>
+        <button
+          className="remover"
+          hidden={hidden}
+          onClick={() => {
+            deletarJogo(jogo.id, logado).then(() =>
+              rodadasTabela(setTabela, setJogosRodada, rodada)
+            );
+          }}
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Red_x.svg/50px-Red_x.svg.png"
+            alt="Remover"
+          ></img>
         </button>
       </td>
     </tr>

@@ -13,5 +13,6 @@ router.get('/classificacao', BrasileiraoController.obterClassificacao);
 router.get('/jogos/:rodada', BrasileiraoController.obterJogosRodada);
 
 router.post('/jogos', SessionMiddleware.verificar, BrasileiraoController.editarPlacar);
+router.delete('/jogos/:id', SessionMiddleware.verificar, BrasileiraoController.deletarJogo);
 
 module.exports = router;

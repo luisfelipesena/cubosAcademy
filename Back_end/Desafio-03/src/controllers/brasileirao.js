@@ -33,4 +33,12 @@ const editarPlacar = async (ctx) => {
 	return response(ctx, 200, result);
 };
 
-module.exports = { obterClassificacao, obterJogosRodada, editarPlacar };
+const deletarJogo = async (ctx) => {
+	const { id = null } = ctx.params;
+	if (id) {
+		const result = await Brasileirao.deletarJogo(id);
+		return response(ctx, 200, result);
+	}
+};
+
+module.exports = { obterClassificacao, obterJogosRodada, editarPlacar, deletarJogo };

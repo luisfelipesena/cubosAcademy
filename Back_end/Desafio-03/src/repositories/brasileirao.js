@@ -65,6 +65,16 @@ const editarPlacar = async (id, golsCasa, golsVisitante) => {
 	return result.rows;
 };
 
+const deletarJogo = async (idJogo) => {
+	const query = `DELETE FROM jogos
+			WHERE id=$1 RETURNING *`;
+	const result = await db.query({
+		text: query,
+		values: [idJogo],
+	});
+	return result.rows.shift();
+};
+
 module.exports = {
 	obterJogos,
 	obterTimes,
@@ -72,4 +82,5 @@ module.exports = {
 	obterJogosRodada,
 	obterUser,
 	editarPlacar,
+	deletarJogo,
 };

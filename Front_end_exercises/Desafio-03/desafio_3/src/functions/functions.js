@@ -63,6 +63,21 @@ async function editarRodada(id, golsCasa = 0, golsVisitante = 0, token) {
 }
 
 /**
+ * Função que deleta jogos de uma rodada no banco de dados
+ */
+async function deletarJogo(id, token) {
+  const result = await fazerRequisicaoComBody(
+    `http://localhost:${PORT}/jogos/${id}`,
+    "DELETE",
+    {
+      id,
+    },
+    token
+  );
+  return result.json();
+}
+
+/**
  * Função que realiza a autenticação dos dados do input com os users Db
  */
 async function autenticar(email = null, password = null) {
@@ -175,4 +190,5 @@ export {
   organizarSetas,
   tentarLogar,
   rodadasTabela,
+  deletarJogo,
 };
