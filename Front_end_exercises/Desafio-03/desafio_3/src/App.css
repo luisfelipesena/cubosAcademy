@@ -143,8 +143,7 @@ button {
 .centro .jogos {
   display: flex;
   flex-flow: column;
-  min-width: 440px;
-  max-width: 460px;
+  flex: 0 1 460px;
   margin-bottom: 2em;
 }
 
@@ -156,7 +155,7 @@ button {
 }
 
 .centro .jogos .cabecalho .rodada {
-  margin-right: 1em;
+  margin-right: 0.7em;
 }
 
 .centro .jogos .cabecalho button {
@@ -180,12 +179,12 @@ button {
 }
 
 .centro .jogos .jogosRodada table {
+  margin-left: 10px;
   width: 100%;
 }
 
 .centro .jogos .jogosRodada table tr td:first-child {
   text-align: right;
-  min-width: 120px;
 }
 
 .carregando {
@@ -197,6 +196,7 @@ button {
 }
 
 .centro .jogos .jogosRodada .gols {
+  text-align: center;
   font-size: 1.5em;
 }
 

@@ -88,7 +88,7 @@ function App() {
                 <button
                   onClick={(ev) => {
                     if (ev.target.innerText === "Deslogar") {
-                      setLogado(false);
+                      setLogado(null);
                       setEmail(null);
                       setSenha(null);
                       const newPlacar = { ...editarPlacar, valor: null };
