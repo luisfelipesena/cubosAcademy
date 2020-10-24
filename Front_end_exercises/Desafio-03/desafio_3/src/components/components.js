@@ -40,8 +40,8 @@ function EditarRodadas(props) {
         </td>
         <td>
           <input
-            inputMode="numeric"
-            onChange={(ev) => setgolsA(Number(ev.target.value))}
+            type="number"
+            onChange={(ev) => setgolsA(ev.target.value)}
             className="gols"
             value={golsAEstado}
           />
@@ -49,8 +49,8 @@ function EditarRodadas(props) {
         <td>x </td>
         <td>
           <input
-            inputMode="numeric"
-            onChange={(ev) => setgolsB(Number(ev.target.value))}
+            type="number"
+            onChange={(ev) => setgolsB(ev.target.value)}
             className="gols"
             value={golsBEstado}
           />
@@ -68,8 +68,10 @@ function EditarRodadas(props) {
             className="editar"
             onClick={() => {
               if (
-                !isNaN(golsAEstado) &&
-                !isNaN(golsBEstado) &&
+                !isNaN(Number(golsAEstado)) &&
+                !isNaN(Number(golsBEstado)) &&
+                golsAEstado >= 0 &&
+                golsBEstado >= 0 &&
                 golsAEstado < 100 &&
                 golsBEstado < 100
               ) {

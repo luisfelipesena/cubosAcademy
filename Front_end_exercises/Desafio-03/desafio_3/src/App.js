@@ -299,7 +299,7 @@ function App() {
 
                           {Number(time.posicao) === 1 ? (
                             <img
-                              title="Líder"
+                              title="Campeão"
                               className="lider"
                               src="http://clevervinicius.com.br/virtual/wp-content/uploads/2016/11/Trofeu_Campeonato-300x300.png"
                               alt="lider"
@@ -335,6 +335,10 @@ function App() {
                 <span className="quadrados">
                   <div className="amareloAmericana"></div>
                   <span>Sul-americana</span>
+                </span>
+                <span className="quadrados">
+                  <div className="permaneceBlock"></div>
+                  <span>Manteve</span>
                 </span>
                 <span className="quadrados">
                   <div className="vermelhoRebaixamento"></div>
