@@ -8,7 +8,8 @@
 
 ## Funcionamento:
 
+**_Servidor Back-end vai na porta 8081 de default_**
+
 1. Primeiramente ir nos arquivos de Back-end, rodar o `schema.js` e posteriormente o servidor para que assim o front consiga carregar seus dados
-   **_Servidor Back-end vai na porta 8081 de default_**
 2. Colocar no `.env` a porta do servidor rodado em Back, para que assim o site se adeque a mudanças
 3. Para logar -> email: `admin@cubos.academy` e senha: `vouserdev`
