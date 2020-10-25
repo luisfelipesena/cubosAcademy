@@ -4,7 +4,7 @@ let times; // times == tabela
  * Função que já formata a tabela baseada no banco de dados dos jogos;
  * Primeiro: zera o array times para evidar duplicações
  * Segundo: mapeia os jogosDb e vai computando os pontos de cada time;
- * Terceiro: ordena os times na tabela e insere na table tabela as informações por time;
+ * Terceiro: ordena os times, salva suas logos e retorna a variável times que corresponde a tabela;
  */
 
 const formatarTabela = async (jogos = null, images = null) => {
