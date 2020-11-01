@@ -227,6 +227,8 @@ const adicionarAutor = async (ctx) => {
 	return response(ctx, 201, result);
 };
 
+const verificarEmail = async (ctx) => {};
+
 const confirmarCadastro = async (ctx) => {
 	await enviarEmail(
 		'ff390b770f-59ebce@inbox.mailtrap.io',
